@@ -3,8 +3,9 @@ Repo containing all of my projects from 42
 
 1 - Libft <br>
 2 - Get Next Line <br>
-3 - Printf <br>
-4 - Born2BeRoot <br>
-5 - Push Swap <br>
-6 - Fractol <br>
+3 - Netwhat <br>
+4 - Printf <br>
+5 - Born2BeRoot <br>
+6 - Push Swap <br>
+7 - Fractol <br>
  
