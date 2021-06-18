@@ -1,0 +1,49 @@
+Utilisation de Debian
+SELinux doit rester actif 
+AppArmor doit rester actif
+
+Besoin de 2 partitions chiffrees avec LVM
+Service SSH sur le port 4242 uniquement (pas possible de se connecter a SSH avec root)
+Mettre en place un pare-feu UFW et ne laisser que le port 4242 ouvert
+
+Machine :
+    hostname = julpelle42
+    politique de mot de passe fort
+    installer et configurer sudo 
+    un utilisateur qui appartient au groupe user42 et sudo: login = julpelle42 , pwd = root 
+
+Configuration du mot de passe :
+    doit expirer tous les 30j
+    2j minimum avant de pouvoir modifier le mot de passe
+    envoyer un avertissement 7j avant la date d'expiration
+    10 caracteres minimum (dont une Maj, un chiffre, et pas plus de 3 caracteres consecutifs)
+    ne doit pas contenir le nom de l'utilisateur
+    doit comporter 7 caracteres differents de l'ancien mot de passe
+
+Conditions :
+    3 essais pour sudo maximum
+    afficher un message pour un mauvais mot de passe avec sudo
+    chaque action avec sudo est archivée dans var/log/sudo 
+    mode TTY doit etre activé
+    limiter les paths pour sudo : /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+
+Script SH :
+    afficher l'Architecture de l'os et son kernel
+    nombre de processeurs physiques
+    nombres de processeurs virtuels
+    memoire vive dispo sur le server et pourcentage utilise 
+    memoire dispo avec le pourcentage
+    taux d'utilisation des processeurs sous forme de pourcentage
+    date et heure du dernier demarrage
+    si LVM actif, YES, sinon NO
+    nombre de connexions actives
+    nombre d'utilisateurs
+    adresse IPv4 et adresse MAC 
+    nombre de commandes executées avec sudo
+
+
+SELinux : 
+
+    Architecture de securite pour systemes Linux. SELinux definit les controles d'acces pour les applications, processus et fichiers d'un systeme
+    A chaque requete generee par un utilisateur, SELinux consulte un cache ou sont stockees les autorisations pour les sujets et objets
+
