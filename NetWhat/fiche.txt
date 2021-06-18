@@ -1,0 +1,143 @@
+NETWHAT : 
+
+liens utiles :  https://www.frameip.com/masques-de-sous-reseau/#3-8211-adresse-ip-et-masque-desous-reseau
+                https://infoforall.fr/reseau/reseau-act030.html
+                https://www.commentcamarche.net/contents/534-routage-ip
+                https://fr.wikipedia.org/wiki/Port_(logiciel)#Utilit%C3%A9
+                https://fr.wikipedia.org/wiki/Domain_Name_System
+                
+
+Adresse IP : numero d'identification attribue de facon permanente ou provisoire a chaque peripherique lie a un reseau informatique qui utilise l'Internet Protocol.
+
+IPv4 : Adresse IP codee en 32 bits
+IPv6 : Adresse IP codee en 128 bits
+
+Masque de sous-reseau : Permet de distinguer la partie de l'adresse utilisee pour le routage et celle utilisable pour numerote des interfaces.
+            Une adresse IP se decompose en deux parties : le sous reseau et l'hote.
+            Le sous reseau s'obtient en appliquant l'operateur "&" (ET) entre l'adresse IP Et le masque de sous-reseau.
+            L'adresse de l'hote s'obtient en appliquant l'operateur "&" (ET) entre l'adresse et le complement a un du masque
+
+            EX : Adresse IP = 192.168.1.2
+                 Masque     = 255.255.255.0
+            
+            Alors: 192.168.1.2 "&" 255.255.255.0 = 192.168.1.0 --> sous reseau
+                   192.168.1.2 "&" 0.0.0.255     = 0.0.0.2 --> hote
+
+            Si on raisonne en binaire,
+                   11000000.10101000.00000001.00000010 "&" 11111111.11111111.11111111.00000000 = 11000000.10101000.00000001.00000000 --> sous-reseau
+                   11000000.10101000.00000001.00000010 "&" 00000000.00000000.00000000.11111111 = 00000000.00000000.00000000.00000010 --> hote
+
+Adresse de Broadcast: Adresse via laquelle tous les participants du reseau peuvent envoyer une disffusion correspondante
+            Lorsque tous les bits de l'hote sont places sur la valeur binaire 1, il s'agit d'une adresse de Broadcast
+            Lorsque tous les bits de l'hote sont places sur la valeur binaire 0, il s'agit d'une adresse de sous-reseau correspondant
+
+Adresse IP / Masque de reseau : les deux sont indisociables. Avec une adresse IP identifie a la fois une machine et le reseau sur leqel elle est connectee
+            Pour distinguer la partie de l'adresse qui correspond au reseau, on doit obligatoirement faire appel a un masque
+
+            Adresse IP : x.x.x.x avec "x" allant de 0 a 255(code sur 8 bits) ou alors en binaire
+
+            EX : IP = 192.168.25.147
+                 Masque = 255.255.255.0
+            Ce qui peut s'ecrire aussi : 192.168.25.147 / 24 (24 etant le nombre de bits a 1 de notre masque)
+            Ainsi, en combinant le masque et l'adresse IP, on obtient le reseau hote suivant : 192.168.25.0
+            Sur ce reseau, on peut donc connecter 254 machines (car 192.168.25.0 et 192.168.25.255 sont reserves)
+
+Adresse IP publique : Adresse attribuee a des ordinateurs afin qu'ils puissent trouver l'autre sur Internet.
+            Elles permettent aux ordinateurs du reseau de communiquer entre eux sur internet.
+            Celle ci est unique au niveau mondial et non comprise dans la partie privee.
+
+Adresse IP privee   : Adresse qui ne fonctionne pas sur Internet et fonctionne uniquement sur les reseaux prives.
+            Ces adresses sont utilisees au sein d'une organisation et permettent de communiquer localement sans consommer l'adresse IP Publique.
+            Il est possible de convertir une adresse IP privee en adresse IP publique. Ce procede s'appelle NAT (Network Adress Translation)
+
+Classes d'adresses IP : 
+            Classe A : 1er octet definit la partie reseau, les 3 suivants definissent la partie hote.
+                le 1er octet a une valeur comprie entre 1 et 126 (premier bit du premier octet vaut 0)
+            Classe B : 2 premiers octets definissent la partie reseau, les 2 derniers definissent la partie hote
+                le 1er octet a une valeur comprise entre 128 et 191 (les deux premiers bits valent 10)
+            Classe C : 3 premiers --> partie reseau, le dernier --> partie hote
+                le 1er octet a une valeur comprise ente 192 et 223 (les 3 premiers bits valent 110)
+            Classe D : Adresse unique de multidiffusion
+                le 1er octet a une valeur comprise entre 224 et 239 (les 4 premiers bits valent 1110)
+            Classe E : Le premier octet a une valeur comprise entre 240 et 255. Il s'agit d'une zone d'adresses reservees aux experimentations.
+                Ces adresses ne doiven pas etre utiliser pour adresser des hotes ou des groupes d'hotes
+            
+            En pourcentage, ca donne : 
+            Classe A : 50 %
+            Classe B : 25 %
+            Classe C : 12.5 %
+            Classe D : 6.5 %
+            Classe E : 6.5 %
+
+TCP : Transmission Control Protocol
+            C'est un modele situe au dessus de l'IP. Correspond a la couche de transport, intermediaire de la couche reseau et de la couche session
+            Les applications transmettent des flux de donnees sur une connexion reseau. TCP decoupe le flux d'octets en segmets dont la taille depend du reseau sous-jacent
+            Fonctionnement :
+                Etablissement de la connexion
+                Transfert des donnees
+                Fin de connexion
+
+UDP : User Datagram Protocol
+            Protocole de telecommunication utilise par Internet, qui fait partie de la couche transport du modele OSI.
+            Permet la transmission des donnees de maniere tres simple entre deux entites, chacune definie par une adresse IP et un numero de port 
+            Difference avec le TCP, c'est qu'il utilise un mode de transmission sans connexion.
+            Conclusion : Utile pour transmettre rapidement des petites quantites de donnees depuis un server vers de nombreux clients.
+
+Modele OSI : Norme de communication en reseau de tous les systemes informatiques. 
+            Ce modele comporte 7 couches : 
+                Couche 1 : Physique
+                    Chargee de la transmission effectve des signaux entre les interlocuteurs
+                    Limite a l'emission et la reception d'un bit ou un train de bit continu (pas mal pour les supports synchrones : concentrateur)
+                    Conclusion : transmission binaire, numerique ou analogique
+                Couche 2 : Liaison des donnees
+                    Gere la communication entre 2 machines directement connectees entre elles, ou connectees a un equipement qui emule une connexion directe (commutateur)
+                    Conclusion : Adressage physique (MAC & LLC)
+                Couche 3 : Reseau
+                    Gere les communications de proche en proche, generalement entre machines : routage et adressage des paquets
+                    Conclusion : Determine le parcours et l'adressage logique (IP)
+                Couche 4 : Transport
+                    Gere les communications de bout en bout entre processus (programme en cours d'execution)
+                    Conclusion : Connexion de bout en bout et controle de flux (TCP)
+                Couche 5 : Session
+                    Gere la synchronisation des echanges et les transactions. Permet l'ouverture et la fermeture de session
+                    Conclusion : Communication interhost
+                Couche 6 : Presentation
+                    Chargee du codage des donnees applicatives, precisement de la conversion entre donnees manipulees au niveau applicatif et chaines d'octets effectivement transmises
+                    Conclusion : Conversion et chiffrement des donnees
+                Couche 7 : Application
+                    Point d'acces aux services reseaux. N'a pas de service propre specifique et entrant dans la porte de la norme
+                    Conclusion : Point d'acces aux services reseau
+
+Server DHCP (Dynamic Host Configuration Protocol) : Server qui delivre des adresses IP aux ordinateurs qui se connectent sur le reseau
+            Pour dialoguer avec un server DHCP, la machine va simplemment emettre un paquet special de broadcast sur le reseau local.
+            Description etape par etape : 
+                L'ordinateur envoie en diffusion Broadcast un datagramme. Celui ci comporte l'adresse physique (MAC)
+                Tout server DHCP ayant recu le datagramme envoie une offre DHCP a l'attention du client identifie par son adresse IP
+                Le client retient une des offres recues et diffuse sur le reseau un datagramme de requete DHCP
+                Le server DHCP elabore un datagramme d'accuse de reception qui assigne au client l'adresse IP et son masque de sous reseau
+                Possibilite de mettre en plus :
+                    adresse IP de la passerelle par defaut
+                    adresses IP des servers DNS 
+                    adresses IP des servers NBNS
+
+Server DNS (Domain Name System) : service informatique utilise pour traduire les noms de domaine Internet en adresse IP
+            Permet de faciliter l'acces aux hotes sur un reseau IP en associant un nom a une adresse IP
+            Indispensable de nos jours car il est inconcevable de retenir les adresses IP de chaque page web que nous ouvrons
+            
+Routage IP : Un routeur est un dispositif qui permet de choisir le chemin que les datagrammes vont emprunter pour arriver a destination.
+            Etape 1 : le routeur recoit une trame provenant d'une machine connectee a un des reseaux auquel il est attache
+            Etape 2 : les datagrammes sont transmis a la couche IP
+            Etape 3 : Le routeur regarde l'en-tete du datagramme
+            Etape 4 : Si l'adresse IP appartient a un reseau connecte au router, l'information est envoyee a la couche 4 apres desencapsulation
+            Etape 5 : Si l'adresse IP fait partie d'un reseau different, le routeur consulte la table de routage lui donnant le chemin a emprunter pour une adresse donnee
+            Etape 6 : Le routeur envoie le datagramme grace a la carte reseau reliee au reseau sur lequel le routeur decide d'envoyer le paquet
+
+Passerelle par defaut : utilise lorsqu'il s'agit de routage au niveau IP
+            C'est l'adresse de l'element qui va permettre la discussion entre deux hotes (routeur, server ou boxe internet)
+
+Port / Numero de Port : 
+            Un port permet sur un ordinateur de distinguer les differents interlocuteurs. Ces interlocuteurs sont des programmes informatiques qui ecoutent ou emettent des informations sur ces ports
+            Grace a cela, on peut executer plusieurs logiciels serveurs sur une meme machine, et simultanement des logiciels clients et server.
+                Port 0 a Port 1023 : "Well known", autrement dit les ports pour les services reseaux les plus courants
+                Port 1024 a Port 49151 : "Registered ports"
+                Port 49152 a 65535 : Ports dynamiques, utilisables pour tout type de requete TCP ou UDP
