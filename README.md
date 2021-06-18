@@ -1,7 +1,7 @@
 # 42-Cursus
 Repo containing all of my projects from 42
 
-1 - Libft
+1 - Libft \n
 2 - Get Next Line
 3 - Printf
 4 - Born2BeRoot
