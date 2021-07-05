@@ -66,6 +66,7 @@ Parefeu UFW (Uncomplicated Firewall) :
 Liens utils :
 
 https://tbonelee.tistory.com/m/16
+https://coagul.org/drupal/publication/commandes-avanc%C3%A9es-sous-linux
 
 
 Commandes utiles : 
@@ -73,10 +74,29 @@ Commandes utiles :
 - lsblk -> shows the partitions 
 - sudo groupadd [group] -> creates new user group 
 - groups [user] -> shows all the groups the user is in 
-- sudo useradd -G [group] [user] -> adds the user to the group
+- sudo usermod -ahostnaG [group] [user] -> adds the user to the group
 - sudo passwd [user] -> define password for a user 
 - ls -Z -> liste les attributs étendus (lien avec SELinux)
 - sudo apt update -> update apt 
 - sudo ufw default allow -> autorise le trafic entrant
 - sudo ufw default deny -> refuse le trafic entrant 
 - sudo ufw default allow (deny) ongoing -> autorise (refuse) le trafic sortant
+- apt-get install sysstat -> necessaire pour l'affichage des CPU, Disk et autres performances
+
+
+
+Pour installer ufw : 
+
+/etc/apt/sources.list -> a modifier
+
+deb http://ftp.nl.debian.org/debian wheezy main contrib non-free
+deb-src http://ftp.nl.debian.org/debian wheezy main contrib non-free
+
+deb http://security.debian.org/ wheezy/updates main contrib non-free
+deb-src http://security.debian.org/ wheezy/updates main contrib non-free
+
+# wheezy-updates, previously known as 'volatile'
+deb http://ftp.nl.debian.org/debian wheezy-updates main contrib non-free
+deb-src http://ftp.nl.debian.org/debian wheezy-updates main contrib non-free
+
+puis apt-get update
