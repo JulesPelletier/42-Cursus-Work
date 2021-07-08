@@ -62,6 +62,14 @@ void    ft_rearrange(t_all *all)
     }
 }
 
+void    ft_test_5(t_all *all)
+{
+    while (all->stB.len != 0)
+    {
+        
+    }
+}
+
 void    ft_algo(t_all *all)
 {
     int     pos;
@@ -76,6 +84,6 @@ void    ft_algo(t_all *all)
             ft_putstr("pb\n");    
         }
         ft_options_three(all, &all->stA);
-        ft_rearrange(all);
+        //ft_rearrange(all);
     }
 }
