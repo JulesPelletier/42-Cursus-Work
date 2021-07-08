@@ -47,8 +47,8 @@ void    ft_rearrange(t_all *all)
     pos = 0;
     while (all->stB.len != 0)
     {
-        printf("POS : %d\n", pos);
-        printf("TEST : %d\n", all->stA.len / 2 - 1);
+        //printf("POS : %d\n", pos);
+        //printf("TEST : %d\n", all->stA.len / 2 - 1);
         pos = ft_find_inser_pos(&all->stA, all->stB.stack[0]);
         if (pos == 0)
             ft_insert_min(all);

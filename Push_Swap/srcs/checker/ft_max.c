@@ -6,16 +6,16 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/28 15:34:32 by Jules             #+#    #+#             */
-/*   Updated: 2021/04/29 10:03:26 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/08 11:17:32 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int     ft_max(int a, int b)
+int	ft_max(int a, int b)
 {
-    if (a >= b)
-        return (a);
-    else
-        return (b);
+	if (a >= b)
+		return (a);
+	else
+		return (b);
 }
