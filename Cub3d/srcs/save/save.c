@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 12:44:27 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:30:54 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/15 14:14:30 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_save(t_st *st, char **argv)
 	else
 	{
 		st->mlx.mlx_ptr = mlx_init();
-		mlx_get_screen_size(st->mlx.mlx_ptr, &st->win.maxw, &st->win.maxh);
+		//mlx_get_screen_size(st->mlx.mlx_ptr, &st->win.maxw, &st->win.maxh);
 		ft_parsearg(st, argv[1]);
 		ft_tabinit(st);
 		st->mlx.win_ptr = mlx_new_window(st->mlx.mlx_ptr,

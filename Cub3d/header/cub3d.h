@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 17:58:00 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:25:49 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/15 14:23:15 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include "../Libft/libft.h"
+# include <stdio.h>
 
 # define MAP_W 0
 # define MAP_H 1
@@ -351,5 +352,13 @@ void			ft_free_sprt_pathsprt(t_st *st);
 void			ft_free_sprt_pos(t_st *st);
 void			ft_free_sprt_type(t_st *st);
 void			ft_free_sprt_distandorder(t_st *st);
+
+
+//TESTS
+
+void    test_parsing(t_st *st);
+void    test_maps(t_st *st);
+void    test_speed(t_st *st);
+
 
 #endif
