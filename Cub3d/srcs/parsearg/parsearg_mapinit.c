@@ -6,18 +6,19 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 14:42:22 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:28:38 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 14:17:01 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/cub3d.h"
 
-int		*ft_parsearg_mapinit_mapline(t_st *st, int linenbr, int i)
+int	*ft_parsearg_mapinit_mapline(t_st *st, int linenbr, int i)
 {
 	int		*mapline;
 	int		j;
 
-	if (!(mapline = malloc(sizeof(int) * st->maps.sizemapx)))
+	mapline = ft_mall_int(st->maps.sizemapx);
+	if (!(mapline))
 		ft_error(st, -14);
 	j = 0;
 	while (linenbr)
@@ -28,11 +29,7 @@ int		*ft_parsearg_mapinit_mapline(t_st *st, int linenbr, int i)
 	}
 	i++;
 	while (st->pars.strmap[i] != '\n')
-	{
-		mapline[j] = st->pars.strmap[i];
-		i++;
-		j++;
-	}
+		mapline[j++] = st->pars.strmap[i++];
 	while (j < st->maps.sizemapx)
 	{
 		mapline[j] = ' ';
@@ -55,13 +52,14 @@ void	ft_parsearg_mapinit_sizemapy(t_st *st)
 	}
 }
 
-int		**ft_parsearg_mapinit_map(t_st *st)
+int	**ft_parsearg_mapinit_map(t_st *st)
 {
 	int	**map;
 	int	i;
 
 	ft_parsearg_mapinit_sizemapy(st);
-	if (!(map = malloc(sizeof(int*) * st->maps.sizemapy)))
+	map = malloc(sizeof(int *) * st->maps.sizemapy);
+	if (!(map))
 		ft_error(st, -14);
 	i = 0;
 	while (i < st->maps.sizemapy)
@@ -86,7 +84,8 @@ void	ft_parsearg_mapinit(t_st *st)
 	int	i;
 
 	st->pars.parsingmap = 0;
-	if (!(tmp = malloc(sizeof(int**) * st->maps.nbrmaps)))
+	tmp = malloc(sizeof(int **) * st->maps.nbrmaps);
+	if (!(tmp))
 		ft_error(st, -14);
 	i = 0;
 	while (i < st->maps.nbrmaps)
@@ -98,10 +97,7 @@ void	ft_parsearg_mapinit(t_st *st)
 	{
 		i = 0;
 		while (i < st->maps.nbrmaps - 1)
-		{
-			tmp[i] = st->maps.tabmaps[i];
-			i++;
-		}
+			tmp[i++] = st->maps.tabmaps[i];
 		free(st->maps.tabmaps);
 	}
 	st->maps.tabmaps = tmp;

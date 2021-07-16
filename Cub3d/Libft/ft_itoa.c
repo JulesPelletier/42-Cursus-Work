@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julpelle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 12:28:47 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/16 12:43:34 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/07/16 14:56:45 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ char	*ft_mall(int n)
 {
 	char	*str;
 
-	str = (char *)malloc(sizeof(char) * (n))
-		if (str == NULL)
+	str = (char *)malloc(sizeof(char) * (n));
+	if (str == NULL)
 		return (NULL);
 	return (str);
 }

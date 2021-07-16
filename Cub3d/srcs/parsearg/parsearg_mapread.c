@@ -6,13 +6,13 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 14:43:02 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:28:44 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 14:21:49 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/cub3d.h"
 
-int		ft_parsearg_mapread_sizemapline(char *line)
+int	ft_parsearg_mapread_sizemapline(char *line)
 {
 	int	size;
 
@@ -34,16 +34,13 @@ char	*ft_parsearg_mapread_mapline(char *line)
 
 	str = NULL;
 	size = ft_parsearg_mapread_sizemapline(line);
-	if (!(str = malloc(sizeof(char) * (size + 2))))
+	str = malloc(sizeof(char) * (size + 2));
+	if (!(str))
 		return (NULL);
 	i = 0;
 	j = 0;
 	while (line[i])
-	{
-		str[j] = line[i];
-		j++;
-		i++;
-	}
+		str[j++] = line[i++];
 	str[j] = '\n';
 	j++;
 	str[j] = '\0';
@@ -57,11 +54,13 @@ void	ft_parsearg_mapread_strmapupdate(t_st *st, char *line)
 
 	tmp1 = NULL;
 	tmp2 = NULL;
-	if ((tmp1 = ft_parsearg_mapread_mapline(line)) == NULL)
+	tmp1 = ft_parsearg_mapread_mapline(line);
+	if ((tmp1 == NULL))
 		ft_error(st, -14);
 	if ((int)ft_strlen(tmp1) - 1 > st->maps.sizemapx)
 		st->maps.sizemapx = (int)ft_strlen(tmp1) - 1;
-	if ((tmp2 = ft_strjoin(st->pars.strmap, tmp1)) == NULL)
+	tmp2 = ft_strjoin(st->pars.strmap, tmp1);
+	if ((tmp2 == NULL))
 	{
 		free(tmp1);
 		ft_error(st, -14);
@@ -76,7 +75,8 @@ void	ft_parsearg_mapread_strmapinit(t_st *st, char *line)
 	char		*tmp1;
 
 	tmp1 = NULL;
-	if ((tmp1 = ft_parsearg_mapread_mapline(line)) == NULL)
+	tmp1 = ft_parsearg_mapread_mapline(line);
+	if ((tmp1 == NULL))
 		ft_error(st, -14);
 	st->pars.strmap = tmp1;
 	st->maps.sizemapx = (int)ft_strlen(st->pars.strmap) - 1;

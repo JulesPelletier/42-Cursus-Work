@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 18:37:53 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:28:31 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 13:53:53 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*ft_parsearg_getpath(t_st *st, char *line)
 		line++;
 	if (*line == '\0')
 		ft_error(st, -12);
-	if ((str = ft_strdup(line)) == NULL)
+	str = ft_strdup(line);
+	if (str == NULL)
 		ft_error(st, -14);
 	i = 0;
 	while (*(str + i) != ' ' && *(str + i) != '\0')

@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 15:29:03 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/15 17:06:30 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 13:30:20 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_keys_keyrelease_directions(int key, t_st *st)
 		st->keys.right = 0;
 }
 
-int		ft_keys_keyrelease(int key, t_st *st)
+int	ft_keys_keyrelease(int key, t_st *st)
 {
 	ft_keys_keyrelease_directions(key, st);
 	ft_keys_keyrelease_various(key, st);

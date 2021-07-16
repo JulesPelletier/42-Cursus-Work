@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/24 19:21:29 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:28:50 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 14:22:09 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	ft_parsearg_mapvalid_closingline(t_st *st, int j)
 
 void	ft_parsearg_mapvalid(t_st *st)
 {
-	int j;
+	int	j;
 
 	st->maps.startset = 0;
 	j = 0;

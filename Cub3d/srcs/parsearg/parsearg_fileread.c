@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 13:40:19 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:28:17 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 13:52:42 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_parsearg_fileread_spacechar(t_st *st, char *line)
 	if (line[i] != '\0')
 	{
 		if (st->pars.parsedresol == 0 || st->pars.parsedfloor == 0
-				|| st->pars.parsedceiling == 0)
+			|| st->pars.parsedceiling == 0)
 			ft_error(st, -9);
 		st->maps.nbrmaps++;
 		st->pars.parsingmap = 1;
@@ -61,7 +61,7 @@ void	ft_parsearg_fileread_id(t_st *st, char *line)
 	else if (*line == 'R')
 		ft_parsearg_resol(st, line + 1);
 	else if (*line == 'N' || *line == 'E'
-			|| (*line == 'S' && *(line + 1) == 'O') || *line == 'W')
+		|| (*line == 'S' && *(line + 1) == 'O') || *line == 'W')
 		ft_parsearg_tex_path(st, line, 0);
 	else if (*line == 'T')
 		ft_parsearg_tex(st, line + 1);

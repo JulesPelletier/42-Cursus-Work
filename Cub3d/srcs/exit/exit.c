@@ -6,13 +6,13 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 13:28:43 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/12 15:34:03 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 13:29:27 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/cub3d.h"
 
-int		ft_exit_killmlx(t_st *st)
+int	ft_exit_killmlx(t_st *st)
 {
 	ft_varinit(st);
 	exit(-1);

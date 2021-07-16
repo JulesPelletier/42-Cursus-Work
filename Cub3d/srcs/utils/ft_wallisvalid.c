@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_wallisvalid.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 17:17:32 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:32:06 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 14:48:12 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/cub3d.h"
 
-int		ft_wallisvalid(t_st *st, int j)
+int	ft_wallisvalid(t_st *st, int j)
 {
 	int	i;
 

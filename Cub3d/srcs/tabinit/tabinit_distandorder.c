@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:22:37 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:31:02 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 14:37:19 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,20 @@ void	ft_tabinit_distandorder_sprtorder(t_st *st)
 	int	*t2;
 	int	i;
 
-	if (!(t1 = malloc(sizeof(int*) * st->maps.nbrmaps)))
+	t1 = malloc(sizeof(int *) * st->maps.nbrmaps);
+	if (!(t1))
 		ft_error(st, -14);
 	st->sprt.tabsprtorder = t1;
 	i = 0;
 	while (i < st->maps.nbrmaps)
-	{
-		st->sprt.tabsprtorder[i] = NULL;
-		i++;
-	}
+		st->sprt.tabsprtorder[i++] = NULL;
 	i = 0;
 	while (i < st->maps.nbrmaps)
 	{
 		if (st->maps.tabmapval[i][N_SPRT] > 0)
 		{
-			if (!(t2 = malloc(sizeof(int) * st->maps.tabmapval[i][N_SPRT])))
+			t2 = malloc(sizeof(int) * st->maps.tabmapval[i][N_SPRT]);
+			if (!(t2))
 				ft_error(st, -14);
 			st->sprt.tabsprtorder[i] = t2;
 		}
@@ -46,21 +45,20 @@ void	ft_tabinit_distandorder_sprtdist(t_st *st)
 	double	*t2;
 	int		i;
 
-	if (!(t1 = malloc(sizeof(double*) * st->maps.nbrmaps)))
+	t1 = malloc(sizeof(double *) * st->maps.nbrmaps);
+	if (!(t1))
 		ft_error(st, -14);
 	st->sprt.tabsprtdist = t1;
 	i = 0;
 	while (i < st->maps.nbrmaps)
-	{
-		st->sprt.tabsprtdist[i] = NULL;
-		i++;
-	}
+		st->sprt.tabsprtdist[i++] = NULL;
 	i = 0;
 	while (i < st->maps.nbrmaps)
 	{
 		if (st->maps.tabmapval[i][N_SPRT] > 0)
 		{
-			if (!(t2 = malloc(sizeof(double) * st->maps.tabmapval[i][N_SPRT])))
+			t2 = malloc(sizeof(double) * st->maps.tabmapval[i][N_SPRT]);
+			if (!(t2))
 				ft_error(st, -14);
 			st->sprt.tabsprtdist[i] = t2;
 		}
@@ -72,7 +70,8 @@ void	ft_tabinit_distandorder_walldist(t_st *st)
 {
 	double	*tmp;
 
-	if (!(tmp = malloc(sizeof(double) * st->win.winw)))
+	tmp = malloc(sizeof(double) * st->win.winw);
+	if (!(tmp))
 		ft_error(st, -14);
 	st->wall.tabwalldist = tmp;
 }

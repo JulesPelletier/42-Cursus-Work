@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 21:40:57 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:28:09 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 13:52:07 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_parsearg_ceiling_text(char **line)
 	(void)line;
 }
 
-int		ft_parsearg_ceiling_getvalue(t_st *st, char **line)
+int	ft_parsearg_ceiling_getvalue(t_st *st, char **line)
 {
 	int		ret;
 
@@ -43,8 +43,8 @@ void	ft_parsearg_ceiling_color(t_st *st, char **line)
 	(*line)++;
 	st->pars.cb = ft_parsearg_ceiling_getvalue(st, line);
 	if (!(st->pars.cr >= 0 && st->pars.cr <= 255)
-			|| !(st->pars.cg >= 0 && st->pars.cg <= 255)
-			|| !(st->pars.cb >= 0 && st->pars.cb <= 255))
+		|| !(st->pars.cg >= 0 && st->pars.cg <= 255)
+		|| !(st->pars.cb >= 0 && st->pars.cb <= 255))
 		ft_error(st, -16);
 	st->pars.clr_c = (st->pars.cr * 65536) + (st->pars.cg * 256) + st->pars.cb;
 }

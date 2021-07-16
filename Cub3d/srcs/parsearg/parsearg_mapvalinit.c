@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 18:49:01 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:28:58 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 14:23:28 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	ft_parsearg_mapvalinit_val(t_st *st)
 {
 	int	*tmp;
 
-	if (!(tmp = malloc(sizeof(int) * 6)))
+	tmp = malloc(sizeof(int) * 6);
+	if (!(tmp))
 		ft_error(st, -14);
 	tmp[MAP_W] = st->maps.sizemapx;
 	tmp[MAP_H] = st->maps.sizemapy;
@@ -32,7 +33,8 @@ void	ft_parsearg_mapvalinit(t_st *st)
 	int	**tmp;
 	int	i;
 
-	if (!(tmp = malloc(sizeof(int*) * st->maps.nbrmaps)))
+	tmp = malloc(sizeof(int *) * st->maps.nbrmaps);
+	if (!(tmp))
 		ft_error(st, -14);
 	i = 0;
 	while (i < st->maps.nbrmaps - 1)

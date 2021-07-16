@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_issprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 20:38:28 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:31:38 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 14:47:03 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/cub3d.h"
 
-int		ft_issprite(int i)
+int	ft_issprite(int i)
 {
 	if (i == '2')
 		return (1);

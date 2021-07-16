@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 17:34:24 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:28:23 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 13:53:04 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_parsearg_floor_text(char **line)
 	(void)line;
 }
 
-int		ft_parsearg_floor_getvalue(t_st *st, char **line)
+int	ft_parsearg_floor_getvalue(t_st *st, char **line)
 {
 	int		ret;
 
@@ -43,8 +43,8 @@ void	ft_parsearg_floor_color(t_st *st, char **line)
 	(*line)++;
 	st->pars.fb = ft_parsearg_floor_getvalue(st, line);
 	if (!(st->pars.fr >= 0 && st->pars.fr <= 255)
-			|| !(st->pars.fg >= 0 && st->pars.fg <= 255)
-			|| !(st->pars.fb >= 0 && st->pars.fb <= 255))
+		|| !(st->pars.fg >= 0 && st->pars.fg <= 255)
+		|| !(st->pars.fb >= 0 && st->pars.fb <= 255))
 		ft_error(st, -16);
 	st->pars.clr_f = (st->pars.fr * 65536) + (st->pars.fg * 256) + st->pars.fb;
 }

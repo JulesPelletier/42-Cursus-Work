@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/11 12:44:35 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:30:48 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 14:31:22 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_save_writebmp_halfint(int fd, int val)
 {
-	char ptr;
+	char	ptr;
 
 	ptr = val & 0xff;
 	write(fd, &ptr, 1);
@@ -30,7 +30,7 @@ void	ft_save_writebmp_int(int fd, int val)
 
 void	ft_save_writebmp_color(int fd, int color)
 {
-	char ptr;
+	char	ptr;
 
 	ft_save_writebmp_halfint(fd, color);
 	ptr = color >> 16 & 0xff;
@@ -41,7 +41,7 @@ void	ft_save_writebmp(t_st *st, int fd, int lsize)
 {
 	write(fd, "BM", 2);
 	ft_save_writebmp_int(fd, 54 + (3 * (st->win.winw + lsize)
-		* st->win.winh % 4));
+			* st->win.winh % 4));
 	ft_save_writebmp_int(fd, 0);
 	ft_save_writebmp_int(fd, 54);
 	ft_save_writebmp_int(fd, 40);

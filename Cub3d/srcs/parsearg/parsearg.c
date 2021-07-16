@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsearg.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 14:30:54 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:29:21 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 14:00:57 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_parsearg_checkarg(t_st *st, char *arg)
 
 	size = ft_strlen(arg);
 	if (arg[size - 4] != '.' || arg[size - 3] != 'c' || arg[size - 2] != 'u'
-			|| arg[size - 1] != 'b')
+		|| arg[size - 1] != 'b')
 		ft_error(st, -3);
 }
 
@@ -28,7 +28,8 @@ void	ft_parsearg(t_st *st, char *arg)
 	char	*line;
 
 	ft_parsearg_checkarg(st, arg);
-	if ((fd = open(arg, O_RDONLY)) == -1)
+	fd = open(arg, O_RDONLY);
+	if (fd == -1)
 		ft_error(st, -4);
 	st->pars.retgnl = 1;
 	while (st->pars.retgnl)

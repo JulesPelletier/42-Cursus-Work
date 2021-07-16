@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 19:49:26 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:30:30 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 14:28:54 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	ft_rayc_walls_calculate(t_st *st)
 {
 	if (st->wall.side == 0 || st->wall.side == 2)
 		st->wall.walldist = (st->rayc.mapx - st->coor.posx
-			+ ((1 - st->rayc.stepx) / 2)) / st->rayc.raydirx;
+				+ ((1 - st->rayc.stepx) / 2)) / st->rayc.raydirx;
 	else
 		st->wall.walldist = (st->rayc.mapy - st->coor.posy
-			+ ((1 - st->rayc.stepy) / 2)) / st->rayc.raydiry;
+				+ ((1 - st->rayc.stepy) / 2)) / st->rayc.raydiry;
 	st->draw.lineheight = (int)(st->win.winh / st->wall.walldist);
 	st->draw.drawstart = (-st->draw.lineheight / 2) + (st->win.winh / 2);
 	if (st->draw.drawstart < 0)
@@ -53,7 +53,7 @@ void	ft_rayc_walls_dda(t_st *st)
 				st->wall.side = 3;
 		}
 		if (ft_iswall(st->maps.tabmaps[st->coor.currlvl][st->rayc.mapx][
-				st->rayc.mapy]) == 1)
+			st->rayc.mapy]) == 1)
 			st->wall.hit = 1;
 	}
 }

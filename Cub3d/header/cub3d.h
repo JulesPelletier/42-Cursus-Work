@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 17:58:00 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/15 14:23:15 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 14:56:20 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define MEDP 6
 # define EXIT 7
 
-typedef	struct	s_pars
+typedef struct s_pars
 {
 	char		*line;
 	int			parsedresol;
@@ -52,7 +52,7 @@ typedef	struct	s_pars
 	char		*strmap;
 }				t_pars;
 
-typedef	struct	s_maps
+typedef struct s_maps
 {
 	int			nbrmaps;
 	int			***tabmaps;
@@ -62,7 +62,7 @@ typedef	struct	s_maps
 	int			startset;
 }				t_maps;
 
-typedef	struct	s_mlx
+typedef struct s_mlx
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
@@ -73,7 +73,7 @@ typedef	struct	s_mlx
 	int			img_end;
 }				t_mlx;
 
-typedef	struct	s_tex
+typedef struct s_tex
 {
 	char		*pathtex[5][4];
 	void		*tex_ptr[5][4];
@@ -89,7 +89,7 @@ typedef	struct	s_tex
 	double		texpos;
 }				t_tex;
 
-typedef	struct	s_sprt
+typedef struct s_sprt
 {
 	char		*pathsprt[8];
 	void		*sprt_ptr[8];
@@ -118,7 +118,7 @@ typedef	struct	s_sprt
 	int			sprty;
 }				t_sprt;
 
-typedef	struct	s_win
+typedef struct s_win
 {
 	int			maxw;
 	int			maxh;
@@ -128,7 +128,7 @@ typedef	struct	s_win
 	int			winy;
 }				t_win;
 
-typedef	struct	s_coor
+typedef struct s_coor
 {
 	int			currlvl;
 	double		posx;
@@ -138,13 +138,13 @@ typedef	struct	s_coor
 	double		olddirx;
 }				t_coor;
 
-typedef	struct	s_spd
+typedef struct s_spd
 {
 	double		movespeed;
 	double		rotspeed;
 }				t_spd;
 
-typedef	struct	s_rayc
+typedef struct s_rayc
 {
 	double		planex;
 	double		planey;
@@ -161,7 +161,7 @@ typedef	struct	s_rayc
 	int			stepy;
 }				t_rayc;
 
-typedef	struct	s_wall
+typedef struct s_wall
 {
 	int			hit;
 	int			side;
@@ -170,7 +170,7 @@ typedef	struct	s_wall
 	double		wallx;
 }				t_wall;
 
-typedef	struct	s_draw
+typedef struct s_draw
 {
 	int			lineheight;
 	int			drawstart;
@@ -178,7 +178,7 @@ typedef	struct	s_draw
 	int			color;
 }				t_draw;
 
-typedef	struct	s_keys
+typedef struct s_keys
 {
 	int			w;
 	int			a;
@@ -195,7 +195,7 @@ typedef	struct	s_keys
 	int			esc;
 }				t_keys;
 
-typedef	struct	s_st
+typedef struct s_st
 {
 	t_pars		pars;
 	t_maps		maps;
@@ -352,13 +352,5 @@ void			ft_free_sprt_pathsprt(t_st *st);
 void			ft_free_sprt_pos(t_st *st);
 void			ft_free_sprt_type(t_st *st);
 void			ft_free_sprt_distandorder(t_st *st);
-
-
-//TESTS
-
-void    test_parsing(t_st *st);
-void    test_maps(t_st *st);
-void    test_speed(t_st *st);
-
 
 #endif

@@ -9,7 +9,6 @@ MLX_LIB =		$(MLX_DIR)/libmlx.a
 MLX_LINKMAC =		-framework OpenGL -framework AppKit
 MLX_LINKLNX =		-lX11 -lXext -lm -lbsd
 SRCS =			srcs/main.c \
-					srcs/check.c \
 					srcs/utils/get_next_line.c \
 					srcs/utils/ft_iswall.c \
 					srcs/utils/ft_issprite.c \

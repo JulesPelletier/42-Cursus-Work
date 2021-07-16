@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 19:09:43 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/15 17:13:14 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 14:25:38 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 void	ft_rayc(t_st *st, int save)
 {
 	st->mlx.img_ptr = mlx_new_image(
-		st->mlx.mlx_ptr, st->win.winw, st->win.winh);
-	st->mlx.img_data = (int*)mlx_get_data_addr(
-		st->mlx.img_ptr, &st->mlx.img_bpp, &st->mlx.img_sl, &st->mlx.img_end);
+			st->mlx.mlx_ptr, st->win.winw, st->win.winh);
+	st->mlx.img_data = (int *)mlx_get_data_addr(
+			st->mlx.img_ptr, &st->mlx.img_bpp,
+			&st->mlx.img_sl, &st->mlx.img_end);
 	ft_rayc_ceiling(st);
 	ft_rayc_floor(st);
 	ft_rayc_walls(st);

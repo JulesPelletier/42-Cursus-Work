@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 15:04:28 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:29:38 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 14:26:53 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void	ft_rayc_drawwalls_loop(t_st *st, int side)
 	while (st->win.winy < st->draw.drawend)
 	{
 		st->tex.texy = ((((st->win.winy) * 256 - st->win.winh * 128
-					+ st->draw.lineheight * 128)
+						+ st->draw.lineheight * 128)
 					* st->tex.tex_h[0][side]) / st->draw.lineheight) / 256;
 		st->draw.color = st->tex.tex_data[0][side][
 			(st->tex.tex_w[0][side] * st->tex.texy) + st->tex.texx];
 		if (side == 1 || side == 3)
 			st->draw.color = (st->draw.color >> 1) & 8355711;
 		*(st->mlx.img_data + st->win.winx
-			+ (st->win.winw * st->win.winy)) = st->draw.color;
+				+ (st->win.winw * st->win.winy)) = st->draw.color;
 		st->win.winy++;
 	}
 }
@@ -46,7 +46,7 @@ void	ft_rayc_drawwalls(t_st *st)
 		st->tex.texx = st->tex.tex_w[0][side] - st->tex.texx - 1;
 	st->tex.texstep = 1.0 * st->tex.tex_h[0][side] / st->draw.lineheight;
 	st->tex.texpos = (st->draw.drawstart - st->win.winh / 2
-		+ st->draw.lineheight / 2) * st->tex.texstep;
+			+ st->draw.lineheight / 2) * st->tex.texstep;
 	st->win.winy = st->draw.drawstart;
 	ft_rayc_drawwalls_loop(st, side);
 }

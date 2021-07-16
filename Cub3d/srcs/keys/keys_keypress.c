@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 15:28:12 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/15 17:03:35 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 13:29:56 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_keys_keypress_directions(int key, t_st *st)
 		st->keys.right = 1;
 }
 
-int		ft_keys_keypress(int key, t_st *st)
+int	ft_keys_keypress(int key, t_st *st)
 {
 	ft_keys_keypress_directions(key, st);
 	ft_keys_keypress_various(key, st);

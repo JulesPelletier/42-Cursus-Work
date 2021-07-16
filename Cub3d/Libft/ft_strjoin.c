@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julpelle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 14:01:05 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/16 13:05:23 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/07/16 14:56:56 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ char	*ft_mall(int n)
 {
 	char	*str;
 
-	str = (char *)malloc(sizeof(char) * n)
-		if (str == NULL)
+	str = (char *)malloc(sizeof(char) * n);
+	if (str == NULL)
 		return (NULL);
 	return (str);
 }
