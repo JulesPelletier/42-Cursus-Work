@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/27 19:08:27 by Jules             #+#    #+#             */
-/*   Updated: 2021/04/30 14:22:44 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/09 13:31:01 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,9 @@ void    ft_insert_max(t_all *all);
 void    ft_insert(t_all *all);
 void    ft_insert_after_mid(t_all *all, int pos);
 void    ft_insert_before_mid(t_all *all, int pos);
+
+void    ft_sort_five(t_all *all);
+void    ft_check_pos(t_all *all);
 
 
 // UTILS

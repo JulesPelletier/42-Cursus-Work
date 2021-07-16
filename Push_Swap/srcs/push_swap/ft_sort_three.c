@@ -63,8 +63,3 @@ void    ft_options_three(t_all *all, t_stack *stack)
         ;
     ft_opti_three(all, stack, stack_dup);
 }
-
-void    ft_opti_20(t_all *all)
-{
-    (void)all;
-}

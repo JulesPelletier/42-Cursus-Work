@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/29 15:35:42 by Jules             #+#    #+#             */
-/*   Updated: 2021/04/30 14:45:32 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/09 13:32:25 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,28 +62,20 @@ void    ft_rearrange(t_all *all)
     }
 }
 
-void    ft_test_5(t_all *all)
+void    ft_test_affichage(t_all *all)
 {
-    while (all->stB.len != 0)
-    {
-        
-    }
+    printf("Max : %d\n", all->stA.params.max);
+    printf("Index Max : %d\n", all->stA.params.index_max);
+    printf("Min : %d\n", all->stA.params.min);
+    printf("Index Min : %d\n", all->stA.params.index_min);
+    printf("Divider : %d\n", all->stA.params.divider);
+    printf("Chunck : %d\n", all->stA.params.chunck);
+    printf("Pivot : %d\n", all->stA.params.pivot);
+    printf("Median : %d\n", all->stA.params.median);
 }
 
 void    ft_algo(t_all *all)
 {
-    int     pos;
-
-    pos = 0;
-    ft_trivial(all);
-    if (all->stA.len > 3 && all->stA.len < 20)
-    {
-        while (all->stA.len > 3)
-        {
-            ft_pb_move(all);
-            ft_putstr("pb\n");    
-        }
-        ft_options_three(all, &all->stA);
-        //ft_rearrange(all);
-    }
+    if (all->stA.len == 2 || all->stA.len == 3)
+        ft_trivial(all);
 }
