@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsearg_mapinit.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 14:42:22 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/16 14:17:01 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/07/16 15:22:28 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	*ft_parsearg_mapinit_mapline(t_st *st, int linenbr, int i)
 	int		*mapline;
 	int		j;
 
-	mapline = ft_mall_int(st->maps.sizemapx);
+	mapline = malloc(sizeof(int *) * (st->maps.sizemapx));
 	if (!(mapline))
 		ft_error(st, -14);
 	j = 0;
