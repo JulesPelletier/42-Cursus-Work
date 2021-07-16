@@ -6,7 +6,7 @@
 /*   By: julpelle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 12:36:13 by julpelle          #+#    #+#             */
-/*   Updated: 2019/12/04 14:14:19 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/07/16 12:44:13 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	t_list *lst;
+	t_list	*lst;
 
 	lst = *alst;
 	if (*alst != NULL)

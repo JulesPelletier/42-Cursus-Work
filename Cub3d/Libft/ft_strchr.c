@@ -6,7 +6,7 @@
 /*   By: julpelle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 14:00:23 by julpelle          #+#    #+#             */
-/*   Updated: 2019/12/04 14:00:39 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/07/16 12:57:07 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ char	*ft_strchr(const char *str, int c)
 			return (0);
 		str++;
 	}
-	return ((char*)str);
+	return ((char *)str);
 }

@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:35:51 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:36:02 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 12:58:32 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	int i;
+	int	i;
 
 	if (dst == NULL || src == NULL)
 		return (NULL);

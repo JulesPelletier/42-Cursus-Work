@@ -6,13 +6,13 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:37:56 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:38:00 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 12:57:41 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	unsigned int	i;
 

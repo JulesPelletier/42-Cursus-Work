@@ -6,13 +6,13 @@
 /*   By: julpelle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 13:57:53 by julpelle          #+#    #+#             */
-/*   Updated: 2019/12/04 16:02:54 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/07/16 12:52:13 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	unsigned int	nbr;
 

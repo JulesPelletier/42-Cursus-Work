@@ -6,15 +6,15 @@
 /*   By: julpelle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 14:15:03 by julpelle          #+#    #+#             */
-/*   Updated: 2019/12/04 14:20:01 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/07/16 12:47:45 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-	int		length_lst;
+	int	length_lst;
 
 	length_lst = 0;
 	if (!(lst))

@@ -6,13 +6,13 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 13:39:50 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/15 13:40:14 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 12:51:49 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_putchar(char c)
+void	ft_putchar(char c)
 {
-    write(1, &c, 1);
+	write (1, &c, 1);
 }

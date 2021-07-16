@@ -6,7 +6,7 @@
 /*   By: julpelle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 14:00:44 by julpelle          #+#    #+#             */
-/*   Updated: 2019/12/12 11:30:45 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/07/16 12:59:21 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ char	*ft_strdup(const char *src)
 	j = 0;
 	while (src[i])
 		i++;
-	if (!(copy = (char*)malloc(i + 1)))
+	copy = (char *)malloc(i + 1);
+	if (!(copy))
 		return (NULL);
 	if (!(copy))
 		return (NULL);

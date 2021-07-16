@@ -6,7 +6,7 @@
 /*   By: julpelle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 13:55:02 by julpelle          #+#    #+#             */
-/*   Updated: 2019/12/04 13:56:28 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/07/16 12:50:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char *s;
+	unsigned char	*s;
 
 	s = b;
 	if (len < 0)

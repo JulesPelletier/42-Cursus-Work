@@ -6,13 +6,13 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 15:36:54 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/09 15:36:59 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/16 13:15:16 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_swap(int *i, int *j)
+int	ft_swap(int *i, int *j)
 {
 	int	tmp;
 

@@ -6,13 +6,13 @@
 /*   By: julpelle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 14:11:44 by julpelle          #+#    #+#             */
-/*   Updated: 2019/12/04 14:44:05 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/07/16 12:56:30 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			ft_countword(char const *s, char c)
+static int	ft_countword(char const *s, char c)
 {
 	int	res;
 	int	new;
@@ -33,7 +33,7 @@ static int			ft_countword(char const *s, char c)
 	return (res);
 }
 
-static int			ft_wordlen(char const *s, char c)
+static int	ft_wordlen(char const *s, char c)
 {
 	int	len;
 
@@ -46,7 +46,7 @@ static int			ft_wordlen(char const *s, char c)
 	return (len);
 }
 
-static void			ft_free(char **str)
+static void	ft_free(char **str)
 {
 	while (*str != NULL)
 	{
@@ -56,7 +56,7 @@ static void			ft_free(char **str)
 	free(str);
 }
 
-static void			ft_createword(char **str, const char *src, char c)
+static void	ft_createword(char **str, const char *src, char c)
 {
 	char	*word;
 
@@ -76,13 +76,14 @@ static void			ft_createword(char **str, const char *src, char c)
 	*word = '\0';
 }
 
-char				**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**res;
 	char	**res2;
 	int		new;
 
-	if (!s || !(res = malloc((ft_countword(s, c) + 1) * sizeof(char *))))
+	res = malloc((ft_countword(s, c) + 1) * sizeof(char *));
+	if (!s || !(res))
 		return (NULL);
 	res2 = res;
 	new = 0;

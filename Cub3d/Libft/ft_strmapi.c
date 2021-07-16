@@ -6,11 +6,21 @@
 /*   By: julpelle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 14:03:24 by julpelle          #+#    #+#             */
-/*   Updated: 2019/12/04 14:04:04 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/07/16 13:09:04 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+char	*ft_mall(int n)
+{
+	char	*str;
+
+	str = (char *)malloc(sizeof(char) * n)
+		if (str == NULL)
+		return (NULL);
+	return (str);
+}
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -24,8 +34,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	if (!s || !f)
 		return (NULL);
-	if (!(str_result = (char *)malloc(sizeof(char) * (len_s))))
-		return (NULL);
+	str_result = ft_mall(len_s);
 	while (s[i])
 	{
 		str_result[i] = f(i, s[i]);
