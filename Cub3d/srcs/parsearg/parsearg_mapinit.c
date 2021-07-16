@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/23 14:42:22 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/16 15:22:28 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/07/16 15:28:15 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,12 @@ int	**ft_parsearg_mapinit_map(t_st *st)
 	return (map);
 }
 
+void	indent(char *tmp1, char *tmp2 int *i)
+{
+	tmp1[*i] = tmp2[*i];
+	i++;
+}
+
 void	ft_parsearg_mapinit(t_st *st)
 {
 	int	***tmp;
@@ -97,7 +103,7 @@ void	ft_parsearg_mapinit(t_st *st)
 	{
 		i = 0;
 		while (i < st->maps.nbrmaps - 1)
-			tmp[i++] = st->maps.tabmaps[i];
+			indent(tmp, st->maps.tabmaps, &i);
 		free(st->maps.tabmaps);
 	}
 	st->maps.tabmaps = tmp;
