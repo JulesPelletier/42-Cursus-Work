@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keys_keypress.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 15:28:12 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/16 13:29:56 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/07/16 15:13:39 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,27 @@ void	ft_keys_keypress_various(int key, t_st *st)
 		st->keys.plus = 1;
 	if (key == 27)
 		st->keys.minus = 1;
-	if (key == 53)
+	if (key == 65307)
 		st->keys.esc = 1;
 }
 
 void	ft_keys_keypress_directions(int key, t_st *st)
 {
-	if (key == 13)
+	if (key == 87)
 		st->keys.w = 1;
-	if (key == 0)
+	if (key == 65)
 		st->keys.a = 1;
-	if (key == 1)
+	if (key == 83)
 		st->keys.s = 1;
-	if (key == 2)
+	if (key == 68)
 		st->keys.d = 1;
-	if (key == 126)
+	if (key == 65362)
 		st->keys.up = 1;
-	if (key == 125)
+	if (key == 65364)
 		st->keys.down = 1;
-	if (key == 123)
+	if (key == 65261)
 		st->keys.left = 1;
-	if (key == 124)
+	if (key == 65363)
 		st->keys.right = 1;
 }
 
