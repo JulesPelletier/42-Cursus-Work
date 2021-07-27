@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 20:00:54 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/27 11:30:34 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/27 15:00:35 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	check_options(int ac, char **av, t_checker *all, int count2)
 {
 	all->count = 1;
 	while (all->count < ac && av[all->count][0] == '-'
-		&& !check_int(av[all->count]))
+			&& !check_int(av[all->count]))
 	{
 		count2 = 1;
 		while (av[all->count][count2])

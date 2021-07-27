@@ -6,13 +6,13 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 15:46:14 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/26 17:48:01 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/27 15:09:21 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void    algo_check(t_push_swap *all)
+void	algo_check(t_push_swap *all)
 {
 	init_stack(&all->stA);
 	if (all->stA.len == 2)

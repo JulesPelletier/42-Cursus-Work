@@ -6,13 +6,13 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 16:28:53 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/24 17:54:51 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/27 15:09:39 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int *read_arg(int ac, char **av, int n)
+int	*read_arg(int ac, char **av, int n)
 {
 	int		*tmp;
 	int		i;

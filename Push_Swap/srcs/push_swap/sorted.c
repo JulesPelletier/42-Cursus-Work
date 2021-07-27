@@ -6,13 +6,13 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 17:26:33 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/24 17:28:11 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/27 15:10:08 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int is_sorted(t_push_swap *all)
+int	is_sorted(t_push_swap *all)
 {
 	size_t		i;
 
@@ -28,9 +28,9 @@ int is_sorted(t_push_swap *all)
 	return (1);
 }
 
-int is_already_sorted(t_push_swap *all)
+int	is_already_sorted(t_push_swap *all)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (i < (int)all->stA.len - 1)

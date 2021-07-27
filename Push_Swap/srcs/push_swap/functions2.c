@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   functions2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 12:13:06 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/26 17:48:01 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/27 15:11:17 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ int	minormax(t_push_swap *all)
 
 void	new_min(t_push_swap *all, size_t count)
 {
-	if (all->stA.first <= all->stA.min && !all->stA.fsort && all->stA.len + all->stB.len <= 16)
+	if (all->stA.first <= all->stA.min && !all->stA.fsort
+		&& all->stA.len + all->stB.len <= 16)
 	{
 		all->stA.fsort = 1;
 		update_output(all, "ra");
@@ -43,12 +44,7 @@ void	new_min(t_push_swap *all, size_t count)
 	if ((is_already_sorted(all) == 1) || (
 			all->stA.first > all->stB.min && all->stB.len > 0))
 		return ;
-	if (all->stA.first <= all->stA.min)
-	{
-		all->stA.fsort = 1;
-		update_output(all, "ra");
-		return (new_min(all, 0));
-	}
+	function_add(all);
 	count = check_value(&all->stA, all->stA.min) + 1;
 	while (count < all->stA.len - 1)
 	{

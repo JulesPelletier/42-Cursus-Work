@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 18:02:39 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/26 17:48:01 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/27 15:05:56 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	update_output(t_push_swap *all, char *str)
 	end_str(all, str2, i, y);
 }
 
-size_t  check_value(t_stack *stack, int n)
+size_t	check_value(t_stack *stack, int n)
 {
 	size_t	i;
 
@@ -72,7 +72,7 @@ size_t  check_value(t_stack *stack, int n)
 	return (i);
 }
 
-int check_first_a(t_push_swap *all, int n)
+int	check_first_a(t_push_swap *all, int n)
 {
 	size_t	i;
 
@@ -92,7 +92,7 @@ int check_first_a(t_push_swap *all, int n)
 	return (1);
 }
 
-int check_first_b(t_push_swap *all, int n)
+int	check_first_b(t_push_swap *all, int n)
 {
 	size_t	i;
 

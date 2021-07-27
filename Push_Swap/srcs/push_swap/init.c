@@ -6,13 +6,13 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 15:52:05 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/24 17:53:49 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/27 15:08:15 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void    init_stack(t_stack *stack)
+void	init_stack(t_stack *stack)
 {
 	size_t	i;
 

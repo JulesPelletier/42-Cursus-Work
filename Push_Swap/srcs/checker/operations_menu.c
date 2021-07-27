@@ -6,13 +6,13 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 18:39:11 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/27 11:34:17 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/27 15:01:51 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/checker.h"
 
-void    swap(t_stack *stack)
+void	swap(t_stack *stack)
 {
 	int	temp;
 

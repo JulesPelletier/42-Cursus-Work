@@ -6,13 +6,13 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 16:16:39 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/24 17:49:49 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/27 15:04:45 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int     check_int(char *str)
+int	check_int(char *str)
 {
 	char	*temp;
 	int		fix;
@@ -35,9 +35,9 @@ int     check_int(char *str)
 	return (1);
 }
 
-int     check_options(t_push_swap *all, int ac, char **av, int i)
+int	check_options(t_push_swap *all, int ac, char **av, int i)
 {
-	int		count2;
+	int	count2;
 
 	while (i < ac && av[i][0] == '-' && !check_int(av[i]))
 	{
@@ -63,10 +63,10 @@ int     check_options(t_push_swap *all, int ac, char **av, int i)
 	return (1);
 }
 
-int check_doublons(t_push_swap *all, t_stack *stack)
+int	check_doublons(t_push_swap *all, t_stack *stack)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < (int)stack->len)
@@ -82,7 +82,6 @@ int check_doublons(t_push_swap *all, t_stack *stack)
 	}
 	return (1);
 }
-
 
 int	check_borne(t_stack *stack, int min, int max)
 {
