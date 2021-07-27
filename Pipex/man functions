@@ -1,0 +1,48 @@
+access :
+    prototype : access(const char *path, int mode, int flag)
+    access checks the accessibility of a file named by the path argument
+    mode is either  R_OK for read permission
+                    W_OK for write permission
+                    X_OK for execute permission
+    
+    returns 0 if access is completed, -1 otherwise
+
+open :
+    prototype : open (cont char *path)
+    opens a file as if you double clicked it
+
+unlink :
+    prototype : unlink (cont char *path)
+    
+
+
+
+close :
+
+read :
+
+write :
+
+malloc :
+
+waitpid :
+
+wait :
+
+free :
+
+pipe :
+
+dup :
+
+dup2 :
+
+execve :
+
+fork :
+
+perror :
+
+strerror :
+
+exit :
