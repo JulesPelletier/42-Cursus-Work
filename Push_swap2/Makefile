@@ -6,11 +6,9 @@
 #    By: Jules <Jules@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/22 15:10:36 by Jules             #+#    #+#              #
-#    Updated: 2021/07/27 18:41:46 by Jules            ###   ########.fr        #
+#    Updated: 2021/07/28 09:02:41 by Jules            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-CHECKER 		=	checker
 
 PUSH_SWAP 		=	push_swap
 
@@ -21,18 +19,6 @@ CFLAGS 			=	-Wall -Wextra -Werror -g3
 LIBFT_DIR 		=	Libft
 
 LIBFT_LIB 		=	$(LIBFT_DIR)/libft.a
-
-SRCS_CHECKER 	=	GNL/get_next_line.c 					\
-					GNL/get_next_line_utils.c				\
-					srcs/checker/checker.c					\
-					srcs/checker/checks.c					\
-					srcs/checker/create_actions.c			\
-					srcs/checker/error.c				\
-					srcs/checker/init_checker.c			\
-					srcs/checker/operations_menu.c					\
-					srcs/checker/options.c				\
-					srcs/checker/utils.c				\
-					srcs/checker/utils2.c				\
 
 SRCS_PUSH_SWAP 	=	GNL/get_next_line.c 					\
 					GNL/get_next_line_utils.c				\
@@ -55,17 +41,12 @@ SRCS_PUSH_SWAP 	=	GNL/get_next_line.c 					\
 					srcs/push_swap/sorted.c					\
 
 								
-OBJS_CHECKER	=	$(SRCS_CHECKER:.c=.o)
-
 OBJS_PUSH_SWAP	=	$(SRCS_PUSH_SWAP:.c=.o)
 
 OBJS			=	$(SRCS:.c=.o)
 
 
-all:				$(LIBFT_LIB) $(OBJS) $(CHECKER) $(PUSH_SWAP)
-
-$(CHECKER):		 	$(OBJS_CHECKER) $(OBJS) $(LIBFT_LIB)
-					$(CC) $(CFLAGS) $(OBJS_CHECKER) $(OBJS) $(LIBFT_LIB) -o $@ 
+all:				$(LIBFT_LIB) $(OBJS) $(PUSH_SWAP)
 
 $(PUSH_SWAP):		$(OBJS_PUSH_SWAP) $(OBJS) $(LIBFT_LIB) 
 					$(CC) $(CFLAGS) $(OBJS_PUSH_SWAP) $(OBJS) $(LIBFT_LIB) -o $@ 
@@ -78,13 +59,13 @@ $(LIBFT_LIB):
 					make -C $(LIBFT_DIR)
 
 clean:
-					rm -f $(OBJS) $(OBJS_CHECKER) $(OBJS_PUSH_SWAP)
+					rm -f $(OBJS) $(OBJS_PUSH_SWAP)
 					make clean -C $(LIBFT_DIR)
 
 fclean:				clean
-					rm -f $(CHECKER) $(PUSH_SWAP)
+					rm -f $(PUSH_SWAP)
 					make fclean -C $(LIBFT_DIR)
 
 re:					fclean all
 
-.PHONY: 			all, $(CHECKER), $(PUSH_SWAP), clean, fclean, re
+.PHONY: 			all, $(PUSH_SWAP), clean, fclean, re

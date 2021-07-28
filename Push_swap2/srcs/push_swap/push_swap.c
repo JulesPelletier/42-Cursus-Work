@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 15:46:14 by Jules             #+#    #+#             */
-/*   Updated: 2021/07/27 18:56:45 by Jules            ###   ########.fr       */
+/*   Updated: 2021/07/28 08:56:59 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@ void    algo_check(t_push_swap *all)
 		algo_quinze_plus(all);
 }
 
+int		check_flag(char **av)
+{
+	if (av[1][0] == '-' && ft_isalpha(av[1][1]) == 1)
+		return (-1);
+	else
+		return (1);
+}
+
 int	main(int ac, char **av)
 {
 	t_push_swap	all;
@@ -34,7 +42,7 @@ int	main(int ac, char **av)
 	{
 		all.av_dup = all_char(ac, av, &all);
 		all_init(all.av_dup, &all);
-		if (!all.stA.st || !check_doublons(&all, &all.stA))
+		if (!all.stA.st || !check_doublons(&all, &all.stA) || check_flag(av) < 0)
 			ft_error("full", &all);
 		all.stB.len = 0;
 		if (is_sorted(&all) < 1)
