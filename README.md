@@ -8,4 +8,5 @@ Repo containing all of my projects from 42
 5 - Born2BeRoot <br>
 6 - Push Swap <br>
 7 - Fractol <br>
+8 - Pipex <br>
  
