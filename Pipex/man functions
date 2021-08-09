@@ -8,41 +8,78 @@ access :
     returns 0 if access is completed, -1 otherwise
 
 open :
-    prototype : open (cont char *path)
-    opens a file as if you double clicked it
+    prototype : int open (cont char *path)
+    opens a file for reading and/or writing, and returns the file descriptor associated
 
 unlink :
-    prototype : unlink (cont char *path)
+    prototype : int unlink (cont char *path)
+    removes the link named by path from its directory and decrements the link count of the file
     
-
-
-
 close :
+    prototype : int close (int file_desc)
+    deletes a file descriptor from the process reference table
 
 read :
+    prototype : ssize_t read (int file_desc, void *buf, size_t nbyte)
+    attempts to read nbytes of data from the object referenced by the file descriptor into the buffer buf
 
 write :
+    prototype : ssize_t write (int file_desc, const void *buf, size_t nbyte);
+    attempts to write nbytes of data into the object referenced by the file descriptor pointed to by buf
 
 malloc :
+    prototype : void* malloc (size_t size);
+    malloc allocates size bytes of memory and returns a pointer to the allocated memory
 
 waitpid :
+    prototype : pid_t waitpid (pid_t pid, int *stat_loc, int options);
 
 wait :
+    prototype : pid_t wait (int *stat_loc);
+    suspends execution of its calling process until stat_loc information is available for a terminated child process
+    or a signal is received
 
 free :
+    prototype : void* free (void *ptr);
+    deallocates the memory allocation pointed to by ptr. If ptr = NULL, nothing is done
 
 pipe :
+    prototype : int pipe(int fildes[2]);
+    creates an object that allows unidirectionnal data flow and allocates a pair of file descriptors. 
+    first file descriptor connects to the read end, second one to the write end
+    Returns zero if everything went well, -1 otherwise
 
 dup :
+    prototype : int dup (int file_desc);
+    duplicates an existing object descriptor and returns its value to the process
 
 dup2 :
+    prototype : int dup2 (int file_desc1, int file_desc2);
+    if file_desc1 and file_desc2 are equal, it just returns file_desc2. otherwise if file_desc2 is already used, it first closes file_desc2
+    before returning file_desc2.
 
 execve :
+    prototype : int execve (const char *path, char *const argv[], char *const envp[])
+    transforms the calling process into a new process constructed by an ordinary file whose name is pointed by path. If execve returns to the calling
+    process, an error has occurred and the return value will be -1
 
 fork :
+    prototype : pid_t fork (void)
+    causes the creation of a new process (child process) which is an exact copy of the calling process (parent process) except : 
+        child process has a unique ID
+        child process has a different parent process ID
+        child process has its own copy of the parent's descriptor 
+        child process resource utilization are set to 0
+        
 
 perror :
+    prototype : void    perror (const char *s)
+    finds the error message corresponding to the current value of the global variable errno and writes it followed by a new line
 
 strerror :
+    prototype : char* strerror (int errnum)
+    takes an int and returns the corresponding error message associated
 
 exit :
+    prototype : void exit (int status)
+    the exit function terminates the process
