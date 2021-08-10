@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 09:54:40 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/09 18:21:59 by Jules            ###   ########.fr       */
+/*   Updated: 2021/08/10 11:38:47 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,12 @@ void    execute_command(char *command, char **env)
     else
         path = ft_get_path(arg[0], env);
     execve(path, arg, env);
-    write(STDERR, "The command was not found\n", 27);
+    if (access(command, F_OK) == 0)
+        write(STDERR, "The command was not found\n", 27);
     exit(127);
 }
 
-void    redirect(char *command, char **env, int fd_in)
+void    f_pipex(char *command, char **env, int fd_in)
 {
     pid_t   pid;
     int     pipefd[2];
@@ -127,7 +128,7 @@ int main(int ac, char **av, char **env)
         pipex.command1 = av[2];
         pipex.command2 = av[3];
         test_aff(pipex);
-        redirect(pipex.command1, env, pipex.fd_in);
+        f_pipex(pipex.command1, env, pipex.fd_in);
         execute_command(pipex.command2, env);
     }
     else
