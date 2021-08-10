@@ -6,11 +6,18 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 09:54:40 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/10 11:38:47 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/08/10 12:45:55 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
+
+void    ft_exit(char *error_message)
+{
+    write(2, error_message, ft_strlen(error_message));
+    write(2, "\n", 1);
+    exit(0);
+}
 
 int ft_open(char *filename, int n)
 {
@@ -132,9 +139,6 @@ int main(int ac, char **av, char **env)
         execute_command(pipex.command2, env);
     }
     else
-    {
-        write(STDERR, "Number of arguments incorrect\n", 31);
-        write(STDERR, "([file1][command1][command2][file2])\n", 38);
-    }
+        ft_exit("ERROR : use ./pipex [file1][command1][command2][file2]");
     return (0);
 }
