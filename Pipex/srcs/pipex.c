@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/29 09:54:40 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/10 12:45:55 by julpelle         ###   ########.fr       */
+/*   Created: 2021/08/10 11:42:57 by julpelle          #+#    #+#             */
+/*   Updated: 2021/08/11 11:20:28 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,126 +19,111 @@ void    ft_exit(char *error_message)
     exit(0);
 }
 
-int ft_open(char *filename, int n)
+void    ft_path(char *command, char **args, char **paths, char **env)
 {
-    if (n == 1)
-    {
-        if (access(filename, F_OK))
-        {
-            write(STDERR, "No such file\n", 14);
-            return (STDIN);
-        }
-        return (open(filename, O_RDONLY));
-    }
-    else
-        return (open(filename, O_CREAT | O_WRONLY | O_TRUNC,
-            S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH));
-}
-
-char    *ft_get_path(char *command1, char **env)
-{
-    char    *path;
-    char    *dir;
+    int     i;
     char    *tmp;
-    int     i;
-
-    i = 0;
-    while (env[i] && ft_strncmp(env[i], "PATH=", 5))
-        i++;
-    if (!env[i])
-        return (command1);
-    path = env[i] + 5;
-    while (path && ft_get_pos(path, ':') > -1)
-    {
-        dir = ft_strndup(path, ft_get_pos(path, ':'));
-        tmp = ft_strjoin(dir, command1);
-        free(dir);
-        if (access(tmp, F_OK) == 0)
-            return (tmp);
-        free(tmp);
-        path += ft_get_pos(path, ':') + 1;
-    }
-    return (command1);
-}
-
-void    execute_command(char *command, char **env)
-{
-    char    **arg;
     char    *path;
-    int     i;
 
     i = 0;
-    (void)path;
-    (void)env;
-    arg = ft_split(command, ' ');
-    if (ft_get_pos(arg[0], '/') > -1)
-        path = arg[0];
-    else
-        path = ft_get_path(arg[0], env);
-    execve(path, arg, env);
-    if (access(command, F_OK) == 0)
-        write(STDERR, "The command was not found\n", 27);
-    exit(127);
+    while (paths[i])
+    {
+        tmp = ft_strjoin(paths[i], "/");
+        path = ft_strjoin(tmp, command);
+        ft_putstr("CHECK before execve\n\n");
+        ft_putstr(tmp);
+        ft_putstr("\n");
+        ft_putstr(path);
+        ft_putstr("\n");
+        execve(path, args, env);
+        ft_putstr("END execve");
+        free(path);
+        free(tmp);
+        i++;
+    }
+    ft_exit("ERROR path");
 }
 
-void    f_pipex(char *command, char **env, int fd_in)
+void    execute(char *command, char **args, char **env)
 {
-    pid_t   pid;
-    int     pipefd[2];
-
-    pipe(pipefd);
-    if (pipe(pipefd) == -1)
-    {
-        perror("pipe : ");
-        exit(1);
-    }
-    pid = fork();
-    if (pid)
-    {
-        close(pipefd[1]);
-        dup2(pipefd[0], STDIN);
-        waitpid(pid, NULL, 0);
-    }
-    else
-    {
-        close(pipefd[0]);
-        dup2(pipefd[1], STDOUT);
-        if (fd_in == 0)
-            exit(1);
-        else
-            execute_command(command, env);
-    }
-}
-
-void    test_aff(t_pipex pipex)
-{
-        printf("Infile : %s\n", pipex.infile);
-        printf("Outfile : %s\n", pipex.outfile);
-        printf("Fd IN : %d\n", pipex.fd_in);
-        printf("Fd OUT : %d\n", pipex.fd_out);
-        printf("Command 1 : %s\n", pipex.command1);
-        printf("Command 2 : %s\n", pipex.command2);
-}
-
-int main(int ac, char **av, char **env)
-{
-    t_pipex pipex;
+    int     i;
+    char    **paths;
     
-    if (ac == 5)
+    i = 0;
+    paths = NULL;
+    while (env[i])
     {
-        pipex.infile = av[1];
-        pipex.fd_in = ft_open(pipex.infile, STDIN);
-        pipex.outfile = av[ac - 1];
-        pipex.fd_out = ft_open(pipex.outfile, STDOUT);
-        dup2(pipex.fd_in, STDIN);
-        dup2(pipex.fd_out, STDOUT);
-        pipex.command1 = av[2];
-        pipex.command2 = av[3];
-        test_aff(pipex);
-        f_pipex(pipex.command1, env, pipex.fd_in);
-        execute_command(pipex.command2, env);
+        if (ft_strncmp(env[i], "PATH", 4) == 0)
+        {
+            env[i] = env[i] + 5;
+            paths = ft_split(env[i], ':');
+            break;
+        }
+        i++;
+    }
+    ft_path(command, args, paths, env);
+}
+
+void    exec_cmd1(int pipefd[2], int fd_infile, char *command1, char **env)
+{
+    char    **args;
+
+    close(pipefd[0]);
+    args = ft_split(command1, ' ');
+    if (dup2(fd_infile, 0) == -1)
+        ft_exit("ERROR : failed to dup input with STDIN");
+    if (dup2(pipefd[1], 1) == -1)
+        ft_exit("ERROR : failed to dup outfile with STDOUT");
+    if (args[0][0] == '/')
+    {
+        if (execve(args[0], args, env) == -1)
+            ft_exit("ERROR : invalid command");
     }
     else
-        ft_exit("ERROR : use ./pipex [file1][command1][command2][file2]");
-    return (0);
+        execute(args[0], args, env);
+    close(fd_infile);
+    close(pipefd[1]);
+}
+
+void    exec_cmd2(int pipefd[2], int fd_outfile, char *command2, char **env)
+{
+    char    **args;
+
+    close(pipefd[1]);
+    args = ft_split(command2, ' ');
+    dup2(pipefd[0], 0);
+	dup2(fd_outfile, 1);
+    if (args[0][0] == '/')
+    {
+        if (execve(args[0], args, env) == -1)
+            ft_exit("ERROR : invalid command");
+    }
+    else
+        execute(args[0], args, env);
+    close(fd_outfile);
+    close(pipefd[0]);
+}
+
+void    ft_pipex(int ac, char **av, char **env)
+{
+    int     fd_infile;
+    int     fd_outfile;
+    int     pipefd[2];
+    pid_t   pid;
+
+    fd_infile = open(av[1], O_RDONLY);
+    if (fd_infile == -1)
+        ft_exit("ERROR : Failed to open input file");
+    fd_outfile = open(av[ac - 1], O_WRONLY);
+    if (fd_outfile == -1)
+        ft_exit("ERROR : Failed to open output file");
+    if (pipe(pipefd) == -1)
+        ft_exit("Failed to create the pipe process");
+    pid = fork();
+    if (pid < 0)
+        ft_exit("ERROR : Failed to fork");
+    if (pid == 0)
+        exec_cmd2(pipefd, fd_outfile, av[3], env);
+    else
+        exec_cmd1(pipefd, fd_infile, av[2], env);
 }

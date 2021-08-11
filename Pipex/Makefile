@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
+#    By: Jules <Jules@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/22 15:10:36 by Jules             #+#    #+#              #
-#    Updated: 2021/08/10 14:19:59 by julpelle         ###   ########.fr        #
+#    Updated: 2021/08/11 11:11:50 by Jules            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LIBFT_DIR 		=	Libft
 
 LIBFT_LIB 		=	$(LIBFT_DIR)/libft.a
 
-SRCS_PIPEX	 	=	srcs2/pipex.c				\
+SRCS_PIPEX	 	=	srcs/pipex.c				\
 
 								
 OBJS_PIPEX		=	$(SRCS_PIPEX:.c=.o)
