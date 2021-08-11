@@ -6,7 +6,7 @@
 #    By: Jules <Jules@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/22 15:10:36 by Jules             #+#    #+#              #
-#    Updated: 2021/08/11 11:11:50 by Jules            ###   ########.fr        #
+#    Updated: 2021/08/11 11:33:54 by Jules            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ LIBFT_DIR 		=	Libft
 
 LIBFT_LIB 		=	$(LIBFT_DIR)/libft.a
 
-SRCS_PIPEX	 	=	srcs/pipex.c				\
+SRCS_PIPEX	 	=	srcs/exec.c					\
+					srcs/ft_exit.c				\
+					srcs/pipex.c				\
+					srcs/main.c					\
 
 								
 OBJS_PIPEX		=	$(SRCS_PIPEX:.c=.o)

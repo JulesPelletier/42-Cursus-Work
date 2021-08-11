@@ -6,18 +6,11 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 11:42:57 by julpelle          #+#    #+#             */
-/*   Updated: 2021/08/11 11:20:28 by Jules            ###   ########.fr       */
+/*   Updated: 2021/08/11 11:29:32 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
-
-void    ft_exit(char *error_message)
-{
-    write(2, error_message, ft_strlen(error_message));
-    write(2, "\n", 1);
-    exit(0);
-}
 
 void    ft_path(char *command, char **args, char **paths, char **env)
 {
@@ -62,46 +55,6 @@ void    execute(char *command, char **args, char **env)
         i++;
     }
     ft_path(command, args, paths, env);
-}
-
-void    exec_cmd1(int pipefd[2], int fd_infile, char *command1, char **env)
-{
-    char    **args;
-
-    close(pipefd[0]);
-    args = ft_split(command1, ' ');
-    if (dup2(fd_infile, 0) == -1)
-        ft_exit("ERROR : failed to dup input with STDIN");
-    if (dup2(pipefd[1], 1) == -1)
-        ft_exit("ERROR : failed to dup outfile with STDOUT");
-    if (args[0][0] == '/')
-    {
-        if (execve(args[0], args, env) == -1)
-            ft_exit("ERROR : invalid command");
-    }
-    else
-        execute(args[0], args, env);
-    close(fd_infile);
-    close(pipefd[1]);
-}
-
-void    exec_cmd2(int pipefd[2], int fd_outfile, char *command2, char **env)
-{
-    char    **args;
-
-    close(pipefd[1]);
-    args = ft_split(command2, ' ');
-    dup2(pipefd[0], 0);
-	dup2(fd_outfile, 1);
-    if (args[0][0] == '/')
-    {
-        if (execve(args[0], args, env) == -1)
-            ft_exit("ERROR : invalid command");
-    }
-    else
-        execute(args[0], args, env);
-    close(fd_outfile);
-    close(pipefd[0]);
 }
 
 void    ft_pipex(int ac, char **av, char **env)
