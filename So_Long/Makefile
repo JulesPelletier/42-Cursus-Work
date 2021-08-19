@@ -6,7 +6,7 @@
 #    By: Jules <Jules@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/11 16:35:11 by Jules             #+#    #+#              #
-#    Updated: 2021/08/12 17:23:59 by Jules            ###   ########.fr        #
+#    Updated: 2021/08/19 13:27:10 by Jules            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,10 +34,17 @@ SRCS_SOLONG	 	=	GNL/get_next_line.c							\
 					srcs/init/init_game.c						\
 					srcs/init/init_keys.c						\
 					srcs/init/init_mlx.c						\
+					srcs/init/init_player.c						\
+					srcs/init/init_draw.c						\
+					srcs/init/init_images.c						\
+					srcs/init/init_image.c						\
 					srcs/game/keys.c							\
 					srcs/main.c									\
 					srcs/show_struct.c							\
 					srcs/game/file1.c							\
+					srcs/render/player.c						\
+					srcs/render/load_images.c					\
+					srcs/draw/draw.c							\
 
 								
 OBJS_SOLONG		=	$(SRCS_SOLONG:.c=.o)

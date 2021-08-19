@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 16:17:47 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/13 14:01:33 by Jules            ###   ########.fr       */
+/*   Updated: 2021/08/17 14:57:32 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,7 @@ void    draw(t_all *all, int i, int j, int cub)
 void    calculate_h_and_w(t_all *all)
 {
     all->game.img_height = WIN_HEIGHT / all->params.len_x;
-    printf("Img Height : %d\n", all->game.img_height);
     all->game.img_width = WIN_WIDTH / all->params.len_y;
-    printf("Img Width : %d\n", all->game.img_width);
 }
 
 int test(t_all *all)
@@ -82,11 +80,11 @@ int test(t_all *all)
     while (i < WIN_HEIGHT)
     {
         j = 0;
-        while (j < WIN_WIDTH)
+        val1 = i / all->game.img_height;
+        while (j < WIN_WIDTH && val1 < all->params.len_x)
         {
-            val1 = i / all->game.img_height;
             val2 = j / all->game.img_width;
-            printf("Val 1 : %d | Val2 : %d\n", val1, val2);
+            //printf("Val 1 : %d | Val2 : %d\n", val1, val2);
             if (all->map.map[val1][val2] == '1')
                 draw(all, i, j, 1);
             else if (all->map.map[val1][val2] == '0')
@@ -99,6 +97,7 @@ int test(t_all *all)
                 draw(all, i, j, 5);
             j++;
         }
+        //printf("I : %d | J : %d | Val 1 : %d | Val2 : %d\n", i, j, val1, val2);
         i++;
     }
     return (0);

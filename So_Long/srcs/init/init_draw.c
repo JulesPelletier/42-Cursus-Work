@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   init_draw.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/12 12:20:48 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/16 15:44:16 by Jules            ###   ########.fr       */
+/*   Created: 2021/08/17 14:51:25 by Jules             #+#    #+#             */
+/*   Updated: 2021/08/17 14:52:36 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/solong.h"
 
-int parsing(t_all *all, int ac, char **av)
+void    init_draw(t_all *all)
 {
-    if (check_args(ac, av) == -1)
-        return (-1);
-    create_map(all);
-    show_map(all);
-    if (check_map_char(all) != 1)
-        return (-1);
-    if (final_param_check(all) < 0)
-        return (-1);
-    printf(GREEN"\nMap valid\n"RESET);
-    return (1);
+    all->draw.x = 0;
+    all->draw.y = 0;
+    all->draw.r_x = 0;
+    all->draw.r_y = 0;
+    all->draw.color = 0;
+    all->draw.pos_x = 0;
+    all->draw.pos_y = 0;
+    all->draw.p_data_x = 0;
+    all->draw.p_data_y = 0;
 }

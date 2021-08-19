@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 15:28:54 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/12 12:06:56 by Jules            ###   ########.fr       */
+/*   Updated: 2021/08/13 14:47:38 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    errors_part1(int error)
     if (error == 3)
         ft_putstr("Invalid extesion : must be '.ber'\n");
     if (error == 4)
-        ft_putstr("Invalid character in map ('0','1','C','E','P') \n");
+        ft_putstr("Invalid character in map, only ('0','1','C','E','P') \n");
     if (error == 5)
         ft_putstr("Unable to read file\n");
     if (error == 6)
