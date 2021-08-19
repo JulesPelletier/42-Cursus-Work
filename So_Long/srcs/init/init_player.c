@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 14:48:00 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/18 17:20:10 by Jules            ###   ########.fr       */
+/*   Updated: 2021/08/19 16:04:03 by rmechety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/solong.h"
+#include "solong.h"
 
 void    init_player(t_all *all)
 {

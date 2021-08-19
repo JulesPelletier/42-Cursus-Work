@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 09:31:59 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/19 13:26:32 by Jules            ###   ########.fr       */
+/*   Updated: 2021/08/19 16:04:03 by rmechety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/solong.h"
+#include "solong.h"
 
 int get_pixel(t_image *image, int x, int y)
 {

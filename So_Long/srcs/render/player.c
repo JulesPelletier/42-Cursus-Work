@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 16:25:28 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/19 13:41:47 by Jules            ###   ########.fr       */
+/*   Updated: 2021/08/19 16:04:03 by rmechety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/solong.h"
+#include "solong.h"
 
 int find_player(t_all *all)
 {

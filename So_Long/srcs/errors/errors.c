@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 15:28:54 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/13 14:47:38 by Jules            ###   ########.fr       */
+/*   Updated: 2021/08/19 16:04:03 by rmechety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/solong.h"
+#include "solong.h"
 
 void    errors_part1(int error)
 {

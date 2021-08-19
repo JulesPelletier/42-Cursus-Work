@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   close_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 14:20:00 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/12 14:33:15 by Jules            ###   ########.fr       */
+/*   Updated: 2021/08/19 16:04:03 by rmechety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/solong.h"
+#include "solong.h"
 
 int     close_window(t_all *all)
 {

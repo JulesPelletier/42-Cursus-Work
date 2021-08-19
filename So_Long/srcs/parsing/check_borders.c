@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_borders.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 18:03:59 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/16 16:03:08 by Jules            ###   ########.fr       */
+/*   Updated: 2021/08/19 16:04:03 by rmechety         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/solong.h"
+#include "solong.h"
 
 void    check_params(t_all *all)
 {
@@ -39,7 +39,7 @@ void    check_rectangular(t_all *all)
 {
     int i;
     int check;
-    
+
     i = 0;
     check = all->params.len_y;
     while (all->map.map[i] && i < all->params.len_x - 1)

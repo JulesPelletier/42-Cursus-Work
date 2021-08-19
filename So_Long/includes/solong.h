@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 15:28:25 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/19 13:37:03 by Jules            ###   ########.fr       */
+/*   Updated: 2021/08/19 17:49:06 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 # include <unistd.h>
 # include <dirent.h>
 # include <math.h>
-# include "../minilibx/mlx_linux/mlx.h"
-# include "../minilibx/mlx_mac/mlx.h"
-# include "../Libft/libft.h"
-# include "../GNL/get_next_line.h"
-# include "/usr/X11/include/X11/X.h"
+# include "mlx.h"
+// # include "../minilibx/mlx_mac/mlx.h"
+# include "libft.h"
+# include "get_next_line.h"
+// # include "/usr/X11/include/X11/X.h"
 
 # define GREEN "\033[38;2;57;181;74m"
 # define RED "\033[38;2;222;56;43m"
@@ -166,11 +166,11 @@ void    get_map_size(char *str, t_all *all);
 void    create_map(t_all *all);
 
 void    errors_part1(int error);
-void    ft_keypress(t_all *all, int key);
-void    ft_keyrelease(t_all *all, int key);
-int     keypress(t_all *all, int key);
-int     keyrelease(t_all *all, int key);
-int     ft_keys(t_all *all);
+void    ft_keypress(int key, t_all *all);
+void    ft_keyrelease(int key, t_all *all);
+int     keypress(int key, t_all *all);
+int     keyrelease(int key, t_all *all);
+void    ft_keys(t_all *all);
 
 
 
@@ -185,6 +185,11 @@ void    init_image(t_image *image);
 void    init_images(t_all *all);
 void    init_all(t_all *all);
 
+
+void	game_start(t_all *all);
+
+
+
 // TESTS
 
 void    show_struct(t_all *all);
@@ -198,6 +203,15 @@ void    show_floor(t_all *all);
 void    show_game(t_all *all);
 
 
+
+void	move_up(t_all *all);
+void	move_down(t_all *all);
+void	move_left(t_all *all);
+void	move_right(t_all *all);
+void	escape(t_all *all);
+
+
+
 int     handle_no_event(t_all *all);
 int     handle_input(t_all *all, int key);
 int     handle_output(t_all *all, int key);
@@ -205,7 +219,8 @@ int     render(t_all *all);
 int     render_big_square(t_all *all);
 void    calculate_h_and_w(t_all *all);
 int     test(t_all *all);
-
+void	draw_map2(t_all *all);
+int update_frame(t_all *all);
 
 int     find_player(t_all *all);
 t_image	load_image(void *mlx, char *path);

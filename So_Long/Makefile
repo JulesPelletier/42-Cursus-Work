@@ -6,7 +6,7 @@
 #    By: Jules <Jules@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/11 16:35:11 by Jules             #+#    #+#              #
-#    Updated: 2021/08/19 13:27:10 by Jules            ###   ########.fr        #
+#    Updated: 2021/08/19 17:12:35 by Jules            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SOLONG	 		=	so_long
 
 CC 				=	gcc -fsanitize=address
 
-CFLAGS 			=	-Wall -Wextra -Werror -g3 
+CFLAGS 			=	-Wall -Wextra -Werror -g3
 
 LIBFT_DIR 		=	Libft
 
@@ -42,14 +42,18 @@ SRCS_SOLONG	 	=	GNL/get_next_line.c							\
 					srcs/main.c									\
 					srcs/show_struct.c							\
 					srcs/game/file1.c							\
+					srcs/game/moves.c							\
+					srcs/game/game_start.c						\
 					srcs/render/player.c						\
 					srcs/render/load_images.c					\
 					srcs/draw/draw.c							\
 
-								
+
 OBJS_SOLONG		=	$(SRCS_SOLONG:.c=.o)
 
 MLX_DIR 		=	minilibx/mlx_mac
+
+INCDIRS 		= 	-IGNL -ILibft -Iminilibx/mlx_mac -Iincludes
 
 MLX_LIB 		=	$(MLX_DIR)/libmlx.a
 
@@ -57,19 +61,20 @@ MLX_LINKMAC 	=	-framework OpenGL -framework AppKit
 
 MLX_LINKLNX 	=	-lX11 -lXext -lm -lbsd
 
-all:				$(LIBFT_LIB) $(OBJS_SOLONG) $(SOLONG) $(MLX_LIB)
+all:				$(MLX_LIB) $(LIBFT_LIB) $(OBJS_SOLONG) $(SOLONG)
 
-$(SOLONG):			$(OBJS_SOLONG) $(LIBFT_LIB) 
-					$(CC) $(CFLAGS) $(OBJS_SOLONG) $(LIBFT_LIB) $(MLX_LIB) $(MLX_LINKMAC) -o $@ 
+$(SOLONG):			$(OBJS_SOLONG) $(LIBFT_LIB)
+					$(CC) $(OBJS_SOLONG) $(LIBFT_LIB) $(MLX_LIB) $(MLX_LINKMAC) -o $@
 
 
 %.o:				%.c
-					$(CC) $(CFLAGS)  -I. -o $@ -c $? 
+					$(CC)  $(INCDIRS) -o $@ -c $?
 
 $(LIBFT_LIB):
 					make -C $(LIBFT_DIR)
 
 $(MLX_LIB):
+					echo lalala
 					make -C $(MLX_DIR)
 
 clean:
@@ -80,7 +85,6 @@ clean:
 fclean:				clean
 					rm -f $(SOLONG)
 					make fclean -C $(LIBFT_DIR)
-					make fclean -C $(MLX_DIR)
 
 re:					fclean all
 

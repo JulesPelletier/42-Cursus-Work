@@ -6,13 +6,13 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 13:45:32 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/12 17:34:29 by Jules            ###   ########.fr       */
+/*   Updated: 2021/08/19 17:48:52 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/solong.h"
+#include "solong.h"
 
-void    ft_keypress(t_all *all, int key)
+void    ft_keypress(int key, t_all *all)
 {
     if (key == 13)
         all->keys.key_w = 1;
@@ -26,9 +26,9 @@ void    ft_keypress(t_all *all, int key)
         all->keys.key_esc = 1;
 }
 
-void    ft_keyrelease(t_all *all, int key)
+void    ft_keyrelease(int key, t_all *all)
 {
-    if (key == 13)
+	if (key == 13)
         all->keys.key_w = 0;
     if (key == 0)
         all->keys.key_a = 0;
@@ -40,31 +40,29 @@ void    ft_keyrelease(t_all *all, int key)
         all->keys.key_esc = 0;
 }
 
-int keypress(t_all *all, int key)
+int keypress(int key, t_all *all)
 {
-    printf("Key Pressed : %d\n", key);
-    ft_keypress(all, key);
+    ft_keypress(key, all);
+    ft_keys(all);
     return (1);
 }
 
-int keyrelease(t_all *all, int key)
+int keyrelease(int key, t_all *all)
 {
-    printf("Key Released : %d\n", key);
-    ft_keyrelease(all, key);
+    ft_keyrelease(key, all);
     return (1);
 }
 
-int ft_keys(t_all *all)
+void    ft_keys(t_all *all)
 {
     if (all->keys.key_w == 1)
-        show_keys(all);
+        move_up(all);
     if (all->keys.key_a == 1)
-        show_keys(all);
+        move_left(all);
     if (all->keys.key_s == 1)
-        show_keys(all);
+        move_down(all);
     if (all->keys.key_d == 1)
-        show_keys(all);
+        move_right(all);
     if (all->keys.key_esc == 1)
-        show_keys(all);
-    return (0);
+        escape(all);
 }
