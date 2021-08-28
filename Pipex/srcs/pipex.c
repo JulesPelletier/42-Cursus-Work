@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 11:42:57 by julpelle          #+#    #+#             */
-/*   Updated: 2021/08/28 13:05:08 by Jules            ###   ########.fr       */
+/*   Updated: 2021/08/28 14:15:06 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ void    ft_path(char *command, char **args, char **paths, char **env)
         free(tmp);
         i++;
     }
-    ft_putstr_fd("ERROR : ", STDOUT);
-    ft_putstr_fd(command, STDOUT);
-    ft_putstr_fd(" doesn't exist\n", STDOUT);
+    ft_exit("ERROR : ");
 }
 
 void    execute(char *command, char **args, char **env)

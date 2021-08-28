@@ -310,10 +310,22 @@ cat res1
 rm out1 res1
 
 printf "$YELLOW$S1$RESET\n" 
-printf "$PURPLE""Test Error 3 (not enough arguments) : < notexistign cat | > outfile$RESET\n"
+printf "$PURPLE""Test Error 3 (not enough arguments) : < test1 cat | > outfile$RESET\n"
 printf "$PURPLE$S2$RESET\n"
-< notexisting cat | > out1 2> out1
-../pipex "notexisting" "cat" 2> res1
+< test1 cat | > out1 2> out1
+../pipex "test1" "cat" 2> res1
+printf "$BLUE""Input\n""$RESET"
+cat test4
+printf "\n"
+printf "$BLUE""\nMy Res : \n""$RESET"
+cat res1
+rm out1 res1
+
+printf "$YELLOW$S1$RESET\n" 
+printf "$PURPLE""Test Error 4 (command error) : < infile cat | notexisting  > outfile$RESET\n"
+printf "$PURPLE$S2$RESET\n"
+< test4 ls | notexisting  > out1 2> out1
+../pipex "test4" "ls" "notexisting" res1 2> res1
 printf "$BLUE""Input\n""$RESET"
 cat test4
 printf "\n"
