@@ -11,6 +11,7 @@ RESET="\033[0m"
 
 comp()
 {
+	printf "\n\n"
 	diff -s out1 res1; 
 	if [[ $? == 0 ]] ; then
   		printf "$GREEN"" OK\n$RESET"
@@ -38,7 +39,7 @@ cat test1
 printf "\n"
 printf "$BLUE""\nMy Res : \n""$RESET"
 cat res1
-printf "$PURPLE""Test Res : \n""$RESET"
+printf "$PURPLE""\nTest Res : \n""$RESET"
 cat out1
 comp out1 res1
 rm out1 res1
@@ -53,7 +54,7 @@ cat test1
 printf "\n"
 printf "$BLUE""\nMy Res : \n""$RESET"
 cat res1
-printf "$PURPLE""Test Res : \n""$RESET"
+printf "$PURPLE""\nTest Res : \n""$RESET"
 cat out1
 comp out1 res1
 rm out1 res1
@@ -68,7 +69,7 @@ cat test1
 printf "\n"
 printf "$BLUE""\nMy Res : \n""$RESET"
 cat res1
-printf "$PURPLE""Test Res : \n""$RESET"
+printf "$PURPLE""\nTest Res : \n""$RESET"
 cat out1
 comp out1 res1
 rm out1 res1
@@ -83,7 +84,7 @@ cat test1
 printf "\n"
 printf "$BLUE""\nMy Res : \n""$RESET"
 cat res1
-printf "$PURPLE""Test Res : \n""$RESET"
+printf "$PURPLE""\nTest Res : \n""$RESET"
 cat out1
 comp out1 res1
 rm out1 res1
@@ -98,7 +99,7 @@ cat test2
 printf "\n"
 printf "$BLUE""\nMy Res : \n""$RESET"
 cat res1
-printf "$PURPLE""Test Res : \n""$RESET"
+printf "$PURPLE""\nTest Res : \n""$RESET"
 cat out1
 comp out1 res1
 rm out1 res1
@@ -129,7 +130,7 @@ cat test3
 printf "\n"
 printf "$BLUE""\nMy Res : \n""$RESET"
 cat res1
-printf "$PURPLE""Test Res : \n""$RESET"
+printf "$PURPLE""\nTest Res : \n""$RESET"
 cat out1
 comp out1 res1
 rm out1 res1
@@ -144,7 +145,7 @@ cat test3
 printf "\n"
 printf "$BLUE""\nMy Res : \n""$RESET"
 cat res1
-printf "$PURPLE""Test Res : \n""$RESET"
+printf "$PURPLE""\nTest Res : \n""$RESET"
 cat out1
 comp out1 res1
 rm out1 res1
@@ -159,7 +160,7 @@ cat test3
 printf "\n"
 printf "$BLUE""\nMy Res : \n""$RESET"
 cat res1
-printf "$PURPLE""Test Res : \n""$RESET"
+printf "$PURPLE""\nTest Res : \n""$RESET"
 cat out1
 comp out1 res1
 rm out1 res1
@@ -174,7 +175,7 @@ cat test3
 printf "\n"
 printf "$BLUE""\nMy Res : \n""$RESET"
 cat res1
-printf "$PURPLE""Test Res : \n""$RESET"
+printf "$PURPLE""\nTest Res : \n""$RESET"
 cat out1
 comp out1 res1
 rm out1 res1
@@ -189,7 +190,7 @@ cat test3
 printf "\n"
 printf "$BLUE""\nMy Res : \n""$RESET"
 cat res1
-printf "$PURPLE""Test Res : \n""$RESET"
+printf "$PURPLE""\nTest Res : \n""$RESET"
 cat out1
 comp out1 res1
 rm out1 res1
@@ -204,7 +205,7 @@ cat test3
 printf "\n"
 printf "$BLUE""\nMy Res : \n""$RESET"
 cat res1
-printf "$PURPLE""Test Res : \n""$RESET"
+printf "$PURPLE""\nTest Res : \n""$RESET"
 cat out1
 comp out1 res1
 rm out1 res1
@@ -219,7 +220,7 @@ cat test3
 printf "\n"
 printf "$BLUE""\nMy Res : \n""$RESET"
 cat res1
-printf "$PURPLE""Test Res : \n""$RESET"
+printf "$PURPLE""\nTest Res : \n""$RESET"
 cat out1
 comp out1 res1
 rm out1 res1
@@ -234,7 +235,88 @@ cat test3
 printf "\n"
 printf "$BLUE""\nMy Res : \n""$RESET"
 cat res1
-printf "$PURPLE""Test Res : \n""$RESET"
+printf "$PURPLE""\nTest Res : \n""$RESET"
 cat out1
 comp out1 res1
+rm out1 res1
+
+printf "$YELLOW$S1$RESET\n" 
+printf "$PURPLE""test Ultime 5.1 : < infile cat | cat  > outfile$RESET\n"
+printf "$PURPLE$S2$RESET\n"
+< test4 cat | cat  > out1 2> out1
+../pipex "test4" "cat" "cat" res1 2> res1
+printf "$BLUE""My Input\n""$RESET"
+cat test4
+printf "\n"
+printf "$BLUE""\nMy Res : \n""$RESET"
+cat res1
+printf "$PURPLE""\nTest Res : \n""$RESET"
+cat out1
+comp out1 res1
+rm out1 res1
+
+printf "$YELLOW$S1$RESET\n" 
+printf "$PURPLE""test Ultime 5.2 : < infile cat | head  > outfile$RESET\n"
+printf "$PURPLE$S2$RESET\n"
+< test4 cat | head  > out1 2> out1
+../pipex "test4" "cat" "head" res1 2> res1
+printf "$BLUE""My Input\n""$RESET"
+cat test4
+printf "\n"
+printf "$BLUE""\nMy Res : \n""$RESET"
+cat res1
+printf "$PURPLE""\nTest Res : \n""$RESET"
+cat out1
+comp out1 res1
+rm out1 res1
+
+printf "$YELLOW$S1$RESET\n" 
+printf "$PURPLE""test Ultime 5.3 : < infile cat | tail -5  > outfile$RESET\n"
+printf "$PURPLE$S2$RESET\n"
+< test4 cat | tail -5  > out1 2> out1
+../pipex "test4" "cat" "tail -5" res1 2> res1
+printf "$BLUE""Input\n""$RESET"
+cat test4
+printf "\n"
+printf "$BLUE""\nMy Res : \n""$RESET"
+cat res1
+printf "$PURPLE""\nTest Res : \n""$RESET"
+cat out1
+comp out1 res1
+rm out1 res1
+
+printf "$YELLOW$S1$RESET\n" 
+printf "$PURPLE""Test Error 1 (command error) : < infile notexisting | tail -5  > outfile$RESET\n"
+printf "$PURPLE$S2$RESET\n"
+< test4 notexisting | tail -5  > out1 2> out1
+../pipex "test4" "notexisting" "tail -5" res1 2> res1
+printf "$BLUE""Input\n""$RESET"
+cat test4
+printf "\n"
+printf "$BLUE""\nMy Res : \n""$RESET"
+cat res1
+rm out1 res1
+
+printf "$YELLOW$S1$RESET\n" 
+printf "$PURPLE""Test Error 2 (file error) : < notexistign cat | cat  > outfile$RESET\n"
+printf "$PURPLE$S2$RESET\n"
+< notexisting cat | cat  > out1 2> out1
+../pipex "notexisting" "cat" "cat" res1 2> res1
+printf "$BLUE""Input\n""$RESET"
+cat test4
+printf "\n"
+printf "$BLUE""\nMy Res : \n""$RESET"
+cat res1
+rm out1 res1
+
+printf "$YELLOW$S1$RESET\n" 
+printf "$PURPLE""Test Error 3 (not enough arguments) : < notexistign cat | > outfile$RESET\n"
+printf "$PURPLE$S2$RESET\n"
+< notexisting cat | > out1 2> out1
+../pipex "notexisting" "cat" 2> res1
+printf "$BLUE""Input\n""$RESET"
+cat test4
+printf "\n"
+printf "$BLUE""\nMy Res : \n""$RESET"
+cat res1
 rm out1 res1
