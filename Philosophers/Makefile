@@ -6,7 +6,7 @@
 #    By: Jules <Jules@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 15:33:15 by Jules             #+#    #+#              #
-#    Updated: 2021/08/31 16:08:47 by Jules            ###   ########.fr        #
+#    Updated: 2021/09/03 13:26:42 by Jules            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,26 +18,32 @@ CFLAGS 				=	-Wall -Wextra -Werror -fsanitize=address
 
 INCDIRS				=	-Iincludes
 
+LIBS				=	-lpthread
 
-SRCS_PHILO	 		=	srcs/ft_atoi.c					\
-						srcs/init_struct.c				\
-						srcs/main.c						\
-						srcs/utils.c					\
+
+SRCS_PHILO	 		=	srcs/utils/ft_atoi.c					\
+						srcs/utils/ft_isdigit.c					\
+						srcs/utils/ft_strlen.c					\
+						srcs/utils/ft_putchar_fd.c				\
+						srcs/utils/ft_putnbr_fd.c				\
+						srcs/init_struct.c						\
+						srcs/check_params.c						\
+						srcs/main.c								\
+						srcs/functions.c						\
 
 OBJS_PHILO			=	$(SRCS_PHILO:.c=.o)
 
 all:					$(OBJS_PHILO) $(PHILOSOPHER)
 
 $(PHILOSOPHER):			$(OBJS_PHILO) 
-						$(CC) $(CFLAGS) $(OBJS_PHILO) -o $@ 
+						$(CC) $(CFLAGS) $(OBJS_PHILO) ${LIBS} -o $@ 
 
 
 %.o:					%.c
 						$(CC)  $(INCDIRS) -o $@ -c $?
 
-
-clean:
-						rm -f $(OBS_PHILO)
+clean:					
+						rm -f $(OBJS_PHILO)
 
 fclean:					clean
 						rm -f $(PHILOSOPHER)
