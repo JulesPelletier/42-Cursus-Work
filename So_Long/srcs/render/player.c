@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 16:25:28 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/19 16:04:03 by rmechety         ###   ########.fr       */
+/*   Updated: 2021/09/01 10:51:53 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_image	load_image(void *mlx, char *path)
 {
 	t_image	image;
 
+    init_image(&image);
 	image.img = mlx_xpm_file_to_image(mlx, path, &(image.width), &(image.height));
 	if (!image.img)
 		return (image);

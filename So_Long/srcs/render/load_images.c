@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_images.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 16:01:36 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/19 16:04:03 by rmechety         ###   ########.fr       */
+/*   Updated: 2021/09/01 10:47:22 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ void	load_floor(t_all *all)
 void	load_wall(t_all *all)
 {
 	all->wall = load_image(all->mlx.mlx_ptr,
-			"./srcs/textures/wale-64-1.xpm");
+			"./srcs/textures/mur.jpeg");
 	if (!(all->wall.img))
 	{
 		ft_putstr_fd("Error during image loading.\n", 2);
 	}
-    all->wall.img_link = ft_strdup("./srcs/textures/wale-64-1.xpm");
+    all->wall.img_link = ft_strdup("./srcs/textures/mur.jpeg");
 }
 
 void	load_all_images(t_all *all)

@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 17:17:28 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/19 13:39:51 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/01 10:48:14 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void    show_wall(t_all *all)
 {
     printf("======= [SHOW WALL] =======\n");
     printf("Wall Link : %s\n", all->wall.img_link);
-    //printf("Wall Address : %s\n", all->wall.addr);
+    printf("Wall Address : %s\n", all->wall.addr);
     printf("Wall Bits per pixel : %d\n", all->wall.bits_per_pixel);
     printf("Wall Line length : %d\n", all->wall.line_length);
     printf("Wall endian : %d\n", all->wall.endian);

@@ -6,7 +6,7 @@
 #    By: Jules <Jules@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/11 16:35:11 by Jules             #+#    #+#              #
-#    Updated: 2021/08/19 17:12:35 by Jules            ###   ########.fr        #
+#    Updated: 2021/09/06 12:00:07 by Jules            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,13 +47,14 @@ SRCS_SOLONG	 	=	GNL/get_next_line.c							\
 					srcs/render/player.c						\
 					srcs/render/load_images.c					\
 					srcs/draw/draw.c							\
+					srcs/draw/draw2.c							\
 
 
 OBJS_SOLONG		=	$(SRCS_SOLONG:.c=.o)
 
 MLX_DIR 		=	minilibx/mlx_mac
 
-INCDIRS 		= 	-IGNL -ILibft -Iminilibx/mlx_mac -Iincludes
+INCDIRS 		= 	-IGNL -ILibft -Iminilibx_opengl -Iincludes
 
 MLX_LIB 		=	$(MLX_DIR)/libmlx.a
 
@@ -61,11 +62,10 @@ MLX_LINKMAC 	=	-framework OpenGL -framework AppKit
 
 MLX_LINKLNX 	=	-lX11 -lXext -lm -lbsd
 
-all:				$(MLX_LIB) $(LIBFT_LIB) $(OBJS_SOLONG) $(SOLONG)
+all:				$(LIBFT_LIB) $(OBJS_SOLONG) $(SOLONG)
 
 $(SOLONG):			$(OBJS_SOLONG) $(LIBFT_LIB)
 					$(CC) $(OBJS_SOLONG) $(LIBFT_LIB) $(MLX_LIB) $(MLX_LINKMAC) -o $@
-
 
 %.o:				%.c
 					$(CC)  $(INCDIRS) -o $@ -c $?

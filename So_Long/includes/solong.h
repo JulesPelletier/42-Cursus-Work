@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 15:28:25 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/19 17:49:06 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/06 11:59:49 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <unistd.h>
 # include <dirent.h>
 # include <math.h>
-# include "mlx.h"
-// # include "../minilibx/mlx_mac/mlx.h"
+//# include "mlx.h"
+# include "../minilibx/mlx_mac/mlx.h"
 # include "libft.h"
 # include "get_next_line.h"
 // # include "/usr/X11/include/X11/X.h"
