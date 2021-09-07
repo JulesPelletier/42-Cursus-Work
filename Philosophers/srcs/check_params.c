@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 13:49:28 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/01 14:13:21 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/07 17:52:01 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,32 +45,39 @@ int	check_numberofargs(int ac)
 
 int	check_args(int ac, char **av)
 {
-	if (check_numberofargs(ac) < 0)
-		return (-1);
-	else if (check_number(av[1]) < 0)
+	if (check_number(av[1]) < 0)
 	{
 		write(2, "First argument is not valid\n", 29);
 		return (-1);
 	}
-	else if (check_number(av[2]) < 0)
+	if (check_number(av[2]) < 0)
 	{
 		write(2, "Second argument is not valid\n", 30);
 		return (-1);
 	}
-	else if (check_number(av[3]) < 0)
+	if (check_number(av[3]) < 0)
 	{
 		write(2, "Third argument is not valid\n", 29);
 		return (-1);
 	}
-	else if (check_number(av[4]) < 0)
+	if (check_number(av[4]) < 0)
 	{
 		write(2, "Fourth argument is not valid\n", 30);
 		return (-1);
 	}
-	else if (check_number(av[5]) < 0)
+	if (check_number(av[5]) < 0)
 	{
 		write(2, "Fifth argument is not valid\n", 29);
 		return (-1);
 	}
+	return (0);
+}
+
+int		check_params(int ac, char **av)
+{
+	if (check_numberofargs(ac) < 0)
+		return (-1);
+	if (check_args(ac, av) < 0)
+		return (-1);
 	return (0);
 }
