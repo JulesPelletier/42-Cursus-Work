@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 17:54:42 by juliodelave       #+#    #+#             */
-/*   Updated: 2020/02/19 15:10:46 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/08/09 12:59:02 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <sys/uio.h>
 # include <fcntl.h>
 # include <unistd.h>
+
+# define BUFFER_SIZE 32
 
 int				ft_strlen(const char *s);
 char			*ft_strjoin(char *s1, char *s2);
