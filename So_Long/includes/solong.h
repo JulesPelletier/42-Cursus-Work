@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 15:28:25 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/06 11:59:49 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/10 10:46:07 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,8 +187,9 @@ void    init_all(t_all *all);
 
 
 void	game_start(t_all *all);
-
-
+void	load_textures(t_all *all);
+void	display_texture(t_all *all, void *img);
+int 	ft_display(t_all *all, char c);
 
 // TESTS
 

@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 16:09:13 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/06 11:38:02 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/10 10:46:24 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ int main(int ac, char **av)
         printf("WINDOW NULL\n");
         return (0);
     }
+    load_textures(&all);
     game_start(&all);
     
     mlx_hook(all.mlx.win_ptr, 2, (1L << 0), keypress, &all);
 	mlx_hook(all.mlx.win_ptr, 3, (1L << 1), keyrelease, &all);
-	mlx_loop_hook(all.mlx.mlx_ptr, show, &all);
+	mlx_loop_hook(all.mlx.mlx_ptr, &ft_display, &all);
 	mlx_loop(all.mlx.mlx_ptr);
-
     /*
     fill_player(&all);
     load_all_images(&all);

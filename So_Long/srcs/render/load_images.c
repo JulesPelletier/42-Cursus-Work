@@ -6,12 +6,13 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 16:01:36 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/01 10:47:22 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/10 10:29:54 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "solong.h"
 
+/*
 void    load_collectibles(t_all *all)
 {
 	all->collect = load_image(all->mlx.mlx_ptr,
@@ -63,3 +64,4 @@ void	load_all_images(t_all *all)
 	load_floor(all);
 	load_wall(all);
 }
+*/

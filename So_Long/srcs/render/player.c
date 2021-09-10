@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 16:25:28 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/01 10:51:53 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/10 10:32:16 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int find_player(t_all *all)
     return (1);
 }
 
+/*
 t_image	load_image(void *mlx, char *path)
 {
 	t_image	image;
@@ -47,6 +48,7 @@ t_image	load_image(void *mlx, char *path)
 			&image.line_length, &image.endian);
 	return (image);
 }
+*/
 
 /*
 void    load_image(t_image	image, void *mlx, char *path)
@@ -59,6 +61,7 @@ void    load_image(t_image	image, void *mlx, char *path)
 }
 */
 
+/*
 void    init_player_img(t_all *all)
 {
     all->player.img_player = load_image(all->mlx.mlx_ptr,
@@ -72,3 +75,4 @@ void    fill_player(t_all *all)
         ;
     init_player_img(all);
 }
+*/
