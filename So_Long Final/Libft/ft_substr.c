@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 19:13:26 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:58:40 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/09/15 23:13:31 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,23 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	counts;
-	char			*ptr;
+	char			*sub;
+	unsigned int	i;
 
-	counts = (unsigned int)ft_strlen(s);
-	ptr = malloc(sizeof(char) * (len + 1));
-	if (!(ptr))
+	if (!s)
 		return (NULL);
-	if (counts < start)
+	if (start > ft_strlen(s))
+		len = 0;
+	sub = malloc(sizeof(char) * (len + 1));
+	if (!sub)
+		return (0);
+	i = 0;
+	while (i < len)
 	{
-		ptr[0] = '\0';
-		return (ptr);
+		sub[i] = s[start];
+		i++;
+		start++;
 	}
-	counts = 0;
-	while (s[counts + start] != '\0' && counts < (unsigned int)len)
-	{
-		ptr[counts] = s[counts + start];
-		counts++;
-	}
-	ptr[counts] = '\0';
-	return (ptr);
+	sub[i] = '\0';
+	return (sub);
 }

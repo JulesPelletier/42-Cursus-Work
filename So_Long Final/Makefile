@@ -6,7 +6,7 @@
 #    By: Jules <Jules@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/11 16:35:11 by Jules             #+#    #+#              #
-#    Updated: 2021/09/13 17:26:50 by Jules            ###   ########.fr        #
+#    Updated: 2021/09/15 23:37:08 by Jules            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ LIBFT_DIR 		=	Libft
 LIBFT_LIB 		=	$(LIBFT_DIR)/libft.a
 
 SRCS_SOLONG	 	=	GNL/get_next_line.c							\
+					GNL/get_next_line_utils.c					\
 					srcs/parsing/check_args.c					\
 					srcs/parsing/check_character.c				\
 					srcs/parsing/check_extension.c				\

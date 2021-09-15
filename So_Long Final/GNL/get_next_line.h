@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 17:54:42 by juliodelave       #+#    #+#             */
-/*   Updated: 2021/08/11 17:03:32 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/15 23:38:55 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@
 
 # define BUFFER_SIZE 10
 
-int				get_next_line(int fd, char **line);
+size_t	ft_strlen_bis(const char *s);
+int		check_charset(char c, char const *set);
+void	ft_free(char *s);
+char	*ft_strjoin_bis(char *s1, char *s2);
+char	*ft_substr_bis(char *s, unsigned int start, size_t len);
+int		get_next_line(int fd, char **line);
 
 #endif

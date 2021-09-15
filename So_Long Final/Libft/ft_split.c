@@ -3,81 +3,96 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 10:51:13 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:57:31 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/09/15 23:20:57 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_word(char const *s, char c)
+int	check_charset(char c, char const *set)
 {
-	int	countw;
-	int	counti;
+	int	i;
 
-	countw = 0;
-	counti = 0;
-	while (s[counti] != '\0')
+	i = 0;
+	while (set[i])
 	{
-		while (s[counti] == c)
-			counti++;
-		if (s[counti] != c && s[counti] != '\0')
-			countw++;
-		while (s[counti] != c && s[counti] != '\0')
-			counti++;
+		if (set[i] == c)
+			return (i);
+		i++;
 	}
-	return (countw);
+	return (-1);
 }
 
-int	ft_len(char const *s, char c, int start)
+int	check_size(char *str, char *charset)
 {
-	int	count;
+	int	size;
 
-	count = 0;
-	while (s[start] == c)
-		start++;
-	while (s[start + count] != c && s[start + count] != '\0')
-		count++;
-	return (count);
-}
-
-char	**ft_vide(char const *s)
-{
-	char	**ptr;
-
-	ptr = malloc(sizeof(char *) * (2));
-	if (!(ptr))
-		return (NULL);
-	ptr[0] = ft_strdup(s);
-	ptr[1] = 0;
-	return (ptr);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int		count;
-	int		count3;
-	char	**ptr;
-
-	count3 = 0;
-	while (s[count3] == c)
-		count3++;
-	ptr = malloc(sizeof(char *) * (ft_word(s, c) + 1));
-	if (!(ptr))
-		return (NULL);
-	count = 0;
-	while (count < ft_word(s, c))
+	size = 0;
+	while (*str)
 	{
-		while (s[count3] == c)
-			count3++;
-		if (s[count3] == '\0')
-			return (ft_vide(s));
-		ptr[count] = ft_substr(s, count3, ft_len(s, c, count3));
-		count3 = count3 + ft_len(s, c, count3);
-		count++;
+		while (*str && check_charset(*str, charset) != -1)
+			str++;
+		if (*str && check_charset(*str, charset) == -1)
+		{
+			size++;
+			while (*str && check_charset(*str, charset) == -1)
+				str++;
+		}
 	}
-	ptr[count] = 0;
-	return (ptr);
+	return (size);
+}
+
+char	*create_string(char *str, char *charset)
+{
+	int		z;
+	char	*split;
+	int		x;
+
+	x = 0;
+	z = 0;
+	while (str[x] && check_charset(str[x], charset) == -1)
+		x++;
+	split = (char *)malloc(sizeof(char) * (x + 1));
+	if (!split)
+		return (NULL);
+	x = 0;
+	while (str[x] && check_charset(str[x], charset) != -1)
+		x++;
+	while (str[x] && check_charset(str[x], charset) == -1)
+	{
+		split[z] = str[x];
+		z++;
+		x++;
+	}
+	split[z] = '\0';
+	return (split);
+}
+
+char	**ft_split(char *str, char *charset)
+{
+	int		i;
+	char	**split_tab;
+
+	split_tab = (char **)malloc(sizeof(char *)
+			*(check_size(str, charset) + 1));
+	if (!split_tab)
+		return (NULL);
+	i = 0;
+	while (*str)
+	{
+		while (*str && check_charset(*str, charset) != -1)
+			str++;
+		if (*str && check_charset(*str, charset) == -1)
+		{
+			split_tab[i] = create_string(str, charset);
+			i++;
+			while (*str && check_charset(*str, charset) == -1)
+				str++;
+		}
+	}
+	split_tab[i] = NULL;
+	return (split_tab);
 }

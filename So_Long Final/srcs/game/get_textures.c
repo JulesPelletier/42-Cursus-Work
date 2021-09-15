@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 10:32:28 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/13 17:04:52 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/15 17:24:13 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	load_textures(t_all *all)
 	all->floor.img = mlx_xpm_file_to_image(all->mlx.mlx_ptr, "./textures/wale-64-1.xpm", &(all->game.img_width), &(all->game.img_height));
 	all->exit.img = mlx_xpm_file_to_image(all->mlx.mlx_ptr, "./textures/exit-fond64t-transp.xpm", &(all->game.img_width), &(all->game.img_height));
 	all->wall.img = mlx_xpm_file_to_image(all->mlx.mlx_ptr, "./textures/wall.xpm", &(all->game.img_width), &(all->game.img_height));
-	all->background.img = mlx_xpm_file_to_image(all->mlx.mlx_ptr, "./textures/raisin.xpm", &(all->game.img_width), &(all->game.img_height));
 }
 
 void	display_texture(t_all *all, void *img)
@@ -31,7 +30,6 @@ void	display_texture(t_all *all, void *img)
 
 void	ft_display(t_all *all, char c)
 {
-	display_texture(all, all->background.img);
 	if (c == '1')
 		display_texture(all, all->wall.img);
 	if (c == '0')

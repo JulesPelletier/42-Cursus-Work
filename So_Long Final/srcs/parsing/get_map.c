@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 16:24:59 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/10 14:36:21 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/15 23:22:00 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void    create_map(t_all *all)
         content = ft_strjoin(content, "\n");
         all->params.len_x++;
     }
-    all->map.map = ft_split(content, '\n');
+    all->map.map = ft_split(content, "\n");
     close(fd);
 }
 
