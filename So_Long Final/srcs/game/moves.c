@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:29:19 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/10 14:33:19 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/15 15:21:16 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ void	move_up(t_all *all)
 			update_player(all);
 			check_exit(all);
 		}
-		//show_map(all);
-		//show_game(all);
 	}
 }
 
@@ -84,8 +82,6 @@ void	move_down(t_all *all)
 			update_player(all);
 			check_exit(all);
 		}
-		//show_map(all);
-		//show_game(all);
 	}
 }
 
@@ -101,8 +97,6 @@ void	move_left(t_all *all)
 			update_player(all);
 			check_exit(all);
 		}
-		//show_map(all);
-		//show_game(all);
 	}
 }
 
@@ -118,8 +112,6 @@ void	move_right(t_all *all)
 			update_player(all);
 			check_exit(all);
 		}
-		//show_map(all);
-		//show_game(all);
 	}
 }
 

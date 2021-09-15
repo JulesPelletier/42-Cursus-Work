@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 16:09:13 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/10 14:36:25 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/15 15:21:22 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,6 @@ int main(int ac, char **av)
 	mlx_hook(all.mlx.win_ptr, 3, (1L << 1), keyrelease, &all);
 	mlx_loop_hook(all.mlx.mlx_ptr, draw, &all);
 	mlx_loop(all.mlx.mlx_ptr);
-    /*
-    fill_player(&all);
-    load_all_images(&all);
-    draw_graphics(&all);
-    */
     free(all.mlx.mlx_ptr);
     show_struct(&all);
     return (0);
