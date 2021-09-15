@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 13:34:05 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/16 00:25:25 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/16 01:51:53 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	check_spaces(t_all *all, int i, int f)
 
 void	check_elems(t_all *all, int i, int f)
 {
+	if (check_closed(all) != 1)
+		error(all, 1);
 	if (check_charset(all->args.matrix[i][f], "10PCE") == -1)
 		error(all, 1);
 	if (all->args.matrix[i][f] == 'P')
@@ -62,9 +64,6 @@ void	check_elems(t_all *all, int i, int f)
 		all->map.sprite_count++;
 	if (all->args.matrix[i][f] == 'E')
 		all->map.exit_count++;
-	if (all->args.matrix[i][f] == '0')
-		if (check_spaces(all, i, f))
-			error(all, 1);
 }
 
 int	check_file(char *file)
@@ -89,6 +88,8 @@ void	check_map(t_all *all)
 	all->map.sprite_count = 0;
 	all->map.exit_count = 0;
 	i = 0;
+	if (check_closed(all) != 1)
+		error(all, 1);
 	while (all->args.matrix[i])
 	{
 		f = 0;

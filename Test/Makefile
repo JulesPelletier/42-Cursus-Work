@@ -6,7 +6,7 @@
 #    By: Jules <Jules@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/24 17:36:15 by Jules             #+#    #+#              #
-#    Updated: 2021/09/16 00:47:43 by Jules            ###   ########.fr        #
+#    Updated: 2021/09/16 01:42:18 by Jules            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SOURCES 	= 	checks.c						\
 				textures.c						\
 				error.c							\
 				display.c						\
+				check_map_closed.c				\
 
 SRCS 		=	$(addprefix $(DIR_S)/,$(SOURCES))
 
@@ -51,7 +52,7 @@ MLX_DIR 	=	mlx-macos
 
 CC 			= 	gcc
 
-CFLAGS 		= 	-Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS 		= 	-Wall -Wextra -Werror -g -fsanitize=address
 
 LIBS 		= 	-framework OpenGL -framework Appkit
 

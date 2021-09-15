@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:03:48 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/16 01:06:28 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/16 01:44:14 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "../Libft/libft.h"
 # include "../mlx-macos/mlx.h"
 //# include "../mlx-linux/mlx.h"
+
 # include "math.h"
 # include <fcntl.h>
 
@@ -187,6 +188,10 @@ void	start_pos(t_all *all);
 
 //TEXTURES
 void	get_textures(t_all *all);
+
+//CHECK MAP CLOSED
+int	check_closed(t_all *all);
+
 
 
 #endif
