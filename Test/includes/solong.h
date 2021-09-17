@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/18 14:03:48 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/16 01:44:14 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/16 01:55:18 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,7 @@ void	start_pos(t_all *all);
 void	get_textures(t_all *all);
 
 //CHECK MAP CLOSED
-int	check_closed(t_all *all);
+int		check_closed(t_all *all);
 
 
 

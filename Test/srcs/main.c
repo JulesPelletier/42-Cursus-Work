@@ -6,7 +6,7 @@
 /*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 12:38:34 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/16 01:47:26 by Jules            ###   ########.fr       */
+/*   Updated: 2021/09/16 01:54:52 by Jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	main(int argc, char **argv)
 		error(&all, 2);
 	map_parsing(&(all.args), &all);
 	start_pos(&all);
+	printf("Size x : %d\n", all.map.size_x);
+	printf("Size y : %d\n", all.map.size_y);
 	all.collectibles = 1;
 	all.exit = 1;
 	game_loop(&all);
