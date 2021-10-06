@@ -5,33 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 21:56:25 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:57:54 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:13:44 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
-	size_t	countdst;
-	size_t	count3;
-	size_t	count4;
+	size_t	src_size;
+	size_t	dest_size;
+	size_t	i;
 
-	if (dstsize == 0)
-		return (ft_strlen(src));
-	countdst = ft_strlen(dst);
-	if (countdst > dstsize)
-		countdst = dstsize;
-	count3 = 0;
-	count4 = countdst;
-	if (countdst < dstsize)
+	i = 0;
+	src_size = ft_strlen(src);
+	dest_size = ft_strlen(dest);
+	if (size == 0)
+		return (src_size);
+	while (src[i] && dest_size + i + 1 < size)
 	{
-		while (count4 < dstsize - 1 && src[count3] != '\0')
-			dst[count4++] = src[count3++];
-		dst[count4] = '\0';
+		dest[dest_size + i] = src[i];
+		i++;
 	}
-	if (dstsize - 1 < countdst)
-		return (dstsize + ft_strlen(src));
-	return (ft_strlen(src) + countdst);
+	if (dest_size > size)
+	{
+		return (src_size + size);
+	}
+	else
+	{
+		dest[dest_size + i] = 0;
+	}
+	return (src_size + dest_size);
 }

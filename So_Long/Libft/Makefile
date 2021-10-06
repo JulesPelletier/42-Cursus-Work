@@ -5,36 +5,108 @@
 #                                                     +:+ +:+         +:+      #
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/10/27 13:20:44 by julpelle          #+#    #+#              #
-#    Updated: 2021/08/10 15:31:44 by julpelle         ###   ########.fr        #
+#    Created: 2020/11/05 14:00:38 by julpelle          #+#    #+#              #
+#    Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libft.a
+NAME	=	libft.a
 
-CC=gcc
+SRCS	=	ft_memset.c \
+			ft_bzero.c \
+			ft_memcpy.c \
+			ft_memccpy.c \
+			ft_memmove.c \
+			ft_memchr.c \
+			ft_memcmp.c \
+			ft_strlen.c \
+			ft_isalpha.c \
+			ft_isdigit.c \
+			ft_isalnum.c \
+			ft_isascii.c \
+			ft_isprint.c \
+			ft_toupper.c \
+			ft_tolower.c \
+			ft_strchr.c \
+			ft_strrchr.c \
+			ft_strncmp.c \
+			ft_strlcpy.c \
+			ft_strlcat.c \
+			ft_strnstr.c \
+			ft_atoi.c \
+			ft_calloc.c \
+			ft_strdup.c \
+			ft_substr.c \
+			ft_strjoin.c \
+			ft_strtrim.c \
+			ft_split.c \
+			ft_itoa.c \
+			ft_strmapi.c \
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_putendl_fd.c \
+			ft_putnbr_fd.c \
+			
+BONUS	=	ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstadd_back.c \
+			ft_lstlast.c \
+			ft_lstsize.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c \
+			ft_strncpy.c \
+			ft_strcat.c \
+			ft_strcpy.c \
+			ft_strncat.c \
+			ft_strcmp.c \
+			ft_strstr.c \
+			ft_memdel.c \
+			ft_memalloc.c \
+			ft_putnbr.c \
+			ft_putstr.c \
+			ft_putchar.c \
+			ft_strnew.c \
+			ft_strclr.c \
+			ft_strdel.c \
+			ft_striter.c \
+			ft_striteri.c \
+			ft_strmap.c \
+			ft_strequ.c \
+			ft_strnequ.c \
+			ft_putendl.c \
+			get_next_line.c \
 
-CFLAGS = -Wall -Wextra -Werror
+OBJS	=	${SRCS:.c=.o}
 
-RM=rm -f
+OBJS_BONUS	= ${BONUS:.c=.o}
 
-SRC= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c \
-ft_strchr.c ft_strdup.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_substr.c ft_toupper.c ft_isprint.c ft_strtrim.c \
-ft_split.c ft_itoa.c ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_tolower.c ft_putstr.c
+CFLAGS	=	-Wall -Wextra -Werror
 
-OBJ=$(SRC:.c=.o)
+RM		=	rm -f
 
-$(NAME) : $(OBJ)
-		  ar rc $(NAME) $(OBJ)
-		  ranlib $(NAME)
-all: $(NAME)
+HEADER	=	-I libft/libft.h
 
-clean:
-	$(RM) $(OBJ)
+.c.o:
+			@gcc ${CFLAGS} -c $< -o $(<:.c=.o) ${HEADER}
 
-fclean: clean
-	$(RM) $(NAME)
+${NAME}:	${OBJS}
+			@gcc $(FLAGS) -c $(SRCS)
+			@ar rcs ${NAME} ${OBJS}
 
-re: fclean all
+bonus:
+			@gcc $(FLAGS) -c $(SRCS) $(BONUS)
+			@ar rcs $(NAME) $(OBJS) $(OBJS_BONUS)
 
-.PHONY : clean fclean all re
+all:		${NAME}
+
+clean:	
+			@${RM} ${OBJS} $(BONUS:.c=.o)
+
+fclean:		clean
+			@${RM} ${NAME}
+
+re:			fclean all
+
+.PHONY:		all clean fclean re bonus

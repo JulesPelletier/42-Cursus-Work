@@ -8,14 +8,14 @@
 
 int	mlx_mouse_hide()
 {
-  //  CGDisplayHideCursor(kCGDirectMainDisplay);
+  //  CGrenderHideCursor(kCGDirectMainrender);
   [NSCursor hide];
   return (0);
 }
 
 int	mlx_mouse_show()
 {
-  //  CGDisplayShowCursor(kCGDirectMainDisplay);
+  //  CGrenderShowCursor(kCGDirectMainrender);
   [NSCursor unhide];
   return (0);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/21 11:14:54 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:55:49 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:11:43 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*ptr;
+	char	*mem;
 
-	ptr = malloc(size * count);
-	if (!(ptr))
+	mem = malloc(count * size);
+	if (!mem)
 		return (NULL);
-	ft_bzero(ptr, size * count);
-	return (ptr);
+	ft_bzero(mem, count * size);
+	return (mem);
 }

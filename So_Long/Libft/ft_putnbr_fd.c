@@ -5,37 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/24 23:31:59 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:57:22 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:12:59 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_boucle(long int count, int fd)
-{
-	char	c;
-
-	if ((count / 10) > 0)
-		ft_boucle(count / 10, fd);
-	c = (count % 10) + '0';
-	write(fd, &c, 1);
-}
-
 void	ft_putnbr_fd(int n, int fd)
 {
-	long int	count;
+	long	nbr;
 
-	count = n;
-	if (count == -2147483648)
+	nbr = n;
+	if (nbr < 0)
 	{
-		write(fd, "-2147483648", 11);
-		return ;
+		nbr = -nbr;
+		ft_putchar_fd('-', fd);
 	}
-	if (count < 0)
+	if (nbr >= 10)
 	{
-		write(fd, "-", 1);
-		count = -count;
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putchar_fd(nbr % 10 + '0', fd);
 	}
-	ft_boucle(count, fd);
+	else
+		ft_putchar_fd(nbr + '0', fd);
 }

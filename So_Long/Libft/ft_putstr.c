@@ -5,26 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/10 15:31:00 by julpelle          #+#    #+#             */
-/*   Updated: 2021/08/10 15:35:13 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:13:01 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_putchar(char c)
+void	ft_putstr(char const *str)
 {
-    write(0, &c, 1);
-}
-void    ft_putstr(char *str)
-{
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i])
-    {
-        ft_putchar(str[i]);
-        i++;
-    }
-    write(0, "\n", 1);
+	if (!str)
+		return ;
+	i = 0;
+	while (str[i])
+		write(1, &str[i++], 1);
 }

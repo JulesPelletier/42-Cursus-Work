@@ -388,7 +388,7 @@ int get_mouse_button(NSEventType eventtype)
 
       // Window controller subclass to set title
       // NSWindowController* windowController = [[NSWindowController alloc] initWithWindow:win];
-      // [windowController windowTitleForDocumentDisplayName:title];
+      // [windowController windowTitleForDocumentrenderName:title];
       // [windowController showWindow:nil];
       // MlxWinController *mlxWinCont = [[MlxWinController alloc] initWin:win andTitle:title];
 

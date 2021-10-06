@@ -1,250 +1,143 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solong.h                                           :+:      :+:    :+:   */
+/*   solong.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/11 15:28:25 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/10 10:46:07 by Jules            ###   ########.fr       */
+/*   Created: 2021/07/24 20:31:27 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:39:31 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SOLONG_H
-#define SOLONG_H
+# define  SOLONG_H
 
-# include <stdlib.h>
-# include <stdio.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include <dirent.h>
-# include <math.h>
-//# include "mlx.h"
+# include "../libft/libft.h"
 # include "../minilibx/mlx_mac/mlx.h"
-# include "libft.h"
-# include "get_next_line.h"
-// # include "/usr/X11/include/X11/X.h"
 
-# define GREEN "\033[38;2;57;181;74m"
-# define RED "\033[38;2;222;56;43m"
-# define BLUE "\033[38;2;34;183;235m"
-# define YELLOW "\033[38;2;255;176;0m"
-# define PURPLE "\033[38;2;255;105;180m"
-# define RESET "\033[0m"
+/*
+# define ARROW_UP 65362
+# define ARROW_RIGHT 65363
+# define ARROW_DOWN 65364
+# define ARROW_LEFT 65361
+# define KEYBORD_W 119
+# define KEYBORD_A 97
+# define KEYBORD_S 115
+# define KEYBORD_D 100
+# define KEYBORD_ESC 65307
+*/
 
-# define COLOR_RED 0xFF0000
-# define COLOR_BLUE 0x0000FF
-# define COLOR_GREEN 0x00FF00
-# define COLOR_YELLOW 0xFFFF00
-# define COLOR_WHITE 0xFFFFFF
-# define COLOR_BLACK 0x000000
+# define KEY_PRESS 2
+# define KEY_RELEASE 3
+# define UP 13
+# define LEFT 0
+# define DOWN 1
+# define RIGHT 2
+# define ESC 53
 
-# define RES 64
-# define WIN_HEIGHT 700
-# define WIN_WIDTH 1080
-
-typedef struct s_map_params
-{
-    int     len_x;
-    int     len_y;
-    int     count_exit;
-    int     count_starting_pos;
-    int     count_collect;
-    char    invalid_char;
-    int     flag_map_closed;
-    int     flag_extension;
-    int     flag_rectangular;
-}               t_map_params;
-
-typedef struct  s_map
-{
-    char    *filename;
-    char    *content;
-    char    **map;
-}               t_map;
-
-typedef struct s_game
-{
-    int     start_x;
-    int     start_y;
-    int     current_x;
-    int     current_y;
-    int     collected;
-    int     img_width;
-    int     img_height;
-}               t_game;
-
-typedef struct s_keys
-{
-    int     key_w;
-    int     key_a;
-    int     key_s;
-    int     key_d;
-    int     key_esc;
-}               t_keys;
-
-
-typedef struct  s_mlx
-{
-    void	*mlx_ptr;
-	void	*win_ptr;
-	void	*img_ptr;
-	int		*img_data;
-	int		img_bpp;
-	int		img_sl;
-	int		img_end;
-}               t_mlx;
-
-typedef struct s_image
-{
-	char    *img_link;
-    void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		width;
-	int		height;
-}				t_image;
 
 typedef struct s_player
 {
-	t_image	img_player;
-	int		x;
-	int		y;
-	float	smooth_x;
-	float	smooth_y;
+	int	x;
+	int	y;
+	int	up;
+	int	side;
 }				t_player;
 
-typedef struct  s_draw
+typedef struct s_img
 {
-    int     x;
-    int     y;
-    float   r_x;
-    float   r_y;
-    int     color;
-    int     pos_x;
-    int     pos_y;
-    int     p_data_x;
-    int     p_data_y;
-}               t_draw;
+	void	*img;
+	char	*adr;
+	int		bits_per_pxl;
+	int		line_length;
+	int		endian;
+	int		w;
+	int		h;
+}				t_img;
 
-typedef struct  s_all
+typedef struct s_texture
 {
-    t_map_params    params;
-    t_map           map;
-    t_game          game;
-    t_mlx           mlx;
-    t_keys          keys;
-    t_image         images;
-    t_player        player;
-    t_image         wall;
-    t_image         floor;
-    t_image         collect;
-    t_image         exit;
-    t_draw          draw;
-    int             moves;
-    int             frame;
-}               t_all;
+	void	*ptr;
+	char	*data;
+	char	*name;
+	int		bits_per_pxl;
+	int		line_length;
+	int		endian;
+	int		w;
+	int		h;
+}				t_texture;
 
-int     check_extension(char *str);
-int     check_file_or_dir(char *str);
-int     check_args(int ac, char **av);
-int     check_character(char c);
-int     check_map_char(t_all *all);
-void    check_params(t_all *all);
-void    check_rectangular(t_all *all);
-void    check_border(t_all *all);
-int     final_param_check(t_all *all);
-int     parsing(t_all *all, int ac, char **av);
+typedef struct s_win
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	char		*name;
+	t_img		img;
+	int			h;
+	int			w;
+}				t_win;
 
-
-
-void    get_map_size(char *str, t_all *all);
-void    create_map(t_all *all);
-
-void    errors_part1(int error);
-void    ft_keypress(int key, t_all *all);
-void    ft_keyrelease(int key, t_all *all);
-int     keypress(int key, t_all *all);
-int     keyrelease(int key, t_all *all);
-void    ft_keys(t_all *all);
-
-
-
-void    init_params(t_all *all);
-void    init_mlx(t_all *all);
-void    init_map(t_all *all);
-void    init_game(t_all *all);
-void    init_keys(t_all *all);
-void    init_player(t_all *all);
-void    init_draw(t_all *all);
-void    init_image(t_image *image);
-void    init_images(t_all *all);
-void    init_all(t_all *all);
+typedef struct s_all
+{
+	char		**map;
+	t_texture	texture[8];
+	t_img		img;
+	t_win		window;
+	t_player	player;
+	int			fd;
+	int			size;
+	int			n_col;
+	int			width;
+	int			height;
+	int			x;
+	int			y;
+	int			n_rows;
+	int			start;
+	int			collectible;
+	int			exit;
+	int			error;
+	int			move;
+	int			end;
+}				t_all;
 
 
-void	game_start(t_all *all);
+void	load_window(t_all *all);
+void	game_loop(t_all *all);
+int	check_args(t_all *all, int argc, char *str, t_list **error);
+void	free_all(t_all all);
 void	load_textures(t_all *all);
-void	display_texture(t_all *all, void *img);
-int 	ft_display(t_all *all, char c);
-
-// TESTS
-
-void    show_struct(t_all *all);
-void    show_map(t_all *all);
-int     show_keys(t_all *all);
-void    show_player(t_all *all);
-void    show_collectibles(t_all *all);
-void    show_exit(t_all *all);
-void    show_wall(t_all *all);
-void    show_floor(t_all *all);
-void    show_game(t_all *all);
+void	check_arguments(t_all *all, t_list **error);
 
 
-
-void	move_up(t_all *all);
-void	move_down(t_all *all);
-void	move_left(t_all *all);
-void	move_right(t_all *all);
-void	escape(t_all *all);
-
-
-
-int     handle_no_event(t_all *all);
-int     handle_input(t_all *all, int key);
-int     handle_output(t_all *all, int key);
-int     render(t_all *all);
-int     render_big_square(t_all *all);
-void    calculate_h_and_w(t_all *all);
-int     test(t_all *all);
-void	draw_map2(t_all *all);
-int update_frame(t_all *all);
-
-int     find_player(t_all *all);
-t_image	load_image(void *mlx, char *path);
-//void    load_image(t_image image, void *mlx, char *path);
-void    init_player_img(t_all *all);
-void    fill_player(t_all *all);
-void    load_collectibles(t_all *all);
-void	load_exit(t_all *all);
-void	load_floor(t_all *all);
-void	load_wall(t_all *all);
-void	load_all_images(t_all *all);
-
-
-
-int     get_pixel(t_image *image, int x, int y);
-void    set_pixel(t_image *image, int x, int y, int color);
-void    pixel_put(t_image *image, int x, int y, int color);
-void	draw_on_img(t_image *img, t_image *s_img, int startX, int startY);
-void	draw_map(t_all *all);
-void	draw_player(t_all *all);
-int	    render_next_frame(t_all *all);
-void    game_loop(t_all *all);
-int     draw_graphics(t_all *all);
-
+char	*add_spaces(char *str, int largest_line);
+void	update_pos(t_all *all);
+int		first_render(t_all *all);
+int		color_utils(t_texture text, int x, int y);
+void	init_ptr_mlx(t_all *all);
+int		first_render(t_all *all);
+void	load_image(t_all *all);
+int		key_release(int key, t_player *player);
+int		key_press(int key, t_all *all);
+void	my_mlx_put_pxl(t_img *img, int x, int y, int color);
+void	free_map(void *grid);
+void	free_ptr(t_all *all);
+void	free_g(t_all g);
+void	free_texture(t_all *all);
+void	add_error(t_all *all, t_list **error, char *str);
+void	show_error(t_list *error);
+void	init_all(t_all *all);
+void	init_ptr_mlx(t_all *all);
+int		close_cub(t_all *all);
+void	free_global(t_list *list, t_all g, t_list *error);
+void	init_all(t_all *all);
+int		check_extension(char *file);
+int		begin(t_all *all, int argc, char *file, t_list **error);
+void	get_map(char *line, t_list **list);
+int		is_in_str(char c, char *charset);
+int		check_line(char *line, t_list **error, t_all *all);
+void	check_borders(t_all *all, t_list **error);
+void	free_map(void *grid);
+int		count_grid(t_all *all, t_list *grid, t_list **error);
 
 #endif

@@ -195,7 +195,7 @@ void	*mlx_int_parse_xpm(mlx_ptr_t *xvar,void *info,int info_size,char *(*f)())
       if ((rgb_col = mlx_int_get_text_rgb(tab[j], tab[j+1]))==-1)
 	{
 	  if (!(clip_data = malloc(4*width*height)) ||   // ok, nice size ..
-	      !(clip_img = XCreateImage(xvar->display, xvar->visual,
+	      !(clip_img = XCreateImage(xvar->render, xvar->visual,
 					1, XYPixmap, 0, clip_data,
 					width, height, 8, (width+7)/8)) )
 	    RETURN;
@@ -257,19 +257,19 @@ void	*mlx_int_parse_xpm(mlx_ptr_t *xvar,void *info,int info_size,char *(*f)())
   /*
   if (clip_data)
     {
-      if (!(clip_pix = XCreatePixmap(xvar->display, xvar->root,
+      if (!(clip_pix = XCreatePixmap(xvar->render, xvar->root,
 					   width, height, 1)) )
 	RETURN;
-      img->gc = XCreateGC(xvar->display, clip_pix, 0, &xgcv);
-      XPutImage(xvar->display, clip_pix, img->gc, clip_img,
+      img->gc = XCreateGC(xvar->render, clip_pix, 0, &xgcv);
+      XPutImage(xvar->render, clip_pix, img->gc, clip_img,
 		0, 0, 0, 0, width, height);
-      XFreeGC(xvar->display, img->gc);
+      XFreeGC(xvar->render, img->gc);
       xgcv.clip_mask = clip_pix;
       xgcv.function = GXcopy;
       xgcv.plane_mask = AllPlanes;
-      img->gc = XCreateGC(xvar->display, xvar->root, GCClipMask|GCFunction|
+      img->gc = XCreateGC(xvar->render, xvar->root, GCClipMask|GCFunction|
 			  GCPlaneMask, &xgcv);
-      XSync(xvar->display, False);
+      XSync(xvar->render, False);
       XDestroyImage(clip_img);
     }
   */

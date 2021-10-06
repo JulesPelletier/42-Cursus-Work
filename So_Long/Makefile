@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: Jules <Jules@student.42.fr>                +#+  +:+       +#+         #
+#    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/11 16:35:11 by Jules             #+#    #+#              #
-#    Updated: 2021/09/10 10:34:25 by Jules            ###   ########.fr        #
+#    Updated: 2021/10/06 19:16:19 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,33 +20,23 @@ LIBFT_DIR 		=	Libft
 
 LIBFT_LIB 		=	$(LIBFT_DIR)/libft.a
 
-SRCS_SOLONG	 	=	GNL/get_next_line.c							\
-					srcs/parsing/check_args.c					\
-					srcs/parsing/check_character.c				\
-					srcs/parsing/check_extension.c				\
-					srcs/parsing/check_borders.c				\
-					srcs/parsing/get_map.c						\
-					srcs/parsing/parsing.c						\
-					srcs/errors/errors.c						\
-					srcs/init/init_all.c						\
-					srcs/init/init_params.c						\
-					srcs/init/init_map.c						\
-					srcs/init/init_game.c						\
-					srcs/init/init_keys.c						\
-					srcs/init/init_mlx.c						\
-					srcs/init/init_player.c						\
-					srcs/init/init_draw.c						\
-					srcs/init/init_images.c						\
-					srcs/init/init_image.c						\
-					srcs/game/keys.c							\
-					srcs/main.c									\
-					srcs/show_struct.c							\
-					srcs/game/file1.c							\
-					srcs/game/moves.c							\
-					srcs/game/game_start.c						\
-					srcs/game/get_textures.c					\
-					srcs/render/player.c						\
-					srcs/render/load_images.c					\
+SRCS_SOLONG	 	=	srcs/parsing/check_borders.c					\
+					srcs//parsing/check_args.c						\
+					srcs/parsing/load_images.c						\
+					srcs/parsing/load_window.c						\
+					srcs/parsing/game_loop.c						\
+					srcs/parsing/load_textures.c					\
+					srcs/parsing/parse_map.c						\
+					srcs/render/render.c							\
+					srcs/init/init.c								\
+					srcs/init/init_mlx.c							\
+					srcs/utils/game_utils.c							\
+					srcs/utils/utils.c								\
+					srcs/utils/utils2.c								\
+					srcs/utils/utils3.c								\
+					srcs/main.c										\
+					srcs/error.c									\
+					srcs/keys.c										\
 
 
 OBJS_SOLONG		=	$(SRCS_SOLONG:.c=.o)
@@ -59,8 +49,6 @@ MLX_LIB 		=	$(MLX_DIR)/libmlx.a
 
 MLX_LINKMAC 	=	-framework OpenGL -framework AppKit
 
-MLX_LINKLNX 	=	-lX11 -lXext -lm -lbsd
-
 all:				$(LIBFT_LIB) $(OBJS_SOLONG) $(SOLONG)
 
 $(SOLONG):			$(OBJS_SOLONG) $(LIBFT_LIB)
@@ -70,7 +58,7 @@ $(SOLONG):			$(OBJS_SOLONG) $(LIBFT_LIB)
 					$(CC)  $(INCDIRS) -o $@ -c $?
 
 $(LIBFT_LIB):
-					make -C $(LIBFT_DIR)
+					make bonus -C $(LIBFT_DIR)
 
 $(MLX_LIB):
 					echo lalala

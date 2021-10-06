@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/24 23:25:20 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:57:27 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:13:06 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	count;
+	int	i;
 
-	count = 0;
-	while (s[count] != '\0')
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i] != '\0')
 	{
-		ft_putchar_fd(s[count], fd);
-		count++;
+		ft_putchar_fd(s[i], fd);
+		i++;
 	}
 }

@@ -5,49 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/09 20:56:05 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:58:36 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:14:12 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_countreverse(char const *s1, char const *set, int count)
+static int	charset(char const *set, char c)
 {
-	int	count2;
-	int	count3;
+	int	i;
 
-	count2 = (unsigned int)ft_strlen(s1);
-	count3 = 0;
-	while (count2 > count && set[count3] != '\0')
+	i = 0;
+	while (set[i])
 	{
-		count3 = 0;
-		count2--;
-		while (set[count3] != s1[count2] && set[count3] != '\0')
-			count3++;
+		if (set[i] == c)
+			return (1);
+		i++;
 	}
-	return (count2);
+	return (0);
+}
+
+static char	*strnew(size_t size)
+{
+	char	*new;
+
+	new = malloc(sizeof(char) * size + 1);
+	if (!new)
+		return (NULL);
+	ft_bzero(new, size + 1);
+	return (new);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	unsigned int	count;
-	unsigned int	count2;
-	unsigned int	count3;
+	int	min;
+	int	max;
 
 	if (!s1)
 		return (NULL);
-	count = 0;
-	count3 = -1;
-	while (set[count3 + 1] != '\0' && s1[count] != '\0')
-	{
-		if (set[count3 + 1] == s1[count])
-		{
-			count++;
-			count3 = -2;
-		}
-		count3++;
-	}
-	count2 = ft_countreverse(s1, set, count);
-	return (ft_substr(s1, count, count2 - count + 1));
+	min = 0;
+	while (s1[min] && charset(set, s1[min]) == 1)
+		min++;
+	max = ft_strlen(s1) - 1;
+	while (min <= max && charset(set, s1[max]) == 1)
+		max--;
+	if (min == max)
+		return (strnew(0));
+	return (ft_substr(s1, min, (max - min + 1)));
 }

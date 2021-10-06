@@ -5,37 +5,96 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/20 21:38:09 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:55:36 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 17:30:16 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+static int	ft_isspace(const char str)
+{
+	if (str == ' ' || str == '\t' || str == '\n'
+		|| str == '\v' || str == '\f' || str == '\r')
+		return (1);
+	return (0);
+}
+
+static int	ft_number(const char str)
+{
+	if (str >= '0' && str <= '9')
+		return (1);
+	return (0);
+}
+
+static int	ft_sign(const char *str)
+{
+	int	sign;
+	int	nb;
+
+	sign = 0;
+	nb = 0;
+	while (str[nb] == '-' || str[nb] == '+')
+	{
+		if (str[nb] == '-')
+			sign++;
+		nb++;
+	}
+	if (nb > 1)
+		return (-1);
+	return (sign);
+}
+
+static int	ft_atoi_plus(int sign, int i, const char *str)
+{
+	int	nb;
+
+	nb = 0;
+	while (str[i] == '9')
+	{
+		nb++;
+		i++;
+	}
+	if (nb >= 19 && sign == 0)
+		return (-1);
+	else if (nb >= 19 && sign > 0)
+		return (0);
+	i -= nb;
+	nb = 0;
+	while (ft_number(str[i]))
+	{
+		nb++;
+		i++;
+	}
+	if (nb > 19 && sign == 0)
+		return (-1);
+	else if (nb > 19 && sign > 0)
+		return (0);
+	return (2);
+}
 
 int	ft_atoi(const char *str)
 {
-	int	count;
-	int	res;
-	int	sign;
+	int			i;
+	long int	result;
+	int			sign;
 
-	sign = 1;
-	res = 0;
-	count = 0;
-	while (str[count] == '\t' || str[count] == '\n'
-		|| str[count] == '\v' || str[count] == '\r'
-		|| str[count] == '\f' || str[count] == ' ')
-		count++;
-	if (str[count] == '-')
-		sign = -1;
-	if (str[count] == '+' || str[count] == '-')
-		count++;
-	while (str[count] != '\0')
+	i = 0;
+	result = 0;
+	sign = 0;
+	while (ft_isspace(*str))
+		str++;
+	sign = ft_sign(str);
+	if (sign == -1)
+		return (0);
+	while (*str == '-' || *str == '+')
+		str++;
+	result = ft_atoi_plus(sign, i, str);
+	if (result == 2)
 	{
-		if (str[count] >= '0' && str[count] <= '9')
-			res = (res * 10) + str[count] - '0';
-		if (!(str[count] >= '0' && str[count] <= '9'))
-			return (res * sign);
-		count++;
+		result = 0;
+		while (ft_number(str[i]))
+			result = (str[i++] - 48) + result * 10;
+		if ((sign % 2))
+			result = -result;
 	}
-	return (res * sign);
+	return (result);
 }

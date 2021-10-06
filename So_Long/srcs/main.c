@@ -3,58 +3,66 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/11 16:09:13 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/10 13:10:47 by Jules            ###   ########.fr       */
+/*   Created: 2021/07/24 20:29:45 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/06 19:15:52 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solong.h"
+#include "../includes/solong.h"
 
-int show(t_all *all)
+static void	read_file(t_all *all, char *file, t_list **list, t_list **error)
 {
-    show_map(all);
-    return (1);
+	int		res;
+	char	*line;
+
+	res = 1;
+	all->fd = open(file, O_RDONLY);
+	if (all->fd < 0)
+	{
+		add_error(all, error, "Error open file\n");
+		return ;
+	}
+	while (res > 0)
+	{
+		res = get_next_line(all->fd, &line);
+		if (!line[0] && res > 0)
+			add_error(all, error, "\\n in map\n");
+		else if (res == 0 && !line[0])
+			break ;
+		if (check_line(line, error, all))
+			get_map(line, list);
+		free(line);
+		line = NULL;
+	}
+	free(line);
+	line = NULL;
+	close(all->fd);
 }
 
-int main(int ac, char **av)
+int	main(int argc, char **argv)
 {
-    t_all all;
+	t_all		all;
+	t_list		*list;
+	t_list		*error;
 
-    init_all(&all);
-    if (check_args(ac, av) == -1)
-        return (-1);
-    all.map.filename = av[1];
-    if (parsing(&all, ac, av) == -1)
-        return (0);
-    all.mlx.mlx_ptr = mlx_init();
-    if (all.mlx.mlx_ptr == NULL)
-    {
-        printf("POINTER NULL\n");
-        return (0);
-    }
-    all.mlx.win_ptr = mlx_new_window(all.mlx.mlx_ptr,
-        WIN_WIDTH, WIN_HEIGHT, "So_Long");
-    if (all.mlx.win_ptr == NULL)
-    {
-        printf("WINDOW NULL\n");
-        return (0);
-    }
-    load_textures(&all);
-    game_start(&all);
-    
-    mlx_hook(all.mlx.win_ptr, 2, (1L << 0), keypress, &all);
-	mlx_hook(all.mlx.win_ptr, 3, (1L << 1), keyrelease, &all);
-	mlx_loop_hook(all.mlx.mlx_ptr, show, &all);
-	mlx_loop(all.mlx.mlx_ptr);
-    /*
-    fill_player(&all);
-    load_all_images(&all);
-    draw_graphics(&all);
-    */
-
-    free(all.mlx.mlx_ptr);
-    show_struct(&all);
-    return (0);
+	list = NULL;
+	error = NULL;
+	init_all(&all);
+	if (!check_args(&all, argc, argv[1], &error))
+	{
+		read_file(&all, argv[1], &list, &error);
+		if (!error)
+			count_grid(&all, list, &error);
+		if (!error)
+		{
+			ft_lstclear(&list, &free_map);
+			game_loop(&all);
+		}
+	}
+	if (error)
+		show_error(error);
+	free_global(list, all, error);
+	return (0);
 }

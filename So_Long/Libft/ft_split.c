@@ -5,79 +5,104 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/18 10:51:13 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:57:31 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:13:10 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_word(char const *s, char c)
+static char	**ft_free(char **tab, int index)
 {
-	int	countw;
-	int	counti;
-
-	countw = 0;
-	counti = 0;
-	while (s[counti] != '\0')
+	while (index >= 0)
 	{
-		while (s[counti] == c)
-			counti++;
-		if (s[counti] != c && s[counti] != '\0')
-			countw++;
-		while (s[counti] != c && s[counti] != '\0')
-			counti++;
+		free((void *)tab[index]);
+		index--;
 	}
-	return (countw);
+	free(tab);
+	return (NULL);
 }
 
-int	ft_len(char const *s, char c, int start)
+static char	**count_words(char const *str, char charset, char **tab)
 {
-	int	count;
+	int	i;
+	int	words;
 
-	count = 0;
-	while (s[start] == c)
-		start++;
-	while (s[start + count] != c && s[start + count] != '\0')
-		count++;
-	return (count);
-}
-
-char	**ft_vide(char const *s)
-{
-	char	**ptr;
-
-	ptr = malloc(sizeof(char *) * (2));
-	if (!(ptr))
+	i = 0;
+	words = 0;
+	while (str[i])
+	{
+		while (str[i] && str[i] != charset)
+			i++;
+		words++;
+		while (str[i] && str[i] == charset)
+			i++;
+	}
+	tab = malloc(sizeof(char *) * words + 1);
+	if (!tab)
 		return (NULL);
-	ptr[0] = ft_strdup(s);
-	ptr[1] = 0;
-	return (ptr);
+	tab[words] = 0;
+	return (tab);
+}
+
+static char	**count_letters(char const *str, char charset, char **tab)
+{
+	int	i;
+	int	index;
+	int	letters;
+
+	i = 0;
+	index = 0;
+	while (str[i])
+	{
+		letters = 0;
+		while (str[i] && str[i] != charset)
+		{
+			letters++;
+			i++;
+		}
+		tab[index] = malloc(sizeof(char) * letters + 1);
+		if (!tab[index])
+			return (ft_free(tab, index));
+		tab[index][letters] = 0;
+		index++;
+		while (str[i] && str[i] == charset)
+			i++;
+	}
+	return (tab);
+}
+
+static char	**split_copy(char const *str, char charset, char **tab)
+{
+	int	i;
+	int	index;
+	int	letters;
+
+	i = 0;
+	index = 0;
+	while (str[i])
+	{
+		letters = 0;
+		while (str[i] && str[i] != charset)
+			tab[index][letters++] = str[i++];
+		index++;
+		while (str[i] && str[i] == charset)
+			i++;
+	}
+	return (tab);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		count;
-	int		count3;
-	char	**ptr;
+	char	**tab;
 
-	count3 = 0;
-	while (s[count3] == c)
-		count3++;
-	ptr = malloc(sizeof(char *) * (ft_word(s, c) + 1));
-	if (!(ptr))
+	if (!s || !c)
 		return (NULL);
-	count = 0;
-	while (count < ft_word(s, c))
-	{
-		while (s[count3] == c)
-			count3++;
-		if (s[count3] == '\0')
-			return (ft_vide(s));
-		ptr[count] = ft_substr(s, count3, ft_len(s, c, count3));
-		count3 = count3 + ft_len(s, c, count3);
-		count++;
-	}
-	ptr[count] = 0;
-	return (ptr);
+	while (*s && *s == c)
+		s++;
+	tab = NULL;
+	tab = count_words(s, c, tab);
+	tab = count_letters(s, c, tab);
+	tab = split_copy(s, c, tab);
+	return (tab);
 }

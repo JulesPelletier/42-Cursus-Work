@@ -5,62 +5,59 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/24 21:30:46 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:56:30 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:12:00 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_calcul(char *dst, long int val)
+static int	ft_size(int n)
 {
-	long int	val2;
-	size_t		counti;
+	int	i;
+	int	neg;
 
-	counti = 0;
-	if (val == -2147483648)
+	i = 0;
+	neg = 0;
+	if (n < 0)
 	{
-		dst[counti++] = '-';
-		dst[counti++] = '8';
-		val = 214748364;
+		n *= -1;
+		neg += 1;
 	}
-	if (val < 0)
+	if (n == 0)
+		return (1);
+	while (n != 0)
 	{
-		dst[counti++] = '-';
-		val = (-1) * val;
+		n /= 10;
+		i++;
 	}
-	val = val * 10;
-	while ((val / 10) != 0 || counti == 0)
-	{
-		val = val / 10;
-		val2 = val % 10;
-		dst[counti++] = val2 + '0';
-	}
-	dst[counti] = '\0';
-	return (dst);
+	return (i + neg);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*dst;
-	size_t	count;
-	char	swotch;
+	char		*str;
+	int			i;
+	int			size;
+	long int	nb;
 
-	dst = malloc(sizeof(char) * 12);
-	if (!(dst))
+	nb = n;
+	size = ft_size(nb);
+	i = size;
+	str = (char *)malloc(sizeof(char) * (size + 1));
+	if (!str)
 		return (NULL);
-	dst = ft_calcul(dst, (long int)n);
-	count = ft_strlen(dst) - 1;
-	n = 0;
-	if (dst[0] == '-')
-		n++;
-	while ((size_t)n < count)
+	if (n < 0)
+		str[0] = '-';
+	if (nb < 0)
+		nb *= -1;
+	while (nb != 0)
 	{
-		swotch = dst[count];
-		dst[count] = dst[n];
-		dst[n] = swotch;
-		n++;
-		count--;
+		str[--i] = nb % 10 + 48;
+		nb /= 10;
 	}
-	return (dst);
+	if (n == 0)
+		str[0] = '0';
+	str[size] = 0;
+	return (str);
 }

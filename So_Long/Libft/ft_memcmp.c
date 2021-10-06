@@ -5,30 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 21:45:14 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:56:47 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:12:32 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(void const *s1, void const *s2, size_t n)
 {
-	size_t	count;
-	int		res;
+	unsigned char	*s1_ptr;
+	unsigned char	*s2_ptr;
+	size_t			i;
 
-	res = 0;
-	count = 0;
-	while (count < n)
+	i = 0;
+	s1_ptr = (unsigned char *)s1;
+	s2_ptr = (unsigned char *)s2;
+	while (i < n)
 	{
-		if (!(*(unsigned char *)s1 == *(unsigned char *)s2))
-		{
-			res = *(unsigned char *)s1 - *(unsigned char *)s2;
-			return (res);
-		}
-		s1++;
-		s2++;
-		count++;
+		if (s1_ptr[i] != s2_ptr[i])
+			return ((int)s1_ptr[i] - (int)s2_ptr[i]);
+		i++;
 	}
 	return (0);
 }

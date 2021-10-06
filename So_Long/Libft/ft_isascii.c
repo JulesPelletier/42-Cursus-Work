@@ -5,16 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 21:54:42 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:56:16 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:11:52 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isascii(int c)
 {
-	if (c < 0 || c > 127)
-		return (0);
-	return (1);
+	return (c >= 0 && c <= 127);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 21:07:56 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:58:29 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:14:06 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,18 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	count;
-	int	count2;
+	int		i;
+	char	car;
 
-	count = 0;
-	count2 = 0;
-	while (*(s + count) != '\0')
+	i = 0;
+	car = (unsigned char)c;
+	while (s[i])
+		i++;
+	while (i >= 0)
 	{
-		if (*(s + count) == c)
-			count2 = count;
-		count++;
+		if (s[i] == car)
+			return ((char *)s + i);
+		i--;
 	}
-	if (count2 != 0 || (char)s[count2] == c)
-		return ((char *)s + count2);
-	if (c == 0 && (char)s[count] == '\0')
-		return ((char *)s + count);
 	return (NULL);
 }

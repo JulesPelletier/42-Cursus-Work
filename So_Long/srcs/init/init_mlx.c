@@ -3,22 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@alludent.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/12 12:16:25 by Jules             #+#    #+#             */
-/*   Updated: 2021/08/12 12:16:35 by Jules            ###   ########.fr       */
+/*   Created: 2021/07/28 06:43:55 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 15:57:00 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "solong.h"
+#include "../includes/solong.h"
 
-void    init_mlx(t_all *all)
+int	color_utils(t_texture text, int x, int y)
 {
-    all->mlx.mlx_ptr = NULL;
-	all->mlx.win_ptr = NULL;
-	all->mlx.img_ptr = NULL;
-	all->mlx.img_data = NULL;
-	all->mlx.img_bpp = 0;
-	all->mlx.img_sl = 0;
-	all->mlx.img_end = 0;
+	char	*dst;
+
+	dst = text.data + (y * text.line_length + x * text.bits_per_pxl / 8);
+	return (*(unsigned int *)dst);
+}
+
+void	init_ptr_mlx(t_all *all)
+{
+	all->window.mlx_ptr = mlx_init();
 }

@@ -5,22 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 08:02:30 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:55:43 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:11:40 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *ptr, size_t len)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t	count;
+	size_t			i;
+	unsigned char	*s_ptr;
 
-	count = 0;
-	while (count < len)
+	s_ptr = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-		*(unsigned char *)ptr = 0;
-		ptr++;
-		count++;
+		*s_ptr = 0;
+		s_ptr++;
+		i++;
 	}
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 21:12:43 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:56:57 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:12:43 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,22 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t				count;
-	unsigned char		*dep;
+	size_t		i;
+	char		*d;
+	const char	*s;
 
-	count = 0;
-	dep = malloc(sizeof(unsigned char *) * len);
-	if (!(dep))
-		return (0);
-	while (count < len)
+	if (src < dst && src + len >= dst)
 	{
-		dep[count] = *(unsigned char *)src;
-		count++;
-		src++;
+		i = len;
+		d = dst;
+		s = src;
+		while (i > 0)
+		{
+			d[i - 1] = s[i - 1];
+			i--;
+		}
 	}
-	count = 0;
-	while (count < len)
-	{
-		*(unsigned char *)dst = dep[count];
-		dst++;
-		count++;
-	}
-	return (dst - count);
+	else
+		ft_memcpy(dst, src, len);
+	return (dst);
 }

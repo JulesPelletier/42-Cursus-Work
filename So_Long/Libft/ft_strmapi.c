@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/24 22:27:37 by julpelle          #+#    #+#             */
-/*   Updated: 2021/07/22 08:58:12 by julpelle         ###   ########.fr       */
+/*   Created: 2020/11/04 01:13:53 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/05 14:32:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*dst;
-	size_t	count;
+	unsigned int	i;
+	char			*dest;
 
-	dst = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (!(dst))
+	i = 0;
+	if (!s)
 		return (NULL);
-	count = 0;
-	while (count < ft_strlen(s))
+	dest = (char *)malloc(sizeof(char) * ft_strlen((char *)s) + 1);
+	if (!dest)
+		return (NULL);
+	while (s[i])
 	{
-		dst[count] = (*f)(count, s[count]);
-		count++;
+		dest[i] = (*f)(i, (char)s[i]);
+		i++;
 	}
-	dst[count] = '\0';
-	return (dst);
+	dest[i] = '\0';
+	return (dest);
 }
