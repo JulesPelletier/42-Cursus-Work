@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile_lnx                                       :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/11 16:35:11 by Jules             #+#    #+#              #
-#    Updated: 2021/10/06 19:15:52 by julpelle         ###   ########.fr        #
+#    Updated: 2021/10/06 19:16:19 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,20 +38,21 @@ SRCS_SOLONG	 	=	srcs/parsing/check_borders.c					\
 					srcs/error.c									\
 					srcs/keys.c										\
 
+
 OBJS_SOLONG		=	$(SRCS_SOLONG:.c=.o)
 
-MLX_DIR 		=	minilibx/minilibx
+MLX_DIR 		=	minilibx/mlx_mac
 
 INCDIRS 		= 	-IGNL -ILibft -Iminilibx_opengl -Iincludes
 
 MLX_LIB 		=	$(MLX_DIR)/libmlx.a
 
-MLX_LINKLNX 	=	-lX11 -lXext -lm -lbsd
+MLX_LINKMAC 	=	-framework OpenGL -framework AppKit
 
 all:				$(LIBFT_LIB) $(OBJS_SOLONG) $(SOLONG)
 
 $(SOLONG):			$(OBJS_SOLONG) $(LIBFT_LIB)
-					$(CC) $(OBJS_SOLONG) $(LIBFT_LIB) $(MLX_LIB) $(MLX_LINKLNX) -o $@
+					$(CC) $(OBJS_SOLONG) $(LIBFT_LIB) $(MLX_LIB) $(MLX_LINKMAC) -o $@
 
 %.o:				%.c
 					$(CC)  $(INCDIRS) -o $@ -c $?
@@ -60,10 +61,13 @@ $(LIBFT_LIB):
 					make bonus -C $(LIBFT_DIR)
 
 $(MLX_LIB):
+					echo lalala
+					make -C $(MLX_DIR)
 
 clean:
 					rm -f $(OBJS_SOLONG)
 					make clean -C $(LIBFT_DIR)
+					make clean -C $(MLX_DIR)
 
 fclean:				clean
 					rm -f $(SOLONG)

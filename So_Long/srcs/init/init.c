@@ -74,6 +74,7 @@ void	init_all(t_all *all)
 	all->y= 0;
 	all->fd = 0;
 	all->end = 0;
+	all->move = 0;
 	init_window(&all->window);
 	init_image(&all->img);
 	init_player(&all->player);

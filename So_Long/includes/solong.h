@@ -13,21 +13,16 @@
 #ifndef SOLONG_H
 # define  SOLONG_H
 
-# include "../libft/libft.h"
-# include "../minilibx/mlx_mac/mlx.h"
+# include "../Libft/libft.h"
+# include "../minilibx/minilibx/mlx.h"
+
+# define UP 119
+# define LEFT 97
+# define DOWN 115
+# define RIGHT 100
+# define ESC 65307
 
 /*
-# define ARROW_UP 65362
-# define ARROW_RIGHT 65363
-# define ARROW_DOWN 65364
-# define ARROW_LEFT 65361
-# define KEYBORD_W 119
-# define KEYBORD_A 97
-# define KEYBORD_S 115
-# define KEYBORD_D 100
-# define KEYBORD_ESC 65307
-*/
-
 # define KEY_PRESS 2
 # define KEY_RELEASE 3
 # define UP 13
@@ -35,7 +30,7 @@
 # define DOWN 1
 # define RIGHT 2
 # define ESC 53
-
+*/
 
 typedef struct s_player
 {
