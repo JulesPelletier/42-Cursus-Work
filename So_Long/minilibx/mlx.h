@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thhusser <thhusser@student.42.fr>          +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/29 19:07:34 by thhusser          #+#    #+#             */
-/*   Updated: 2021/07/29 19:07:34 by thhusser         ###   ########.fr       */
+/*   Created: 2021/07/29 19:07:34 by julpelle          #+#    #+#             */
+/*   Updated: 2021/10/13 12:11:13 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 ** de ce type.
 */
 #ifndef MLX_H
-# define	MLX_H
+# define MLX_H
 
 void	*mlx_init(void);
 /*
@@ -51,7 +51,7 @@ void	*mlx_new_window(void *mlx_ptr, int size_x, int size_y, char *title);
 **  return void *0 if failed
 */
 int		mlx_clear_window(void *mlx_ptr, void *win_ptr);
-int		mlx_pixel_put(void *mlx_ptr, void *win_ptr, int x, int y, int color);
+//int	mlx_pixel_put(void *mlx_ptr, void *win_ptr, int x, int y, int color);
 /*
 **  origin for x & y is top left corner of the window
 **  y down is positive

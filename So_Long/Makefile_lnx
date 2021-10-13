@@ -6,7 +6,7 @@
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/11 16:35:11 by Jules             #+#    #+#              #
-#    Updated: 2021/10/06 19:15:52 by julpelle         ###   ########.fr        #
+#    Updated: 2021/10/13 12:14:34 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SRCS_SOLONG	 	=	srcs/check_borders.c				\
 
 OBJS_SOLONG		=	$(SRCS_SOLONG:.c=.o)
 
-MLX_DIR 		=	minilibx/mlx_lnx
+MLX_DIR 		=	minilibx/
 
 INCDIRS 		= 	-IGNL -ILibft -Iminilibx_opengl -Iincludes
 
@@ -59,14 +59,9 @@ $(SOLONG):			$(OBJS_SOLONG) $(LIBFT_LIB)
 $(LIBFT_LIB):
 					make bonus -C $(LIBFT_DIR)
 
-$(MLX_LIB):
-					echo lalala
-					make -C $(MLX_DIR)
-
 clean:
 					rm -f $(OBJS_SOLONG)
 					make clean -C $(LIBFT_DIR)
-					make clean -C $(MLX_DIR)
 
 fclean:				clean
 					rm -f $(SOLONG)

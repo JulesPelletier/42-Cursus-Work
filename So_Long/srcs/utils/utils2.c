@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memory.c                                           :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 02:40:41 by julpelle          #+#    #+#             */
-/*   Updated: 2021/10/05 17:37:54 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/10/13 12:15:03 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	free_ptr(t_all *all)
 				free_image(all);
 			mlx_destroy_window(all->window.mlx_ptr, all->window.win_ptr);
 		}
-		//mlx_destroy_render(all->window.mlx_ptr);
+		mlx_destroy_display(all->window.mlx_ptr);
 		free(all->window.mlx_ptr);
 		all->window.mlx_ptr = NULL;
 	}

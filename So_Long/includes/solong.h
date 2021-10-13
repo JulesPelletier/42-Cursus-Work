@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   solong.h                                               :+:      :+:    :+:   */
+/*   solong.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 20:31:27 by julpelle          #+#    #+#             */
-/*   Updated: 2021/10/05 14:39:31 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/10/13 12:05:03 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define  SOLONG_H
 
 # include "../Libft/libft.h"
-# include "../minilibx/minilibx/mlx.h"
+# include "../minilibx/mlx.h"
 
 # define UP 119
 # define LEFT 97
@@ -96,15 +96,12 @@ typedef struct s_all
 	int			end;
 }				t_all;
 
-
 void	load_window(t_all *all);
 void	game_loop(t_all *all);
-int	check_args(t_all *all, int argc, char *str, t_list **error);
+int		check_args(t_all *all, int argc, char *str, t_list **error);
 void	free_all(t_all all);
 void	load_textures(t_all *all);
 void	check_arguments(t_all *all, t_list **error);
-
-
 char	*add_spaces(char *str, int largest_line);
 void	update_pos(t_all *all);
 int		first_render(t_all *all);

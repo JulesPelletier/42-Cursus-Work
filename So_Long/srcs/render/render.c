@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 06:48:02 by julpelle          #+#    #+#             */
-/*   Updated: 2021/10/05 16:36:06 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/10/13 12:10:12 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	show_text(t_all *all, int x, int y, int text_n)
 	background = color_utils(all->texture[text_n], 0, 0);
 	if (color != background)
 	{
-		if (x + all->x <= all->width && y + all->y<= all->height)
+		if (x + all->x <= all->width && y + all->y <= all->height)
 			my_mlx_put_pxl(&all->window.img, x + all->x, y + all->y, color);
 	}
 }
@@ -33,7 +33,7 @@ static int	render(t_all *all, int h, int w, int text_n)
 
 	width = -1;
 	all->x = w * all->size;
-	all->y= h * all->size;
+	all->y = h * all->size;
 	while (++width < all->texture[text_n].w)
 	{
 		height = -1;

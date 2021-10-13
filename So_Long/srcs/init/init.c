@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 20:25:51 by julpelle          #+#    #+#             */
-/*   Updated: 2021/10/05 16:49:53 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/10/13 12:08:47 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	init_all(t_all *all)
 	all->width = 0;
 	all->height = 0;
 	all->x = 0;
-	all->y= 0;
+	all->y = 0;
 	all->fd = 0;
 	all->end = 0;
 	all->move = 0;
