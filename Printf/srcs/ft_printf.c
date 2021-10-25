@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 11:32:53 by julpelle          #+#    #+#             */
-/*   Updated: 2020/02/19 17:21:59 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/10/18 14:33:54 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		ft_printf(const char *str, ...)
 
 	ft_init_flags(&flags);
 	va_start(va, str);
+	while (params)
 	{
 		idx = 0;
 		while (str[idx])
