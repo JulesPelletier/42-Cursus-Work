@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   show.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 17:55:05 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/07 18:17:50 by Jules            ###   ########.fr       */
+/*   Updated: 2021/11/25 17:24:52 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ void	show_game(t_all *all)
 {
 	printf("\n===== GAME ====== \n");
 	printf("Time Init : %lld ms\n", all->time);
-	printf("Count : %d\n", all->count);
+	printf("Actual Time : %lld ms \n", all->time);
 	printf("Finish : %d\n", all->finish);
+	printf("Count : %d\n", all->count);
 }
 
 void	show_philos(t_all *all)
@@ -42,10 +43,24 @@ void	show_philos(t_all *all)
 		printf("Left Fork | Right Fork : %d | %d\n", all->philos[i].f_left, all->philos[i].f_right);
 		printf("Is Eating : %d\n", all->philos[i].is_eating);
 		printf("Count Eat : %d\n", all->philos[i].count_eat);
+		printf("Time : %d\n", all->philos[i].time);
 		printf("\n");
 		i++;
 	}
 	printf(GREEN "PHILO INIT COMPLETE\n" RESET);
+}
+
+void	show_philos2(t_philo *philos)
+{
+	printf(RED"Check\n"RESET);
+	printf("Philo %d : \n", philos->number);
+	printf("Left Fork | Right Fork : %d | %d\n", philos->f_left,philos->f_right);
+	printf("Is Eating : %d\n", philos->is_eating);
+	printf(RED"Check\n"RESET);
+	printf("Count Eat : %d\n", philos->count_eat);
+	printf("Time : %d\n", philos->time);
+	printf("\n");
+	printf(MAGENTA "PHILO INIT COMPLETE\n" RESET);
 }
 
 void	show_all(t_all *all)

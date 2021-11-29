@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/31 15:43:10 by Jules             #+#    #+#             */
-/*   Updated: 2021/11/29 15:06:34 by julpelle         ###   ########.fr       */
+/*   Created: 2021/11/19 10:30:49 by julpelle          #+#    #+#             */
+/*   Updated: 2021/11/19 10:31:51 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "../../includes/philo.h"
 
-int	main(int ac, char **av)
+void	ft_putstr_fd(char *str, int fd)
 {
-	t_all	all;
+	int	i;
 
-	memset(&all, 0, sizeof(t_all));
-	if (check_params(ac, av) < 0)
-		return (0);
-	init_all(&all, ac, av);
-	//show_all(&all);
-	if (start_loop(&all))
-		return (clean_threads(&all));
-	return (0);
+	i = 0;
+	if (!fd)
+		return ;
+	while (str[i])
+	{
+		ft_putchar_fd(str[i], fd);
+		i++;
+	}
 }

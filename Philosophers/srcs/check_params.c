@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_params.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Jules <Jules@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/01 13:49:28 by Jules             #+#    #+#             */
-/*   Updated: 2021/09/07 17:52:01 by Jules            ###   ########.fr       */
+/*   Updated: 2021/11/24 15:57:13 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	check_number(char *str)
 	int		i;
 
 	i = 0;
+	if (!str)
+		return (ft_exit("problem with string\n", 1));
 	while (str[i] && str[i] == ' ')
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -30,46 +32,25 @@ int	check_number(char *str)
 
 int	check_numberofargs(int ac)
 {
-	if (ac < 5)
-	{
-		write(2, "Not enough arguments : 5 needed\n", 33);
-		return (-1);
-	}
+	if (ac < 4)
+		return (ft_exit("Not enough arguments : 4 or 5 needed\n", 1));
 	if (ac > 6)
-	{
-		write(2, "Too many arguments : 5 needed\n", 31);
-		return (-1);
-	}
+		return (ft_exit("Too many arguments : 4 or 5 needed\n", 1));
 	return (0);
 }
 
-int	check_args(int ac, char **av)
+int	check_args(char **av)
 {
 	if (check_number(av[1]) < 0)
-	{
-		write(2, "First argument is not valid\n", 29);
-		return (-1);
-	}
+		return (ft_exit("First argument is not valid\n", 1));
 	if (check_number(av[2]) < 0)
-	{
-		write(2, "Second argument is not valid\n", 30);
-		return (-1);
-	}
+		return (ft_exit("Second argument is not valid\n", 1));
 	if (check_number(av[3]) < 0)
-	{
-		write(2, "Third argument is not valid\n", 29);
-		return (-1);
-	}
+		return (ft_exit("Third argument is not valid\n", 1));
 	if (check_number(av[4]) < 0)
-	{
-		write(2, "Fourth argument is not valid\n", 30);
-		return (-1);
-	}
-	if (check_number(av[5]) < 0)
-	{
-		write(2, "Fifth argument is not valid\n", 29);
-		return (-1);
-	}
+		return (ft_exit("Fourth argument is not valid\n", 1));
+	if (av[5] && check_number(av[5]) < 0)
+		return (ft_exit("Fifth argument is not valid\n", 1));
 	return (0);
 }
 
@@ -77,7 +58,7 @@ int		check_params(int ac, char **av)
 {
 	if (check_numberofargs(ac) < 0)
 		return (-1);
-	if (check_args(ac, av) < 0)
+	if (check_args(av) < 0)
 		return (-1);
 	return (0);
 }
