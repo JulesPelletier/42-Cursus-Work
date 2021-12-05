@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/05 16:00:03 by julpelle          #+#    #+#             */
-/*   Updated: 2021/12/05 17:32:40 by julpelle         ###   ########.fr       */
+/*   Updated: 2021/12/05 17:56:54 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ void	end_loop(t_all *all)
 	close_mutex(all);
 	if (all->params.end == 2)
 	{
-		printf(GREEN"\n\t ==== Game Done ==== \n\n"RESET);
+		printf(GREEN"\n ==== Game Done ==== \n\n"RESET);
 		show_ate(all);
 		printf("\n");
 	}
 	else
 	{
-		printf(RED"\n\t ==== Game Over ==== \n\n"RESET);
+		printf(RED"\n ==== Game Over ==== \n\n"RESET);
 		show_ate(all);
 		printf("\n");
 	}
