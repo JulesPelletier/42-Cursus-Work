@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main1.c                                            :+:      :+:    :+:   */
+/*   mini.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/06 14:57:56 by julpelle          #+#    #+#             */
-/*   Updated: 2021/12/13 15:31:03 by julpelle         ###   ########.fr       */
+/*   Created: 2021/12/13 15:32:02 by julpelle          #+#    #+#             */
+/*   Updated: 2021/12/13 15:59:28 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mini_paint.h"
-
-// Parsing
 
 void	ft_putchar(char c)
 {
@@ -54,24 +52,10 @@ void	init_struct(t_all *all)
 	all->file = NULL;
 }
 
-void	read_file(t_all *all)
-{
-	int	i;
-	char	*content;
-	char	*tmp;
-
-	content = NULL;
-	tmp = malloc(1);
-	while ((i = fread(&tmp, sizeof(char), 1, all->file)))
-	{
-
-	}
-}
-
 FILE	*open_file(char *str)
 {
 	FILE	*file;
-	
+
 	file = fopen(str, "r");
 	if (file == NULL)
 	{
@@ -145,10 +129,10 @@ void	create_map(t_all *all)
 	all->map = buffer;
 }
 
-int	algo_circle(t_all *all)
+int	algo(t_all *all)
 {
 	int	count;
-	int	i;
+	int i;
 	int	j;
 
 	if ((count = fscanf(all->file, "%c %f %f %f %c \n", &all->circle.type, &all->circle.x, &all->circle.y, &all->circle.radius, &all->circle.c)) != 5)
@@ -162,22 +146,25 @@ int	algo_circle(t_all *all)
 		{
 			if (all->circle.type == 'C')
 			{
-				printf("Test : %f | %f | %f\n", powf((float)i - all->params.height, 2), powf((float)j - \
-					all->params.width, 2), sqrtf(powf((float)i - all->circle.x, 2) + powf((float)j - all->circle.y, 2)));
+				//printf("Check C !\n");
+				//printf("Test : %f | %f | %f\n", powf((float)i - all->params.height, 2), powf((float)j - \
+				//	all->params.width, 2), sqrtf(powf((float)i - all->circle.x, 2) + powf((float)j - all->circle.y, 2)));
 				if (sqrtf(powf((float)i - all->circle.x, 2) + powf((float)j - all->circle.y, 2)) <= all->circle.radius)
 					all->map[i][j] = all->circle.c;
 			}
 			if (all->circle.type == 'c')
 			{
-				printf("Test : %f | %f | %f\n", powf((float)i - all->params.height, 2), powf((float)j - \
-					all->params.width, 2), sqrtf(powf((float)i - all->circle.x, 2) + powf((float)j - all->circle.y, 2)));
-				if (sqrtf(powf((float)i - all->circle.x, 2) + powf((float)j - all->circle.y, 2)) <= 1)
+				//printf("Check c !\n");
+				//printf("Test : %f | %f | %f\n", powf((float)i - all->params.height, 2), powf((float)j - \
+				//	all->params.width, 2), sqrtf(powf((float)i - all->circle.x, 2) + powf((float)j - all->circle.y, 2)));
+				if (sqrtf(powf((float)i - all->circle.x, 2) + powf((float)j - all->circle.y, 2)) == all->circle.radius)
 					all->map[i][j] = all->circle.c;
 			}
 			j++;
 		}
 		i++;
 	}
+	show_map(all);
 	return (1);
 }
 
@@ -185,7 +172,7 @@ int	main(int ac, char **av)
 {
 	t_all	all;
 	int		i;
-	
+
 	init_struct(&all);
 	if (ac == 1)
 		return (ft_exit("Error : argument\n"));
@@ -194,12 +181,10 @@ int	main(int ac, char **av)
 	{
 		all.file = open_file(av[i]);
 		if (parse(&all) == -1)
-			ft_putstr("parsing failed\n");
+			ft_putstr("Error : parsing failed\n");
 		create_map(&all);
-		if (algo_circle(&all) == -1)
-			ft_putstr("reading failed\n");
-		show_map(&all);
-		i++;	
+		while (algo(&all) != -1)
+			;
+		i++;
 	}
-	return (0);
 }
