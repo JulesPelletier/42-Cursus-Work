@@ -1,5 +1,5 @@
 # 42-Cursus
-Repo containing all of my projects from 42
+Repo containing all of my projects from 42 and exam practices
 
 1 - Libft : 115 % <br>
 2 - Get Next Line : 101 % <br>
@@ -17,3 +17,7 @@ Repo containing all of my projects from 42
 14 - Containers <br>
 15 - WebServ <br>
 16 - Transcendance <br>
+
+Exams : <br>
+  - Exam 02 : 100 % <br>
+  - Exam 03 : 100 % <br>
