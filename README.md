@@ -19,6 +19,6 @@ Repo containing all of my projects from 42 and exam practices <br>
   15 - WebServ <br>
   16 - Transcendance <br>
 
-<br> Exams : <br>
+Exams : <br>
   - Exam 02 : 100 % <br>
   - Exam 03 : 100 % <br>
