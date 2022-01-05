@@ -12,3 +12,8 @@ Repo containing all of my projects from 42
 9 - Philosophers <br>
 10 - Cub3d <br>
 11 - C++ <br>
+12 - NetPractice
+13 - Inception
+14 - Containers
+15 - WebServ
+16 - Transcendance
