@@ -1,5 +1,6 @@
 # 42-Cursus
 Repo containing all of my projects from 42 and exam practices <br>
+For further information / interest, e-mail me at julespelletier.perso@gmail.com <br>
 <br> Projects : <br>
 
   - 1 : Libft : 115 % <br>
