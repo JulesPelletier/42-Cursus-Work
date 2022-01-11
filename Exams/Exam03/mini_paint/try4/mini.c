@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:01:14 by julpelle          #+#    #+#             */
-/*   Updated: 2021/12/15 21:36:17 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/10 18:39:25 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,13 @@ char	*get_zone(FILE *file, t_zone *zone)
 int	is_rad(float x, float y, t_list *cercle)
 {
 	float	dist;
+	float	check;
 
+	check = 1.00000000;
 	dist = sqrtf(((x - cercle->x) * (x - cercle->x)) + ((y - cercle->y) * (y - cercle->y)));
 	if (dist <= cercle->radius)
 	{
-		if ((cercle->radius - dist) < 1.000000)
+		if ((cercle->radius - dist) < check)
 			return (2);
 		return (1);
 	}
@@ -119,10 +121,12 @@ int	drawing(FILE *file, t_zone *zone, char *draw)
 
 	while ((count = fscanf(file, "%c %f %f %f %c\n", &cercle.type, &cercle.x, &cercle.y, &cercle.radius, &cercle.color)) == 5)
 	{
+		printf("Count : %d\n", count);
 		if (cercle.radius <= 0.0000000 && (cercle.type != 'c' || cercle.type != 'C'))
 			return (0);
 		get_draw(&cercle, zone, draw);
 	}
+	printf("Count : %d\n", count);
 	if (count != -1)
 		return (0);
 	return (1);
