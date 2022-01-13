@@ -9,10 +9,10 @@ For further information / interest, e-mail me at : julespelletier.perso@gmail.co
   - 4 : Printf : 100 % <br>
   - 5 : Push Swap : 96 % <br>
   - 6 : Pipex : 100 % <br>
-  - 7 : So_Long : 125 % <br>
+  - 7 : So_Long : 124 % <br>
   - 8 : Minishell : 105 % <br>
-  - 9 : Philosophers : 120 % <br>
-  - 10 : Cub3d : 100 % <br>
+  - 9 : Philosophers : 125 % <br>
+  - 10 : Cub3d : 110 % <br>
   - 11 : C++ <br>
   - 12 : NetPractice <br>
   - 13 : Inception <br>
