@@ -6,36 +6,33 @@
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 18:14:17 by julpelle          #+#    #+#              #
-#    Updated: 2022/01/13 15:11:39 by julpelle         ###   ########.fr        #
+#    Updated: 2022/01/13 15:29:19 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	megaphone
+NAME	=	megaphone
 
-SRCS_DIR 	= ./
+SRCS 	=	megaphone.cpp
 
-SRCS		=	megaphone.cpp
+OBJS 	=	$(SRCS:.cpp=.o)
 
-CXX			= calng++
+CC 		= 	clang++
 
-OBJS_DIR 	= 	objects/
+CFLAGS 	=	-Wall -Wextra -Werror
 
-OBJ			=	$(SRCS:.cpp=.o)
+RM 		=	rm -f
 
-OBJS 		= 	$(addprefix $(OBJS_DIR), $(OBJ))
+all: 		$(NAME)
 
-CXXFLAGS	=	-Wall -Werror -Wextra
+$(NAME): 	$(OBJS)
+			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(NAME):		$(OBJS)
-				$(CXX) $(FLAGS) -o $(NAME) $(OBJS)
+clean:
+			$(RM) $(OBJS)
 
-all:			$(NAME)
+fclean: 	clean
+			$(RM) $(NAME)
 
-clean:			@echo "Cleaning : $(OBJS_DIR)"
-				@rm -rf $(OBJS_DIR)
+re: 		fclean all
 
-fclean:			clean
-				@echo "Cleaning : $(NAME)"
-				@rm -rf $(NAME)
-
-re:				fclean all
+.PHONY: 	all clean fclean re
