@@ -14,11 +14,10 @@ For further information / interest, e-mail me at : julespelletier.perso@gmail.co
   - 9 : Philosophers : 125 % <br>
   - 10 : Cub3d : 110 % <br>
   - 11 : C++ <br>
-  - 12 : NetPractice <br>
-  - 13 : Inception <br>
-  - 14 : Containers <br>
-  - 15 : WebServ <br>
-  - 16 : Transcendance <br>
+  - 12 : Inception <br>
+  - 13 : Containers <br>
+  - 14 : WebServ <br>
+  - 15 : Transcendance <br>
 
 Exams : <br>
   - Exam 02 : 100 % <br>
