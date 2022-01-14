@@ -6,13 +6,15 @@
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 18:14:17 by julpelle          #+#    #+#              #
-#    Updated: 2022/01/13 15:44:17 by julpelle         ###   ########.fr        #
+#    Updated: 2022/01/14 15:05:31 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	phonebook
 
-SRCS 	=	PhoneBook.cpp
+SRCS 	=	srcs/PhoneBook.cpp	\
+			srcs/Contact.cpp	\
+			srcs/main.cpp
 
 OBJS 	=	$(SRCS:.cpp=.o)
 
