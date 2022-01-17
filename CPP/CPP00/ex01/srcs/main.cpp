@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 15:04:37 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/14 16:24:31 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/17 18:27:07 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	main(int ac, char **av)
 {
 	std::string	input;
 	
+	(void)ac;
+	(void)av;
 	std::cout << "Welcome to your phonebook !" << std::endl << std::endl;
 	display_title();
 	display_instructions();

@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 15:39:55 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/17 18:22:46 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/17 18:40:26 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,13 @@ int	ft_add(PhoneBook *book)
 }
 
 
-void	ft_search(PhoneBook *book)
+int	ft_search(PhoneBook *book)
 {
 	int	i;
 	int	index;
 
 	i = 0;
+	index = -1;
 	std::cout << "     index|first name| last name|  nickname" << std::endl;
     std::cout << "-------------------------------------------" << std::endl;
 	while (book->list[i].empty() == 0)
@@ -107,10 +108,11 @@ void	ft_search(PhoneBook *book)
 		i++;
 	}
 	std::cout << "Get info of contact number : > " && std::cin >> index;
-	if (index >= 1 && index <= 9)
+	if (index <= 0 || index > 8 || book->list[i - 1].is_empty == 1)
+		return (-1);
+	else if ((index >= 1 && index <= 8) && book->list[i - 1].is_empty == 0)
 		print_line(book, index - 1);
-	else
-		return;
+	return (0);
 }
 
 // UTILS
@@ -133,6 +135,11 @@ void	display_wrong_command()
 	std::cout << RED"The command you entered is invalid"RESET << std::endl;
 }
 
+void	display_wrong_input()
+{
+	std::cout << RED"The index you entered cannot be linked to any contact"RESET << std::endl;
+}
+
 int	start_menu(std::string input, PhoneBook *book)
 {
 	if (input == "EXIT")
@@ -147,7 +154,11 @@ int	start_menu(std::string input, PhoneBook *book)
 	}
 	if (input == "SEARCH")
 	{
-		ft_search(book);
+		if (ft_search(book) == -1)
+		{
+			display_wrong_input();
+			return (0);
+		}
 		return (2);
 	}
 	else
