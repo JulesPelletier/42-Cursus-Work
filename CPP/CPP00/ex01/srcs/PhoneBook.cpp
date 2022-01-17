@@ -6,11 +6,13 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 15:39:55 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/14 16:13:09 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/17 18:22:46 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PhoneBook.hpp"
+
+// DISPLAY
 
 void	display_title(void)
 {
@@ -34,13 +36,84 @@ void	display_instructions(void)
 	std::cout << std::endl;
 }
 
-void	end(void)
+int	display_full(void)
+{
+	std::cout << std::endl;
+	std::cout << " ! Your phonebook is already Full ! " << std::endl;
+	std::cout << std::endl;
+	return (1);
+}
+
+void	print_string(std::string string)
+{
+	if (string.size() <= 10)
+		while (string.length() < 10)
+            string = string.insert(0, " ");
+	else
+	{
+		string = string.substr(0, 10);
+		string = string.insert(9, ".");
+	}
+	std::cout << string;
+}
+
+void	print_line(PhoneBook *book, int i)
+{
+	print_string(std::to_string(i + 1));
+	std::cout << "|";
+	print_string(book->list[i].first_name());
+	std::cout << "|";
+	print_string(book->list[i].last_name());
+	std::cout << "|";
+	print_string(book->list[i].nickname());
+	std::cout << "|" << std::endl;
+}
+
+// COMMANDS
+
+void	ft_end(void)
 {
 	std::cout << std::endl;
 	std::cout << GREEN"You are exiting the phonebook" << std::endl;
 	std::cout << std::endl;
 }
 
+int	ft_add(PhoneBook *book)
+{
+	int	i;
+
+	i = 0;
+	while (book->list[i].empty() == 0 && i < 8)
+		i++;
+	if (i == 8)
+		return (display_full());
+	book->list[i].get_info();
+	book->list[i].is_empty = 0;
+	return (0);
+}
+
+
+void	ft_search(PhoneBook *book)
+{
+	int	i;
+	int	index;
+
+	i = 0;
+	std::cout << "     index|first name| last name|  nickname" << std::endl;
+    std::cout << "-------------------------------------------" << std::endl;
+	while (book->list[i].empty() == 0)
+	{
+		print_line(book, i);
+		i++;
+	}
+	std::cout << "Get info of contact number : > " && std::cin >> index;
+	if (index >= 1 && index <= 9)
+		print_line(book, index - 1);
+	else
+		return;
+}
+
+// UTILS
 
 std::string	ft_uppercase(std::string string)
 {
@@ -60,21 +133,21 @@ void	display_wrong_command()
 	std::cout << RED"The command you entered is invalid"RESET << std::endl;
 }
 
-int	start_menu(std::string input)
+int	start_menu(std::string input, PhoneBook *book)
 {
 	if (input == "EXIT")
 	{
-		end();
+		ft_end();
 		return (-1);
 	}
 	if (input == "ADD")
 	{
-		//add();
+		ft_add(book);
 		return (1);
 	}
 	if (input == "SEARCH")
 	{
-		//search();
+		ft_search(book);
 		return (2);
 	}
 	else
@@ -84,11 +157,12 @@ int	start_menu(std::string input)
 	}
 }
 
-void	start_loop(Contact list[8])
+void	start_loop(void)
 {
 	int				count;
 	std::string		input;
 	int				res;
+	PhoneBook		book;
 
 	count = 0;
 	while (1)
@@ -96,7 +170,7 @@ void	start_loop(Contact list[8])
 		std::cout << BLUE"What would you like to do ? > "CYAN;
 		std::cin >> input;
 		input = ft_uppercase(input);
-		res = start_menu(input);
+		res = start_menu(input, &book);
 		if (res == -1)
 			break;
 		if (res == 0)

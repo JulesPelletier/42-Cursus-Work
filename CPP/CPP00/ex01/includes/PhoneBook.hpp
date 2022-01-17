@@ -6,17 +6,18 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 14:43:48 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/14 16:08:46 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/14 17:02:23 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
+// Libraries
 #include <iostream>
 #include <ctype.h>
 
-# include "Contact.hpp"
+# include "../includes/Contact.hpp"
 
 # define RESET	"\033[0m"
 # define BLACK   "\033[30m"
@@ -28,10 +29,23 @@
 # define CYAN    "\033[36m"
 # define WHITE   "\033[37m"
 
+// Class Prototypes
+class	PhoneBook;
+
+// Class Definitions
+class	PhoneBook
+{
+	public:
+		Contact	list[8];
+
+	private:
+};
+
+// Functions
 void			display_title(void);
 void			display_instructions(void);
 void			end(void);
-int				start_menu(std::string input);
+int				start_menu(std::string input, PhoneBook book);
 std::string		ft_uppercase(std::string string);
 void			start_loop(void);
 #endif
