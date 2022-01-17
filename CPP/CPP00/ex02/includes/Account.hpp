@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:41:08 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/17 21:15:58 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/17 22:00:44 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 #define __ACCOUNT_H__
 
 #include <iostream>
+#include <ctime>
 
 # define RESET	"\033[0m"
 # define BLACK   "\033[30m"

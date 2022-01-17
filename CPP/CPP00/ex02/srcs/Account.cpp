@@ -6,15 +6,28 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 18:41:20 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/17 21:55:58 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/17 22:03:58 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <ctime>
 #include "../includes/Account.hpp"
+
+# define RESET	"\033[0m"
+# define BLACK   "\033[30m"
+# define RED     "\033[31m"
+# define GREEN   "\033[32m"
+# define YELLOW  "\033[33m"
+# define BLUE    "\033[34m"
+# define MAGENTA "\033[35m"
+# define CYAN    "\033[36m"
+# define WHITE   "\033[37m"
 
 Account::Account(int initial_deposit)
 {
 	//std::cout << "Constructor called !" << std::endl;
+	_displayTimestamp();
 	this->_accountIndex = this->_nbAccounts;
 	this->_amount = initial_deposit;
 	this->_nbDeposits = 0;
@@ -30,6 +43,7 @@ Account::Account(int initial_deposit)
 Account::~Account(void)
 {
 	//std::cout << "Destructor called !" << std::endl;
+	_displayTimestamp();
 	std::cout << CYAN"index:"RESET << this->_accountIndex << ";";
 	std::cout << GREEN"amount:"RESET << this->_amount << ";";
 	std::cout << MAGENTA"closed"RESET << std::endl;
@@ -43,6 +57,7 @@ int	Account::_totalNbWithdrawals = 0;
 
 void	Account::makeDeposit(int deposit)
 {
+	_displayTimestamp();
 	std::cout << CYAN"index:"RESET << this->_accountIndex << ";" << GREEN"p_amount:"RESET;
 	std::cout << this->_amount << ";" << MAGENTA"deposit:"RESET;
 	if (deposit < 0)
@@ -60,6 +75,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 {
 	if (withdrawal < 0)
 		return (false);
+	_displayTimestamp();
 	std::cout << CYAN"index:"RESET << this->_accountIndex << ";" << GREEN"p_amount:"RESET;
 	std::cout << this->_amount << ";" << MAGENTA"withdrawal:"RESET;
 	if (withdrawal >= 0 && withdrawal < this->_amount)
@@ -82,6 +98,7 @@ void	Account::displayAccountsInfos(void)
 {
 	int	val;
 
+	_displayTimestamp();
 	val = Account::getNbAccounts();
 	std::cout << YELLOW"acounts:"RESET << val << ";" << YELLOW"total:"RESET;
 	val = Account::getTotalAmount();
@@ -97,6 +114,7 @@ void	Account::displayStatus( void ) const
 	int	val;
 
 	val = 0;
+	_displayTimestamp();
 	std::cout << CYAN"index:"RESET << this->_accountIndex << ";";
 	std::cout << GREEN"amount:"RESET << this->_amount << ";";
 	std::cout << val << ";" << MAGENTA"deposits:"RESET;
@@ -104,6 +122,18 @@ void	Account::displayStatus( void ) const
 	std::cout << val << ";" << BLUE"withdrawals:"RESET;
 	val = this->_nbWithdrawals;
 	std::cout << val << std::endl;
+}
+
+void	Account::_displayTimestamp(void)
+{
+	char		message[30];
+	std::time_t	actual;
+	std::tm		*timeptr;
+
+	time(&actual);
+	timeptr = localtime(&actual);
+	strftime(message, 30, RESET"[%Y%m%d_%H%M%S] ", timeptr);
+	std::cout << message;
 }
 
 int		Account::getNbAccounts(void)
