@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 23:33:42 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/17 23:49:14 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/18 13:38:19 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Weapon::Weapon(std::string type)
+Weapon::Weapon(std::string type) : type(type)
 {
 	std::cout << "Constructor Weapon called ! " << std::endl;
-	std::cout << type << std::endl;
 }
 
 
@@ -30,6 +29,16 @@ Weapon::Weapon(std::string type)
 Weapon::~Weapon()
 {
 	std::cout << "Destructor Weapon called ! " << std::endl;
+}
+
+void	Weapon::setType(std::string const &newType)
+{
+	this->type = newType;
+}
+
+std::string	const &Weapon::getType(void) const
+{
+	return (this->type);
 }
 
 

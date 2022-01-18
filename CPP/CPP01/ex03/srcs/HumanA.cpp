@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 23:33:32 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/18 00:04:39 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/18 13:41:22 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon)
+HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon)
 {
+	std::cout << this->_name << " Constructed !" << std::endl;
 }
 
 
@@ -27,6 +28,7 @@ HumanA::HumanA(std::string name, Weapon &weapon) : name(name), weapon(weapon)
 
 HumanA::~HumanA()
 {
+	std::cout << this->_name << " Destroyed !" << std::endl;
 }
 
 
@@ -42,13 +44,14 @@ HumanA::~HumanA()
 
 void	HumanA::attack(void) const
 {
-	std::cout << this->name << " attacks with his " << this->weapon.getType();
+	std::cout << this->_name << " attacks with his " << this->_weapon.getType() << std::endl;
 }
 
 Weapon	&HumanA::getWeapon(void) const
 {
-	return (this->weapon);
+	return (this->_weapon);
 }
+
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
