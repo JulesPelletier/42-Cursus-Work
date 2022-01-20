@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace.hpp                                        :+:      :+:    :+:   */
+/*   Karen_filter.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 13:45:52 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/20 15:09:48 by julpelle         ###   ########.fr       */
+/*   Created: 2022/01/20 15:52:43 by julpelle          #+#    #+#             */
+/*   Updated: 2022/01/20 21:42:53 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef REPLACE_HPP
-# define REPLACE_HPP
+#ifndef KAREN_HPP
+# define KAREN_HPP
 
-# include <iostream>
-# include <fstream>
-# include "Colors.hpp"
+#include <iostream>
+#include <string.h>
+#include "Colors.hpp"
 
-class Replace
+class Karen_filter
 {
-public:
-	Replace(void);
-	~Replace(void);
+	public:
+		Karen_filter();
+		~Karen_filter();
 
-	int				createFile(std::string file);
-	std::string		replaceStrings(std::string s1, std::string s2);
+		void	complain(std::string level);
+		void	start(Karen_filter *karen);
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
 	
+	private:
 
-private:
-	std::string		_original;
-	std::string		_replace;
-	std::string		_output_file;
-	std::ifstream	_input_file;
 };
 
-int	display_error(int n);
+void	display_title(void);
+
 
 #endif

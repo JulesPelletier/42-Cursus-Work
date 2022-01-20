@@ -6,14 +6,14 @@
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 18:14:53 by julpelle          #+#    #+#              #
-#    Updated: 2022/01/18 22:35:23 by julpelle         ###   ########.fr        #
+#    Updated: 2022/01/20 15:58:35 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	replace
+NAME	=	karen
 
 SRCS 	=	srcs/main.cpp 		\
-			srcs/Replace.cpp 		\
+			srcs/Karen.cpp 		\
 
 
 OBJS 	=	$(SRCS:.cpp=.o)
