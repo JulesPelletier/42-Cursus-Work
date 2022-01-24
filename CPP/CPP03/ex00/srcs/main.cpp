@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:34:07 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 15:06:24 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/24 15:09:26 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,17 @@ int main(int ac, char **av)
 	std::cout << Yellow " ==================== " Reset << std::endl;
 	std::cout << std::endl;
 
+	std::cout << Purple "> Jules attack Anthony " Reset << std::endl;
 	jules.attack("Anthony");
+	std::cout << Purple "> Bob takes 2 damage  " Reset << std::endl;
 	bob.takeDamage(2);
+	std::cout << Purple "> Bob gets 2 hp back  " Reset << std::endl;
 	bob.beRepaired(2);
+	std::cout << Purple "> Jules takes 4 damage  " Reset << std::endl;
 	jules.takeDamage(4);
+	std::cout << Purple "> Jules gets 4 hp back " Reset << std::endl;
 	jules.beRepaired(4);
+	std::cout << Purple "> Jules gets 10 hp back " Reset << std::endl;
 	jules.beRepaired(10);
 
 	std::cout << std::endl;
