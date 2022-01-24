@@ -1,43 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 17:04:11 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 17:04:12 by julpelle         ###   ########.fr       */
+/*   Created: 2022/01/24 17:03:45 by julpelle          #+#    #+#             */
+/*   Updated: 2022/01/24 17:03:46 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include <iostream>
 # include <string>
-# include "Colors.hpp"
 
-class ClapTrap
+#include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
 
 	public:
 
-		ClapTrap(std::string str);
-		ClapTrap( ClapTrap const & src );
-		~ClapTrap();
+		ScavTrap(std::string name);
+		ScavTrap( ScavTrap const & src );
+		~ScavTrap();
 
-		ClapTrap &		operator=( ClapTrap const & rhs );
+		ScavTrap 		&operator=( ScavTrap const & rhs );
 
+		void			guardGate(void);
 		void 			attack(const std::string& target);
-		void 			takeDamage(unsigned int amount);
-		void 			beRepaired(unsigned int amount);
-
-	protected:
-		std::string		_name;
-		int				_hp;
-		int				_ep;
-		int				_attack;
-
 };
 
-#endif /* ******************************************************** CLAPTRAP_H */
+#endif /* ******************************************************** SCAVTRAP_H */

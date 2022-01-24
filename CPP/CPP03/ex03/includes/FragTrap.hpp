@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 17:04:28 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 17:04:29 by julpelle         ###   ########.fr       */
+/*   Created: 2022/01/24 16:37:27 by julpelle          #+#    #+#             */
+/*   Updated: 2022/01/24 16:46:23 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include <iostream>
 # include <string>
 
-#include "ClapTrap.hpp"
+# include "../includes/ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
 
 	public:
 
-		ScavTrap(std::string name);
-		ScavTrap( ScavTrap const & src );
-		~ScavTrap();
+		FragTrap(std::string name);
+		FragTrap( FragTrap const & src );
+		~FragTrap();
 
-		ScavTrap 		&operator=( ScavTrap const & rhs );
+		FragTrap &		operator=( FragTrap const & rhs );
 
-		void			guardGate(void);
-		void 			attack(const std::string& target);
+		void highFivesGuys(void);
+		
+	private:
+
 };
 
-#endif /* ******************************************************** SCAVTRAP_H */
+std::ostream &			operator<<( std::ostream & o, FragTrap const & i );
+
+#endif /* ******************************************************** FRAGTRAP_H */

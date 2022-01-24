@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 17:04:28 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 17:04:29 by julpelle         ###   ########.fr       */
+/*   Created: 2022/01/24 16:50:19 by julpelle          #+#    #+#             */
+/*   Updated: 2022/01/24 17:05:13 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
 # include <iostream>
 # include <string>
 
-#include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class DiamondTrap
 {
 
 	public:
 
-		ScavTrap(std::string name);
-		ScavTrap( ScavTrap const & src );
-		~ScavTrap();
+		DiamondTrap();
+		DiamondTrap( DiamondTrap const & src );
+		~DiamondTrap();
 
-		ScavTrap 		&operator=( ScavTrap const & rhs );
+		DiamondTrap &		operator=( DiamondTrap const & rhs );
 
-		void			guardGate(void);
-		void 			attack(const std::string& target);
+		void 				whoAmI();
+		
+	private:
+		std::string			_name;
 };
 
-#endif /* ******************************************************** SCAVTRAP_H */
+std::ostream &			operator<<( std::ostream & o, DiamondTrap const & i );
+
+#endif /* ***************************************************** DIAMONDTRAP_H */

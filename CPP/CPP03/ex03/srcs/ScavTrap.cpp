@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 16:37:30 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 17:00:53 by julpelle         ###   ########.fr       */
+/*   Created: 2022/01/24 15:13:40 by julpelle          #+#    #+#             */
+/*   Updated: 2022/01/24 16:47:45 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/FragTrap.hpp"
+#include "../includes/ScavTrap.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "FragTrap constructor called for : " << this->_name << std::endl;
+	std::cout << "ScavTrap constructor called for : " << name << std::endl;
 	this->_hp = 100;
-	this->_ep = 100;
-	this->_attack = 30;
+	this->_ep = 50;
+	this->_attack = 20;
 }
 
-FragTrap::FragTrap( const FragTrap & src ) : ClapTrap(src)
+ScavTrap::ScavTrap( const ScavTrap & src ) : ClapTrap(src)
 {
-	std::cout << "FragTrap constructor called for : " << this->_name << std::endl;
+	std::cout << "ScavTrap copy constructor called for : " << this->_name << std::endl;
 }
 
 
@@ -34,9 +34,9 @@ FragTrap::FragTrap( const FragTrap & src ) : ClapTrap(src)
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-FragTrap::~FragTrap()
+ScavTrap::~ScavTrap()
 {
-	std::cout << "FragTrap destructor called for : " << this->_name << std::endl;
+	std::cout << "ScavTrap destructor called for : " << this->_name << std::endl;
 }
 
 
@@ -44,7 +44,7 @@ FragTrap::~FragTrap()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-FragTrap &				FragTrap::operator=( FragTrap const & rhs )
+ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -60,16 +60,23 @@ FragTrap &				FragTrap::operator=( FragTrap const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void FragTrap::highFivesGuys(void)
+void 			ScavTrap::attack(const std::string& target)
 {
-	std::string	input;
-	std::cout << Yellow "Do you want to high five ? > " Reset;
-	std::cin >> input;
-	if (input == "YES")
-		std::cout << Green " !!! You high fived the FragTrap !!!" Reset << std::endl;
+	if (this->_ep <= 0)
+		std::cout << Red "Not enough energy to attack"  Reset << std::endl;
 	else
-		std::cout << Red " !!! FragTrap is sad !!! " Reset<< std::endl;
+	{
+		std::cout << Cyan "ScavTrap " << this->_name << " attacks " << target << std::endl;
+		std::cout << Cyan "He dealt " << this->_attack << " damage to " << target << std::endl;
+	}
 }
+
+
+void			ScavTrap::guardGate(void)
+{
+	std::cout << Cyan "ScavTrap " << this->_name << " is guarding the gate " Reset << std::endl;
+}
+
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

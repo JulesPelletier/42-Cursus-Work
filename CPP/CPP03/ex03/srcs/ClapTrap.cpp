@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:34:24 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 16:59:08 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/24 16:47:10 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 ClapTrap::ClapTrap(std::string str) : _hp(10), _ep(10), _attack(0)
 {
 	this->_name = str;
-	std::cout << "ClapTrap constructor called for : " << this->_name << std::endl;
+	std::cout << "Constructor called for : " << this->_name << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap & src )
 {
 	*this = src;
-	std::cout << "ClapTrap constructor copy called for : "<< this->_name << std::endl;
+	std::cout << "Constructor copy called for : "<< this->_name << std::endl;
 }
 
 
@@ -35,7 +35,7 @@ ClapTrap::ClapTrap( const ClapTrap & src )
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap destructor called for : " << this->_name << std::endl;
+	std::cout << "Destructor called for : " << this->_name << std::endl;
 }
 
 
