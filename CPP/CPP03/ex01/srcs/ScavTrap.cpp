@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:13:40 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 16:12:18 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/25 12:29:40 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
+
+ScavTrap::ScavTrap(void)
+{
+	std::cout << "ScavTrap default constructor called for : " << this->_name << std::endl;
+}
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {

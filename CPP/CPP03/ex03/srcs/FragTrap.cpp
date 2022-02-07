@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:37:30 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 16:46:50 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/25 12:32:59 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
+
+FragTrap::FragTrap(void)
+{
+	std::cout << "FragTrap default constructor called for : " << this->_name << std::endl;
+}
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
@@ -36,6 +41,7 @@ FragTrap::FragTrap( const FragTrap & src ) : ClapTrap(src)
 
 FragTrap::~FragTrap()
 {
+	std::cout << "FragTrap destructor called for : " << this->_name << std::endl;
 }
 
 
@@ -67,7 +73,7 @@ void FragTrap::highFivesGuys(void)
 	if (input == "YES")
 		std::cout << Green "You high fived the FragTrap " Reset << std::endl;
 	else
-		std::cout << Red "FragTrap is sad" Reset<< std::endl;
+		std::cout << Red "FragTrap is sad, you didn't highfive him" Reset<< std::endl;
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 17:03:52 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 17:03:52 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:41:12 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ClapTrap
 
 		ClapTrap(std::string str);
 		ClapTrap( ClapTrap const & src );
+		ClapTrap(void);
 		~ClapTrap();
 
 		ClapTrap &		operator=( ClapTrap const & rhs );
@@ -33,6 +34,7 @@ class ClapTrap
 		void 			beRepaired(unsigned int amount);
 
 	protected:
+		
 		std::string		_name;
 		int				_hp;
 		int				_ep;

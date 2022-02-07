@@ -6,23 +6,24 @@
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 21:51:28 by julpelle          #+#    #+#              #
-#    Updated: 2022/01/24 16:43:51 by julpelle         ###   ########.fr        #
+#    Updated: 2022/01/24 17:51:39 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	claptrap
+NAME	=	diamondtrap
 
-SRCS 	=	srcs/main.cpp 		\
-			srcs/ClapTrap.cpp 		\
-			srcs/ScavTrap.cpp 		\
-			srcs/FragTrap.cpp 		\
+SRCS 	=	srcs/main.cpp 				\
+			srcs/ClapTrap.cpp 			\
+			srcs/ScavTrap.cpp 			\
+			srcs/FragTrap.cpp 			\
+			srcs/DiamondTrap.cpp 		\
 
 
 OBJS 	=	$(SRCS:.cpp=.o)
 
 CXX 	= 	clang++
 
-CXXFLAGS =	-Wall -Wextra -Werror
+CXXFLAGS =	-Wall -Wextra -Werror -Wno-shadow
 
 RM 		=	rm -f
 

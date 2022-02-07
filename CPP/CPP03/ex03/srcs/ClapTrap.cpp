@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 14:34:24 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 16:47:10 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/24 18:09:21 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
+
+ClapTrap::ClapTrap(void)
+{
+	std::cout << "Default constructor called for : " << this->_name << std::endl;
+}
 
 ClapTrap::ClapTrap(std::string str) : _hp(10), _ep(10), _attack(0)
 {

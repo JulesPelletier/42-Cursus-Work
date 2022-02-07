@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:37:27 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 16:46:23 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/25 12:30:23 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class FragTrap : public ClapTrap
 
 	public:
 
+		FragTrap(void);
 		FragTrap(std::string name);
 		FragTrap( FragTrap const & src );
 		~FragTrap();

@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:50:19 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 17:05:13 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/26 14:51:11 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,26 @@
 
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
+# include "ClapTrap.hpp"
 
-class DiamondTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 
 	public:
 
-		DiamondTrap();
+		DiamondTrap(void);
+		DiamondTrap(std::string name);
 		DiamondTrap( DiamondTrap const & src );
 		~DiamondTrap();
 
 		DiamondTrap &		operator=( DiamondTrap const & rhs );
 
 		void 				whoAmI();
-		
+	
+	protected:
+
 	private:
 		std::string			_name;
 };
-
-std::ostream &			operator<<( std::ostream & o, DiamondTrap const & i );
 
 #endif /* ***************************************************** DIAMONDTRAP_H */

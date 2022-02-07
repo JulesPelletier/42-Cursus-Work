@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:37:30 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 17:00:53 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/01/25 12:30:52 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
+
+FragTrap::FragTrap(void)
+{
+	std::cout << "FragTrap default constructor called for : " << this->_name << std::endl;
+}
+
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
