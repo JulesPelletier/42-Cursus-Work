@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serialize.hpp                                      :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 21:42:28 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 21:45:50 by julpelle         ###   ########.fr       */
+/*   Created: 2022/02/07 21:54:29 by julpelle          #+#    #+#             */
+/*   Updated: 2022/02/07 22:56:44 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZE_HPP
-# define SERIALIZE_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
 # include <iostream>
-# include <stdint.h>
+# include <string>
 # include "Colors.hpp"
 
-typedef struct	s_Data
+class Base
 {
-	std::string	str1;
-	std::string	str2;
-}				Data;
 
+	public:
+		virtual ~Base(void) {}
 
-# endif
+	private:
+
+};
+
+Base *generate(void);
+
+#endif /* ************************************************************ BASE_H */

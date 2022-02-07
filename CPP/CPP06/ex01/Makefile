@@ -6,11 +6,11 @@
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 21:51:28 by julpelle          #+#    #+#              #
-#    Updated: 2022/02/07 21:49:41 by julpelle         ###   ########.fr        #
+#    Updated: 2022/02/07 22:57:00 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	serialize
+NAME	=	identify
 
 SRCS 	=	srcs/main.cpp 		\
 

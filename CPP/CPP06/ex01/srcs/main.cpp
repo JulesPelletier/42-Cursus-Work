@@ -6,46 +6,94 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 21:37:41 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 21:53:27 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/07 23:11:50 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Colors.hpp"
-#include "../includes/Serialize.hpp"
+#include "../includes/Base.hpp"
 
-uintptr_t serialize(Data* ptr)
+class A : public Base {};
+class B : public Base {};
+class C : public Base {};
+
+Base *generate(void)
 {
-	return (reinterpret_cast<uintptr_t>(ptr));
+	long	i;
+
+	i = random();
+	if (i % 3 == 0)
+		return (new A());
+	if (i % 3 == 1)
+		return (new B());
+	if (i % 3 == 2)
+		return (new C());
+	return (0);
 }
 
-Data* deserialize(uintptr_t raw)
+void	identify(Base *p)
 {
-	return (reinterpret_cast<Data *>(raw));
+	A *a = dynamic_cast<A *>(p);
+	B *b = dynamic_cast<B *>(p);
+	C *c = dynamic_cast<C *>(p);
+
+	if (!b && !c)
+		std::cout << "Type A" << std::endl;
+	if (!a && !c)
+		std::cout << "Type B" << std::endl;
+	if (!b && !a)
+		std::cout << "Type C" << std::endl;
+}
+
+void	identify(Base &p)
+{
+	try
+	{
+		A &a = dynamic_cast<A &>(p);
+		std::cout << "Type A" << std::endl;
+		(void)a;
+	}
+	catch(const std::exception& e)
+	{
+	}
+	try
+	{
+		B &b = dynamic_cast<B &>(p);
+		std::cout << "Type B" << std::endl;
+		(void)b;
+	}
+	catch(const std::exception& e)
+	{
+	}
+	try
+	{
+		C &c = dynamic_cast<C &>(p);
+		std::cout << "Type C" << std::endl;
+		(void)c;
+	}
+	catch(const std::exception& e)
+	{
+	}
+	
 }
 
 int main(void)
 {
-	Data	seri;
+	int	i;
+	int	num;
 
-	seri.str1 = "Hello World!\n";
-	seri.str2 = "Bonjour Monde!\n";
-	
-	uintptr_t	u_ptr;
-	Data		*d_ptr;
+	num = 10;
+	i = 0;
+	while (i < num)
+	{
+		Base	*base;
 
-	u_ptr = serialize(&seri);
-	d_ptr = deserialize(u_ptr);
-	
-	std::cout << std::endl;
-	std::cout << Yellow " ===== Original data ===== " Reset << std::endl;
-	std::cout << std::endl;
-	std::cout << "Str 1 > " << seri.str1;
-	std::cout << "Str 2 > " << seri.str2;
-	std::cout << std::endl;
-	std::cout << Yellow " ===== Data after serialize ===== " Reset << std::endl;
-	std::cout << std::endl;
-	std::cout << "Str 1 > " << d_ptr->str1;
-	std::cout << "Str 2 > " << d_ptr->str2;
-
+		base = generate();
+		std::cout << i << Blue " : \n";
+		identify(base);
+		identify(*base);
+		std::cout << Reset << std::endl;
+		i++;
+	}
 	return (0);
 }
