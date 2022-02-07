@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 18:01:47 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 18:01:48 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/07 19:43:42 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Bureaucrat
 		void				worsegrade(void);
 		void				checkGrade(void);
 		void				signForm(Form &form);
+		void				executeForm(Form &form) const;
 
 		class				GradeTooHighException : public std::exception
 		{

@@ -111,6 +111,14 @@ const char	*Bureaucrat::GradeTooHighException::what(void) const throw()
 	return (Red "Error : grade is too high" Reset);
 }
 
+void		Bureaucrat::executeForm(Form &form) const
+{
+	form.execute(*this);
+	std::cout << std::endl;
+	std::cout << Green << this->_name << Reset " executed the form" << std::endl;
+}
+
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

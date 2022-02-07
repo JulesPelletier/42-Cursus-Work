@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:27:14 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 19:42:05 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/07 19:46:45 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int ac, char **av)
 		ShrubberyCreationForm f_me("tree");
 		
 		me.signForm(f_me);
-		f_me.execute(me);
+		me.executeForm(f_me);
 		std::cout << std::endl;
 		std::cout << Reset " **** Shrubbery Form done **** " << std::endl;
 		std::cout << std::endl;
@@ -45,7 +45,7 @@ int	main(int ac, char **av)
 		ShrubberyCreationForm f_me("leaf");
 		
 		me.signForm(f_me);
-		f_me.execute(me);
+		me.executeForm(f_me);
 		std::cout << std::endl;
 		std::cout << Reset " **** Shrubbery Form done **** " << std::endl;
 		std::cout << std::endl;
@@ -61,7 +61,7 @@ int	main(int ac, char **av)
 		PresidentialPardonForm f_me2("Flo");
 
 		me2.signForm(f_me2);
-		f_me2.execute(me2);
+		me2.executeForm(f_me2);
 		std::cout << std::endl;
 		std::cout << Reset " **** Presiendtial Form done **** " << std::endl;
 		std::cout << std::endl;
@@ -79,7 +79,7 @@ int	main(int ac, char **av)
 		PresidentialPardonForm f_me2("Flo");
 
 		me2.signForm(f_me2);
-		f_me2.execute(me2);
+		me2.executeForm(f_me2);
 		std::cout << std::endl;
 		std::cout << Reset " **** Presiendtial Form done **** " << std::endl;
 		std::cout << std::endl;
@@ -96,7 +96,7 @@ int	main(int ac, char **av)
 		RobotomyRequestForm f_me3("Steve");
 
 		me3.signForm(f_me3);
-		f_me3.execute(me3);
+		me3.executeForm(f_me3);
 		std::cout << std::endl;
 		std::cout << Reset " **** Robotomized Form done **** " << std::endl;
 		std::cout << std::endl;
@@ -113,7 +113,7 @@ int	main(int ac, char **av)
 		RobotomyRequestForm f_me3("Steve");
 
 		me3.signForm(f_me3);
-		f_me3.execute(me3);
+		me3.executeForm(f_me3);
 		std::cout << std::endl;
 		std::cout << Reset " **** Robotomized Form done **** " << std::endl;
 		std::cout << std::endl;

@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 18:11:41 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 19:37:04 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/07 19:47:43 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 std::ostream &			operator<<( std::ostream & o,  PresidentialPardonForm const & i )
 {
 	(void)i;
-	o << i.getTarget() + " has been forgiven by Zafod Beeblebrox" << std::endl;
+	o << Blue << i.getTarget() + " has been forgiven by Zafod Beeblebrox" << std::endl;
 	return o;
 }
 
