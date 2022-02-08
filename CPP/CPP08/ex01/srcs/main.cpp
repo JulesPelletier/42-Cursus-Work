@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 13:08:11 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/08 15:33:57 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/08 15:34:54 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,20 @@ int main(void)
 		Span small(1);
 
 		small.addNumber(1);
+
+		int shortspan;
+		int longspan;
+
+		shortspan = small.shortestSpan();
+		longspan = small.longestSpan();
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << '\n';
+	}
+	try
+	{
+		Span small(2);
 
 		int shortspan;
 		int longspan;
