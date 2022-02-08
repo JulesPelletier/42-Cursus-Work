@@ -6,11 +6,11 @@
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 21:51:28 by julpelle          #+#    #+#              #
-#    Updated: 2022/02/08 00:59:33 by julpelle         ###   ########.fr        #
+#    Updated: 2022/02/08 13:07:55 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	ex00
+NAME	=	easyfind
 
 SRCS 	=	srcs/main.cpp 		\
 
