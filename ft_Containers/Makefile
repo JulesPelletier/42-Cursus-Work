@@ -6,7 +6,7 @@
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 21:51:28 by julpelle          #+#    #+#              #
-#    Updated: 2022/02/08 17:26:12 by julpelle         ###   ########.fr        #
+#    Updated: 2022/02/09 01:34:58 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CXX 	= 	clang++
 
 CXXFLAGS =	-Wall -Wextra -Werror #-std=c++98
 
-RM 		=	rm -f
+RM 		=	rm -rf
 
 all: 		$(NAME)
 
@@ -29,7 +29,7 @@ $(NAME): 	$(OBJS)
 			$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
-			$(RM) $(OBJS) .tmp
+			$(RM) $(OBJS) .tmp .vscode
 
 fclean: 	clean
 			$(RM) $(NAME)
