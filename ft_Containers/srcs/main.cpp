@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:37:24 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/08 20:25:27 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/08 23:48:49 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,6 @@ int main(int ac, char **av)
 	(void)ac;
 	(void)av;
 	
-	ft::Vector<int>	vector_default;
-	ft::Vector<int>	vector_fill(10, 5);
-	ft::Vector<int>	vector_range(10, 5);
-	ft::Vector<int>	vector_copy(vector_fill);
-	ft::Vector<int> new_vector;
-
-	new_vector = vector_copy;
-	
+	test_vector_all();
 	return (0);
 }
