@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:42:15 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/09 01:24:30 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/09 01:59:34 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <limits>
 # include <memory>
 # include <fstream>
+# include <cstddef>
 
 // Include color formating librarie
 # include "Colors.hpp"

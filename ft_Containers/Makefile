@@ -6,7 +6,7 @@
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 21:51:28 by julpelle          #+#    #+#              #
-#    Updated: 2022/02/09 01:34:58 by julpelle         ###   ########.fr        #
+#    Updated: 2022/02/09 01:48:32 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJS 	=	$(SRCS:.cpp=.o)
 
 CXX 	= 	clang++
 
-CXXFLAGS =	-Wall -Wextra -Werror #-std=c++98
+CXXFLAGS =	-Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 RM 		=	rm -rf
 
@@ -29,7 +29,7 @@ $(NAME): 	$(OBJS)
 			$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
-			$(RM) $(OBJS) .tmp .vscode
+			$(RM) $(OBJS) .vscode
 
 fclean: 	clean
 			$(RM) $(NAME)

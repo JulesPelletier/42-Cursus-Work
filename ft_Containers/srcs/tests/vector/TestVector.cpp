@@ -6,11 +6,14 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:25:31 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/09 00:04:57 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/09 02:16:53 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/AllContainers.hpp"
+#include "../../../includes/Vector/IterVector.hpp"
+#include "../../../includes/Vector/RevIterVector.hpp"
+#include "../../../includes/Vector/Vector.hpp"
 #include "TestVector.hpp"
 
 void	test_vector_constructor()
@@ -38,7 +41,26 @@ void	test_vector_constructor()
 
 void	test_vector_iterators()
 {
+	std::cout << std::endl;
+	std::cout << Blue " ==================================== " Reset << std::endl;
+	std::cout << Blue " === Testing Iterators for Vector === " Reset << std::endl;
+	std::cout << Blue " ==================================== " Reset << std::endl;
+	std::cout << std::endl;
 	
+	std::vector<int>	test_iterators1(10, 0);
+	ft::Vector<int> 	my_test_iterators1(10, 0);
+	std::vector<int> 	test_iterators2(100, 1);
+	ft::Vector<int> 	my_test_iterators2(100, 1);
+
+	ft::IterVector<int> it1;
+	ft::IterVector<int> it2;
+	
+	it1 = my_test_iterators1.begin();
+	it2 = my_test_iterators2.begin();
+	
+	std::cout << Purple " --------- Checking begin --------- " Reset << std::endl;
+	std::cout << Reset "Original : \t" Cyan << *test_iterators1.begin() << Reset " \t\t| My Vector : " Green << it1 << std::endl;
+	std::cout << Reset "Original : \t" Cyan << *test_iterators2.begin() << Reset " \t\t| My Vector : " Green << it2 << std::endl;
 }
 
 void	test_vector_overload()
@@ -52,7 +74,6 @@ void	test_vector_capacity()
 	std::cout << Blue " ============================================= " Reset << std::endl;
 	std::cout << Blue " === Testing Capacity Functions for Vector === " Reset << std::endl;
 	std::cout << Blue " ============================================= " Reset << std::endl;
-
 	std::cout << std::endl;
 
 	std::vector<int>	original1(5,10);
@@ -101,6 +122,7 @@ void	test_vector_allocator()
 void	test_vector_all()
 {
 	test_vector_constructor();
+	test_vector_iterators();
 	test_vector_capacity();
 }
 

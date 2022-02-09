@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 00:12:02 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/09 01:18:50 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/09 02:23:44 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ class IterVector
 		~IterVector(void);
 
 		// Assignation
-		IterVector &		operator=( IterVector const & rhs );
+		IterVector 			&operator=( IterVector const & rhs );
+		int					&getPtr(void) const;
 
 		// Operators
 		bool				operator==(const IterVector &x) const;
@@ -64,33 +65,33 @@ class IterVector
 template<class T>
 IterVector<T>::IterVector(void) : _ptr(0)
 {
-	std::cout << Yellow "Default constructor called for iterator" Reset << std::endl;
+	//std::cout << Yellow "Default constructor called for iterator" Reset << std::endl;
 }
 
 template<class T>
 IterVector<T>::IterVector(value_type *p) : _ptr(p)
 {
-	std::cout << Yellow "Default constructor called for iterator" Reset << std::endl;
+	//std::cout << Yellow "Default constructor called for iterator" Reset << std::endl;
 }
 
 template<class T>
 IterVector<T>::IterVector(const IterVector &v) : _ptr(v._ptr)
 {
 	*this = v;
-	std::cout << Yellow "Copy constructor called for iterator" Reset << std::endl;
+	//std::cout << Yellow "Copy constructor called for iterator" Reset << std::endl;
 }
 
 template<class T>
 IterVector<T>::~IterVector(void)
 {
-	std::cout << Yellow "Default destructor called for iterator" Reset << std::endl;
+	//std::cout << Yellow "Default destructor called for iterator" Reset << std::endl;
 }
 
 // Assignation
 template<class T>
 IterVector<T> 				&IterVector<T>::operator=( IterVector const & rhs )
 {
-	if (this == rhs)
+	if (*this == rhs)
 		return (*this);
 	this->_ptr = rhs._ptr;
 	return (*this);
@@ -115,7 +116,7 @@ bool				IterVector<T>::operator!=(const IterVector &x) const
 template<class T>
 IterVector<T>			&IterVector<T>::operator*(void)
 {
-	return (*this->_ptr);
+	return (*(this->_ptr));
 }
 
 template<class T>
@@ -176,9 +177,19 @@ IterVector<T>			IterVector<T>::operator-=(difference_type dec)
 	return (*this);
 }
 
+template<class T>
+int						&IterVector<T>::getPtr(void) const
+{
+	return (static_cast<int>(_ptr));
+}
+
 // Stream
 template<class T>
-std::ostream &			operator<<( std::ostream & o, IterVector<T> const & i );
+std::ostream &			operator<<( std::ostream & o, IterVector<T> const & i )
+{
+	o << i.getPtr();
+	return (o);
+}
 
 } // End of namespace
 

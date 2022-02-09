@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 16:40:13 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/09 01:31:58 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/09 01:56:13 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,9 +163,7 @@ template<class T>
 typename Vector<T>::const_reverse_iterator		Vector<T>::rbegin(void) const
 {
 	return (const_reverse_iterator(end()));
-
 }
-
 
 template<class T>
 typename Vector<T>::iterator					Vector<T>::rend(void)

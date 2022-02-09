@@ -44,9 +44,125 @@ class RevIterVector
 		RevIterVector		operator-=(difference_type dec);
 
 	private:
-
+		value_type		*_ptr;
 };
 
+template<class T>
+RevIterVector<T>::RevIterVector(void) : _ptr(0)
+{
+	std::cout << Yellow "Default constructor called for iterator" Reset << std::endl;
+}
+
+template<class T>
+RevIterVector<T>::RevIterVector(value_type *p) : _ptr(p)
+{
+	std::cout << Yellow "Default constructor called for iterator" Reset << std::endl;
+}
+
+template<class T>
+RevIterVector<T>::RevIterVector(const RevIterVector &v) : _ptr(v._ptr)
+{
+	*this = v;
+	std::cout << Yellow "Copy constructor called for iterator" Reset << std::endl;
+}
+
+template<class T>
+RevIterVector<T>::~RevIterVector(void)
+{
+	std::cout << Yellow "Default destructor called for iterator" Reset << std::endl;
+}
+
+// Assignation
+template<class T>
+RevIterVector<T> 				&RevIterVector<T>::operator=( RevIterVector const & rhs )
+{
+	if (this == rhs)
+		return (*this);
+	this->_ptr = rhs._ptr;
+	return (*this);
+}
+
+// Operators
+template<class T>
+bool				RevIterVector<T>::operator==(const RevIterVector &x) const
+{
+	if (this->_ptr == x._ptr)
+		return (true);
+	return (false);
+}
+template<class T>
+bool				RevIterVector<T>::operator!=(const RevIterVector &x) const
+{
+	if (this->_ptr == x._ptr)
+		return (false);
+	return (true);
+}
+
+template<class T>
+RevIterVector<T>			&RevIterVector<T>::operator*(void)
+{
+	return (*this->_ptr);
+}
+
+template<class T>
+RevIterVector<T>			*RevIterVector<T>::operator->(void)
+{
+	return (this->_ptr);
+}
+
+template<class T>
+RevIterVector<T>			&RevIterVector<T>::operator[](difference_type index) const
+{
+	return (*(this->_ptr + index));
+}
+
+template<class T>
+RevIterVector<T>			&RevIterVector<T>::operator++(void)
+{
+	++this->_ptr;
+	return (*this);
+}
+
+template<class T>
+RevIterVector<T>			&RevIterVector<T>::operator--(void)
+{
+	--this->_ptr;
+	return (*this);
+}
+
+template<class T>
+RevIterVector<T>			&RevIterVector<T>::operator+(difference_type inc) const
+{
+	RevIterVector	copy(*this);
+
+	copy->_ptr = copy->_ptr + inc;
+	return (copy);
+}
+
+template<class T>
+RevIterVector<T>			RevIterVector<T>::operator-(difference_type dec) const
+{
+	RevIterVector	copy(*this);
+
+	copy->_ptr = copy->_ptr - dec;
+	return (copy);
+}
+
+template<class T>
+RevIterVector<T>			&RevIterVector<T>::operator+=(difference_type inc)
+{
+	this->ptr = this->_ptr + inc;
+	return (*this);
+}
+
+template<class T>
+RevIterVector<T>			RevIterVector<T>::operator-=(difference_type dec)
+{
+	this->ptr = this->_ptr - dec;
+	return (*this);
+}
+
+// Stream
 template<class T>
 std::ostream &			operator<<( std::ostream & o, RevIterVector<T> const & i );
 
