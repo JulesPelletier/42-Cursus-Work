@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 17:25:31 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/09 02:16:53 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/09 15:23:28 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	test_vector_iterators()
 	it2 = my_test_iterators2.begin();
 	
 	std::cout << Purple " --------- Checking begin --------- " Reset << std::endl;
-	std::cout << Reset "Original : \t" Cyan << *test_iterators1.begin() << Reset " \t\t| My Vector : " Green << it1 << std::endl;
-	std::cout << Reset "Original : \t" Cyan << *test_iterators2.begin() << Reset " \t\t| My Vector : " Green << it2 << std::endl;
+	std::cout << Reset "Original : \t" Cyan << *test_iterators1.begin() << Reset " \t\t| My Vector : " Green << *it1 << std::endl;
+	std::cout << Reset "Original : \t" Cyan << *test_iterators2.begin() << Reset " \t\t| My Vector : " Green << *it2 << std::endl;
 }
 
 void	test_vector_overload()

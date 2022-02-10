@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 00:12:02 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/09 02:23:44 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:06:03 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,12 @@ class IterVector
 		IterVector			operator-(difference_type dec) const;
 		IterVector			&operator+=(difference_type inc);
 		IterVector			operator-=(difference_type dec);
+
+		// Variables
+		value_type		*_ptr;
 		
 	private:
-		value_type		*_ptr;
+	
 
 };
 
@@ -116,7 +119,7 @@ bool				IterVector<T>::operator!=(const IterVector &x) const
 template<class T>
 IterVector<T>			&IterVector<T>::operator*(void)
 {
-	return (*(this->_ptr));
+	return (*_ptr);
 }
 
 template<class T>
@@ -177,17 +180,11 @@ IterVector<T>			IterVector<T>::operator-=(difference_type dec)
 	return (*this);
 }
 
-template<class T>
-int						&IterVector<T>::getPtr(void) const
-{
-	return (static_cast<int>(_ptr));
-}
-
 // Stream
 template<class T>
 std::ostream &			operator<<( std::ostream & o, IterVector<T> const & i )
 {
-	o << i.getPtr();
+	(void)i;
 	return (o);
 }
 
