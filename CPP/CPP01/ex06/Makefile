@@ -20,7 +20,7 @@ OBJS 	=	$(SRCS:.cpp=.o)
 
 CXX 	= 	clang++
 
-CXXFLAGS =	-Wall -Wextra -Werror
+CXXFLAGS =	-Wall -Wextra -Werror -fsanitize=address -g3
 
 RM 		=	rm -f
 

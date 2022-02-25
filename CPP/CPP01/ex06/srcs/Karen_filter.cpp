@@ -12,14 +12,14 @@
 
 #include "../includes/Karen_filter.hpp"
 
-Karen_filter::Karen_filter(/* args */)
+Karen_filter::Karen_filter(void)
 {
-	//std::cout << "Karen constructor called" << std::endl;
+	std::cout << "Karen constructor called" << std::endl;
 }
 
-Karen_filter::~Karen_filter()
+Karen_filter::~Karen_filter(void)
 {
-	//std::cout << "Karen destructor called" << std::endl;
+	std::cout << "Karen destructor called" << std::endl;
 }
 
 void	Karen_filter::complain(std::string level)
@@ -32,11 +32,14 @@ void	Karen_filter::complain(std::string level)
 	flag = 0;
 	for (int i = 0; i < 4; i++)
 	{
+		if (flag == 1)
+			(this->*complain[i])();
 		if (list[i] == level)
 		{
 			(this->*complain[i])();
 			flag = 1;
 		}
+		
 	}
 	if (flag == 0)
 	{
@@ -47,7 +50,6 @@ void	Karen_filter::complain(std::string level)
 
 void	Karen_filter::debug(void)
 {
-	info();
 	std::cout << Reset "[ DEBUG ] : > " << std::endl;
 	std::cout << BRed " Currently debugging the process " Reset << std::endl;
 	std::cout << std::endl;
@@ -62,7 +64,6 @@ void	Karen_filter::info(void)
 
 void	Karen_filter::warning(void)
 {
-	error();
 	std::cout << Reset "[ WARNING ] : > " << std::endl;
 	std::cout << BRed " !WARNING! : this will be your last" Reset << std::endl;
 	std::cout << std::endl;

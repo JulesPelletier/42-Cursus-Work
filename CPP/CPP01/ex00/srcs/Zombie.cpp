@@ -14,7 +14,8 @@
 
 void	Zombie::announce(void)
 {
-	std::cout << " < " <<  this->_name << " > " << "\tBraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << "Constructor for " << this->_name << " called !" << std::endl;
+	std::cout << this->_name <<  "\tBraiiiiiiinnnzzzZ..." << std::endl;
 }
 
 Zombie::Zombie(std::string name) : _name(name)

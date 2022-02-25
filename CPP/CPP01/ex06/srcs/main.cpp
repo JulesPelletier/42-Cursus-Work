@@ -24,14 +24,16 @@ void	display_title(void)
 }
 
 int	main(int ac, char **av)
-{
+{	
+	if (ac != 2)
+	{
+		std::cout << "Two params needed : ./karen_filter <category>" << std::endl;
+		return (0);
+	}	
+
 	std::string		input;
 	Karen_filter	karen_filter;
 	
-	if (ac != 2)
-		std::cout << "Two params needed : ./karen_filter <category>" << std::endl;
-	if (av[1] == NULL)
-		karen_filter.error();
 	karen_filter.complain(av[1]);
 	return (0);
 }
