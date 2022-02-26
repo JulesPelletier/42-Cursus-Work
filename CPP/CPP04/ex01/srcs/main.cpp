@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:41:15 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/27 18:26:04 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/26 01:30:04 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,6 @@ int main(void)
 	std::cout << animals[6]->getBrain()->ideas[4] << std::endl;;
 
 
-	*(animals[3]) = *(animals[6]);
-	std::cout << std::endl;
-	std::cout << "Printing New ideas" << std::endl;
-	std::cout << animals[3]->getBrain()->ideas[1] << std::endl;;
-	std::cout << animals[3]->getBrain()->ideas[3] << std::endl;;
-	std::cout << animals[3]->getBrain()->ideas[5] << std::endl;;
-	std::cout << std::endl;
-	std::cout << std::endl;
-
-	
 	test = animals[6];
 	std::cout << std::endl;
 	std::cout << "Printing DUP ideas" << std::endl;

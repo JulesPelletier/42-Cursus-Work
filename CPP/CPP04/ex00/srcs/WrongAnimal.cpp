@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:39:27 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/26 15:15:37 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/26 01:29:34 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void		WrongAnimal::makeSound(void) const
 	else if (this->type == "Dog")
 		std::cout << "** Meowww Meowww Meowww **" << std::endl;
 	else
-		std::cout << "** can't define a sound for the standard animal **" << std::endl;
+		std::cout << "** can't define a sound for the standard wrong animal **" << std::endl;
 }
 
 

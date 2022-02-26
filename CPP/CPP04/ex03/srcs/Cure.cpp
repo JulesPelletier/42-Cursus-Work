@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 18:45:31 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/01 19:00:30 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/26 01:45:41 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ AMateria				*Cure::clone(void) const
 
 void					Cure::use(ICharacter &target)
 {
-	std::cout << "Check ! " << std::endl;
 	std::cout << "* heals " + target.getName() + "’s wounds *" << std::endl;
 }
 

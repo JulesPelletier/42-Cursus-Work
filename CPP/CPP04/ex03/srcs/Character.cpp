@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 17:31:59 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 16:16:52 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/26 01:45:15 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,18 +120,12 @@ void				Character::unequip(int idx)
 
 void				Character::use(int idx, ICharacter &target)
 {
-	std::cout << Yellow "Check" Reset << std::endl;
 	if (idx <= 0 || idx > 4)
 		std::cout << Red "Impossible index (between 1 and 4)" Reset << std::endl;
 	else
 	{
-		std::cout << "index " << idx << std::endl;
 		if (this->inventory[idx - 1] != 0)
-		{
-			std::cout << "in loop " << idx << std::endl;
-			std::cout << "Type : " << this->inventory[idx - 1]->getType() << std::endl;
 			this->inventory[idx - 1]->use(target);
-		}
 		else
 			std::cout << Red "Slot is empty" Reset << std::endl;
 	}

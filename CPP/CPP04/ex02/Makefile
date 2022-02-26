@@ -6,7 +6,7 @@
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 21:51:28 by julpelle          #+#    #+#              #
-#    Updated: 2022/01/27 13:05:28 by julpelle         ###   ########.fr        #
+#    Updated: 2022/02/26 01:26:55 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJS 	=	$(SRCS:.cpp=.o)
 
 CXX 	= 	clang++
 
-CXXFLAGS =	-Wall -Wextra -Werror -fsanitize=address -g3
+CXXFLAGS =	--std=c++98 -Wall -Wextra -Werror -fsanitize=address -g3
 
 RM 		=	rm -f
 

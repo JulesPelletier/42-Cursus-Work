@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 18:41:01 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/07 16:05:33 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/26 01:42:01 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(void)
 	std::cout << std::endl;
 	std::cout << perso_1->getName() << std::endl;
 	std::cout << perso_2->getName() << std::endl;
+	std::cout << perso_3->getName() << std::endl;
 	std::cout << std::endl;
 
 	std::cout << Blue "> Actions  " Reset << std::endl;
@@ -50,8 +51,8 @@ int	main(void)
 	std::cout << Cyan "Using materias" Reset << std::endl;
 	perso_1->use(1, *perso_2);
 	perso_1->use(2, *perso_2);
-	//perso_2->use(1, *perso_1);
-	//perso_2->use(3, *perso_1);
+	perso_2->use(1, *perso_1);
+	perso_2->use(3, *perso_1);
 	perso_1->use(3, *perso_1);
 	perso_2->use(6, *perso_1);
 
@@ -76,17 +77,20 @@ int	main(void)
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	AMateria* tmp1;
+	AMateria* tmp2;
+	tmp1 = src->createMateria("ice");
+	me->equip(tmp1);
+	tmp2 = src->createMateria("cure");
+	me->equip(tmp2);
 	ICharacter* bob = new Character("bob");
 	me->use(1, *bob);
 	//me->use(2, *bob);
 	delete bob;
 	delete me;
 	delete src;
+	delete tmp1;
+	delete tmp2;
 
 	return (0);
 }

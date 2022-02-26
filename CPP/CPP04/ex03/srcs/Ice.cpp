@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 18:45:34 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/01 19:00:48 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/26 01:45:38 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ AMateria				*Ice::clone(void) const
 
 void					Ice::use(ICharacter &target)
 {
-	std::cout << "Check ! " << std::endl;
 	std::cout << "* shoots an ice bolt at " + target.getName() + " *" << std::endl;
 }
 
