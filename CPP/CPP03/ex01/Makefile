@@ -6,7 +6,7 @@
 #    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/20 21:51:28 by julpelle          #+#    #+#              #
-#    Updated: 2022/01/24 15:13:31 by julpelle         ###   ########.fr        #
+#    Updated: 2022/02/26 01:25:32 by julpelle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJS 	=	$(SRCS:.cpp=.o)
 
 CXX 	= 	clang++
 
-CXXFLAGS =	-Wall -Wextra -Werror
+CXXFLAGS =	--std=c++98 -Wall -Wextra -Werror
 
 RM 		=	rm -f
 
