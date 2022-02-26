@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 15:13:40 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/24 16:47:45 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/26 01:08:36 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
+
+ScavTrap::ScavTrap(void)
+{
+	std::cout << "ScavTrap default constructor called" << std::endl;
+	this->_hp = 100;
+	this->_ep = 50;
+	this->_attack = 20;
+}
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
@@ -34,7 +42,7 @@ ScavTrap::ScavTrap( const ScavTrap & src ) : ClapTrap(src)
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ScavTrap::~ScavTrap()
+ScavTrap::~ScavTrap(void)
 {
 	std::cout << "ScavTrap destructor called for : " << this->_name << std::endl;
 }
