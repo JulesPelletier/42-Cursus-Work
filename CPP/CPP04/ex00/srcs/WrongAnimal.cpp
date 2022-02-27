@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:39:27 by julpelle          #+#    #+#             */
-/*   Updated: 2022/02/26 01:29:34 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:16:12 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ WrongAnimal::WrongAnimal( const WrongAnimal & src )
 
 WrongAnimal::~WrongAnimal(void)
 {
-	std::cout << " ==== Animal destructor ==== " << std::endl;
+	std::cout << " ==== WRONG Animal destructor ==== " << std::endl;
 }
 
 
@@ -45,16 +45,10 @@ WrongAnimal::~WrongAnimal(void)
 
 WrongAnimal &				WrongAnimal::operator=( WrongAnimal const & rhs )
 {
-	(void)rhs;
+	if (this != &rhs)
+		this->type = rhs.getType();
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, WrongAnimal const & i )
-{
-	(void)i;
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -67,12 +61,6 @@ std::string	WrongAnimal::getType(void) const
 
 void		WrongAnimal::makeSound(void) const
 {
-	if (this->type == "Cat")
-		std::cout << "** Bark Bark Bark **" << std::endl;
-	else if (this->type == "Dog")
-		std::cout << "** Meowww Meowww Meowww **" << std::endl;
-	else
-		std::cout << "** can't define a sound for the standard wrong animal **" << std::endl;
 }
 
 

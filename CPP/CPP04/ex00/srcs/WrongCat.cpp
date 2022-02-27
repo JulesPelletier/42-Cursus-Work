@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:43:33 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/26 15:16:15 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:16:57 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,9 @@ WrongCat::~WrongCat(void)
 
 WrongCat &				WrongCat::operator=( WrongCat const & rhs )
 {
-	(void)rhs;
+	if (this != &rhs)
+		this->type = rhs.getType();
 	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, WrongCat const & i )
-{
-	(void)i;
-	return o;
 }
 
 
@@ -63,6 +58,11 @@ std::ostream &			operator<<( std::ostream & o, WrongCat const & i )
 std::string	WrongCat::getType(void) const
 {
 	return (this->type);
+}
+
+void	WrongCat::makeSound(void) const
+{
+	std::cout << " ** Miaow Miaow ** " << std::endl;
 }
 
 /*

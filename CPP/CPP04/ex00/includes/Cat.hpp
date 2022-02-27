@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:48:08 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/26 15:09:29 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:17:49 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Cat : public Animal
 
 		Cat &		operator=( Cat const & rhs );
 		std::string		getType(void) const;
+		void			makeSound(void) const;
 
 	private:
 

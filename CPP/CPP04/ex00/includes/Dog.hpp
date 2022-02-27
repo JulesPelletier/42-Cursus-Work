@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:48:10 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/26 15:09:18 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:17:40 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ class Dog : public Animal
 		Dog( Dog const & src );
 		~Dog(void);
 
-		Dog &		operator=( Dog const & rhs );
+		Dog &			operator=( Dog const & rhs );
 		std::string		getType(void) const;
+		void			makeSound(void) const;
 
 	private:
 

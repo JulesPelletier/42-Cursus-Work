@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:43:33 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/26 15:09:12 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:14:28 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,10 @@ Cat::~Cat(void)
 
 Cat &				Cat::operator=( Cat const & rhs )
 {
-	(void)rhs;
+	if (this != &rhs)
+		this->type = rhs.getType();
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Cat const & i )
-{
-	(void)i;
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -63,6 +57,11 @@ std::ostream &			operator<<( std::ostream & o, Cat const & i )
 std::string	Cat::getType(void) const
 {
 	return (this->type);
+}
+
+void	Cat::makeSound(void) const
+{
+	std::cout << Blue " ** Miaow Miaow ** " Reset << std::endl;
 }
 
 /*

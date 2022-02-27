@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 14:43:25 by julpelle          #+#    #+#             */
-/*   Updated: 2022/01/26 15:09:09 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/02/27 16:15:25 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,10 @@ Dog::~Dog(void)
 
 Dog &				Dog::operator=( Dog const & rhs )
 {
-	(void)rhs;
+	if (this != & rhs)
+		this->type = rhs.getType();
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Dog const & i )
-{
-	(void)i;
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -63,6 +57,11 @@ std::ostream &			operator<<( std::ostream & o, Dog const & i )
 std::string	Dog::getType(void) const
 {
 	return (this->type);
+}
+
+void	Dog::makeSound(void) const
+{
+	std::cout << " ** Bark Bark ** !" << std::endl;
 }
 
 /*
