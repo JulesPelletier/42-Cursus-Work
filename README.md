@@ -13,7 +13,7 @@ For further information / interest, e-mail me at : julespelletier.perso@gmail.co
   - 8 : Minishell : 105 % <br>
   - 9 : Philosophers : 125 % <br>
   - 10 : Cub3d : 110 % <br>
-  - 11 : C++ <br>
+  - 11 : C++ : 100 % <br>
   - 12 : Inception <br>
   - 13 : Containers <br>
   - 14 : WebServ <br>
