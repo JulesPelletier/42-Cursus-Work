@@ -1,5 +1,4 @@
 # include "Warlock.hpp"
-# include "ASpell.hpp"
 
 Warlock::Warlock(std::string const &name, std::string const &title)
 {
@@ -10,14 +9,6 @@ Warlock::Warlock(std::string const &name, std::string const &title)
 
 Warlock::~Warlock()
 {
-	std::map<std::string, ASpell *>::iterator b = spells.begin();
-	std::map<std::string, ASpell *>::iterator e = spells.end();
-	while (b != e)
-	{
-		delete b->second;
-		++b;
-	}
-	this->spells.clear();
 	std::cout << this->name << ": My job here is done!\n";
 }
 
@@ -40,26 +31,4 @@ void				Warlock::setTitle(std::string const &title)
 {
 	this->title = title;
 }
-
-void				Warlock::learnSpell(ASpell *s)
-{
-	if (s)
-		this->spellbook.learnSpell(s);
-}
-
-void				Warlock::forgetSpell(std::string const &name) 
-{
-	this->spellbook.forgetSpell(name);
-}
-
-void				Warlock::launchSpell(std::string const &name, ATarget const &t)
-{
-	ATarget	*test = 0;
-	if (test == &t)
-		return ;
-	ASpell *tmp = spellbook.createSpell(name);
-	if (tmp)
-		tmp->launch(t);
-}
-
 

@@ -44,22 +44,22 @@ void				Warlock::setTitle(std::string const &title)
 void				Warlock::learnSpell(ASpell *s)
 {
 	if (s)
-		this->spellbook.learnSpell(s);
+		spells.insert(std::pair<std::string, ASpell *>(s->getName(), s->clone()));
 }
 
 void				Warlock::forgetSpell(std::string const &name) 
 {
-	this->spellbook.forgetSpell(name);
+	std::map<std::string, ASpell *>::iterator it = this->spells.find(name);
+	if (it != spells.end())
+		delete it->second;
+	spells.erase(name);
 }
 
 void				Warlock::launchSpell(std::string const &name, ATarget const &t)
 {
-	ATarget	*test = 0;
-	if (test == &t)
-		return ;
-	ASpell *tmp = spellbook.createSpell(name);
-	if (tmp)
-		tmp->launch(t);
+	ASpell	*test = spells[name];
+	if (test)
+		test->launch(t);
 }
 
 
