@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:58:48 by julpelle          #+#    #+#             */
-/*   Updated: 2022/08/11 14:29:20 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/08/25 11:33:53 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@
 # include "All.hpp"
 # include "iterRev.hpp"
 # include "itervector.hpp"
+# include "iterTraits.hpp"
 # include "types.hpp"
 # include "enable_if.hpp"
 # include "is_integral.hpp"
+# include <limits.h>
 
 namespace ft {
 
@@ -38,8 +40,8 @@ namespace ft {
 			
 			typedef Itervector<T>			iterator;
 			typedef Itervector<const T>		const_iterator;
-			typedef IterRev<iterator>									reverse_iterator;
-			typedef IterRev<const_iterator>								const_reverse_iterator;
+			typedef IterRev<iterator>		reverse_iterator;
+			typedef IterRev<const_iterator>	const_reverse_iterator;
 
 			// Constructors
 			explicit vector(const allocator_type& alloc = allocator_type());
@@ -106,11 +108,93 @@ namespace ft {
 
 			// Utils
 
+
 		private:
 			size_type		_len;
 			size_type		_cap;
+			size_type		_val;
 			value_type		*_tab;
 			allocator_type	_all;
+			pointer			_old_val;
+			size_type		_old_cap;
+			size_type		_old_len;
+
+			void	_save_old(void)
+			{
+				_old_val = _val;
+				_old_cap = _cap;
+				_old_len = _len;
+			}
+
+			bool	_prepare_insert(size_type diff, size_type n)
+			{
+				bool	new_alloc = false;
+				
+				if (_cap < _len + n)
+				{
+					if (n == 1 && !_len)
+						_reserve_no_destroy_move(1, diff, n);
+					else if (_len << 1 < _len + n)
+						_reserve_no_destroy_move(_len + n, diff, n);
+					else
+						_reserve_no_destroy_move(_len << 1, diff, n);
+					new_alloc = true;
+				}
+				else
+					_reserve_no_destroy_move(0, diff, n);
+				return new_alloc;
+			}
+
+			void	_destroy_dealloc_old()
+			{
+				if (_old_cap)
+				{
+					for (size_type i = 0; i < _old_len; i++)
+					{
+						_all.destroy(&_old_val[i]);
+					}
+					if (_old_cap < _cap)
+						_all.deallocate(&_old_val[-1], _old_cap + 2);
+					_old_cap = 0;
+				}
+			}
+
+			void	_reserve_no_destroy_move(size_type n, size_type diff, size_type n_new)
+			{
+				if (n > _all.max_size())
+					throw (std::length_error("vector::reserve"));
+				if (n > _cap)
+				{
+					_save_old();
+					_val = &_all.allocate(n + 2)[1];
+	
+					if (_cap && _len)
+					{
+						for (size_type i = 0; i < diff; i++)
+						{
+							_all.construct(&_val[i], _old_val[i]);
+						}
+						for (size_type i = _len - 1; i >= diff; i--)
+						{
+							_all.construct(&_val[i + n_new], _old_val[i]);
+							if (!i)
+								break;
+						}
+					}
+					_cap = n;
+				}
+				else if (_len)
+					for (size_type i = _len - 1; i >= diff; i--)
+					{
+						if (i + n_new < _len)
+							_val[i + n_new] = _val[i];
+						else
+							_all.construct(&_val[i + n_new], _val[i]);
+						if (!i)
+								break;
+					}
+			}
+
 	};
 	
 	// Constructors
@@ -123,23 +207,21 @@ namespace ft {
 	vector<T, Alloc>::vector(size_type n, const value_type &val,
 		const allocator_type& alloc) : _len(0), _cap(0), _tab(0), _all(alloc)
 	{
-		insert(begin(), n, val);
+		assign(n, val);
 	}
 
 	template <class T, class Alloc>
 	template <class InputIterator>
 	vector<T, Alloc>::vector(InputIterator first, typename ft::enable_if<!is_integral<InputIterator>::value, InputIterator>::type last,
-		const allocator_type& alloc) : _len(0), _cap(0), _tab(0), _all(alloc)
+		const allocator_type& alloc) : _val(0), _len(0), _cap(0), _tab(0), _all(alloc)
 	{
-		insert(begin(), first, last);
+		assign(first, last);
 	}
 	
 	template <class T, class Alloc>
 	vector<T, Alloc>::vector(const vector &v) : _len(0), _cap(0), _tab(0)
 	{
-		_all = v._all;
-		if (v.size())
-			insert(begin(), v.begin(), v.end());
+		*this = v;
 	}
 	
 	// Destructor
@@ -246,22 +328,14 @@ namespace ft {
 	void
 	vector<T, Alloc>::resize(size_type n, value_type val)
 	{
-		size_type			nb;
-		std::allocator<T>	alloc;
-
 		if (n < _len)
-		{
-			for (iterator it = end() - (_len - n); it != end(); ++it)
-				alloc.destroy(it._val);	
-		}
-		else if (n > _len)
-		{
-			reserve(n);
-			nb = n - _len;
-			for (iterator it = end(); nb; --nb, ++it)
-				alloc.construct(it._val, val);
-		}
-		_len = n;
+				for (size_t	i = n; i < _len; i++)
+					_all.destroy(&_val[i]);
+			else if (n > _len)
+			{
+				insert(end(), n - _len, val);
+			}
+			_len = n;
 	}
 
 	template <class T, class Alloc>
@@ -289,7 +363,6 @@ namespace ft {
 	{
 		std::allocator<T>	alloc;
 		size_type			old_cap = capacity();
-		size_type			new_cap;
 		T		 			*new_space;
 	
 		if (n > max_size())
@@ -416,34 +489,23 @@ namespace ft {
 		insert(it, (size_type)1, val);
 		return (begin() + diff);
 	}
-	
+
 	template <class T, class Alloc>
 	void
 	vector<T, Alloc>::insert(iterator it, size_type n, const value_type &val)
 	{
-		std::allocator<T>	alloc;
-		iterator			old_end(end());
-		difference_type		diff = it - begin();
-	
-		if (!n)
-			return ;
-		reserve(_len + n);
-		it = begin() + diff;
+		size_type		diff = it - begin();
+		bool			new_alloc = _prepare_insert(diff, n);
+		
+		for (size_type i = diff; i < diff + n; i++)
+		{
+			if (i < _len && !new_alloc)
+				_val[i] = val;
+			else
+				_all.construct(&_val[i], val);
+		}
 		_len += n;
-		for (iterator b(end() - 1), a(b - n); a >= it; --a, --b)
-		{
-			if (b >= old_end)
-				alloc.construct(b._val, *a);
-			else
-				*b = *a;
-		}
-		for (; n; --n, ++it)
-		{
-			if (it >= old_end)
-				alloc.construct(it._val, val);
-			else
-				*it = val;
-		}
+		_destroy_dealloc_old();
 	}
 
 	template <class T, class Alloc>
@@ -451,29 +513,20 @@ namespace ft {
 	void
 	vector<T, Alloc>::insert(iterator it, InputIterator fst, typename ft::enable_if<!is_integral<InputIterator>::value, InputIterator>::type lst)
 	{
-		std::allocator<T>	alloc;
-		iterator			old_end(end());
-		difference_type		diff = it - begin();
-	
-		if (fst == lst)
-			return ;
-		reserve(_len + (lst - fst));
-		it = begin() + diff;
-		_len += lst - fst;
-		for (iterator b(end() - 1), a(b - (lst - fst)); a >= it; --a, --b)
+		size_type		diff = it - begin();
+		size_type		n = lst - fst;
+		bool			new_alloc = _prepare_insert(diff, n);
+		
+		for (size_type i = diff; i < diff + n; i++)
 		{
-			if (b >= old_end)
-				alloc.construct(b._val, *a);
+			if (i < _len && !new_alloc)
+				_val[i] = *fst;
 			else
-				*b = *a;
+				_all.construct(&_val[i], *fst);
+			fst++;
 		}
-		for (; fst != lst; ++fst, ++it)
-		{
-			if (it >= old_end)
-				alloc.construct(it._val, *fst);
-			else
-				*it = *fst;
-		}
+		_len += n;
+		_destroy_dealloc_old();
 	}
 
 	template <class T, class Alloc>

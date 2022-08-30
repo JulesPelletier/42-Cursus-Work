@@ -9,10 +9,7 @@ NAMESPACE="ft"
 SRCS_DIR = ./
 
 SRCS = 		main.cpp					\
-			tests/extras/extras.cpp			\
-			tests/map/mapTest.cpp			\
 			tests/stack/stackTest.cpp			\
-			tests/vector/vectorTest.cpp		\
 
 OBJS_DIR = ./objects/
 OBJ = $(SRCS:.cpp=.o)
