@@ -349,12 +349,22 @@
 [0m	 - val 1 and 4 - 
 [0m	First key : 2	| Second key : 5
 	res = [0;32mtrue
+[0m	 - val 2 and 1 - 
+[0m	First key : 3	| Second key : 2
+	res = [0;31mfalse
+[0m	 - val 4 and 1 - 
+[0m	First key : 5	| Second key : 2
+	res = [0;31mfalse
 [0m[1;32m
 	Value Compare : 
 [0m	 - val 0 and 4 - 
 [0m	First value : 1	| Second value : un
 	First value : 5	| Second value : cinq
 	res = [0;32mtrue
+[0m	 - val 4 and 0 - 
+[0m	First value : 5	| Second value : cinq
+	First value : 1	| Second value : un
+	res = [0;31mfalse
 [0m	 - val 3 and 4 - 
 [0m	First value : 4	| Second value : quatre
 	First value : 5	| Second value : cinq
@@ -363,6 +373,10 @@
 [0m	First value : 2	| Second value : deux
 	First value : 7	| Second value : sept
 	res = [0;32mtrue
+[0m	 - val 2 and 1 - 
+[0m	First value : 2	| Second value : deux
+	First value : 3	| Second value : trois
+	res = [0;31mfalse
 [0m[1;33m
  ------- Value Compare ------- [0m
 [1;36m
@@ -390,12 +404,22 @@
 [0m	 - val 1 and 4 - 
 [0m	First key : deux	| Second key : cinq
 	res = [0;31mfalse
+[0m	 - val 2 and 1 - 
+[0m	First key : trois	| Second key : deux
+	res = [0;31mfalse
+[0m	 - val 4 and 1 - 
+[0m	First key : cinq	| Second key : deux
+	res = [0;32mtrue
 [0m[1;32m
 	Value Compare : 
 [0m	 - val 0 and 4 - 
 [0m	First value : un	| Second value : 1
 	First value : cinq	| Second value : 5
 	res = [0;31mfalse
+[0m	 - val 4 and 0 - 
+[0m	First value : cinq	| Second value : 5
+	First value : un	| Second value : 1
+	res = [0;32mtrue
 [0m	 - val 3 and 4 - 
 [0m	First value : quatre	| Second value : 4
 	First value : cinq	| Second value : 5
@@ -404,6 +428,10 @@
 [0m	First value : deux	| Second value : 2
 	First value : sept	| Second value : 7
 	res = [0;32mtrue
+[0m	 - val 2 and 1 - 
+[0m	First value : deux	| Second value : 2
+	First value : trois	| Second value : 3
+	res = [0;31mfalse
 [0m[1;35m
  ====== OPERATIONS ====== [0m
 [1;33m
