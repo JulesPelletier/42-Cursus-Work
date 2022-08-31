@@ -33,6 +33,7 @@ objects/tests/extras/extras.o: tests/extras/extras.cpp \
   tests/extras/../../includes/iterators/itervector.hpp \
   tests/extras/../../includes/iterators/iterMap.hpp \
   tests/extras/../../includes/iterators/types.hpp \
+  tests/extras/../../includes/iterators/iterTraits.hpp \
   tests/extras/../../includes/../tests/basic/basicTest.hpp \
   tests/extras/../../includes/../tests/basic/../../includes/All.hpp \
   tests/extras/../../includes/../tests/basic/showContainer.hpp \

@@ -1,0 +1,540 @@
+[1;32m
+=================================== [0m
+[1;32m==========     map     ========== [0m
+[1;32m=================================== [0m
+[1;35m
+ ====== CONSTRUCTORS ====== [0m
+[1;33m
+ ------- Int values ------- [0m
+[1;36m
+	******** map Empty map - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m	Size 		: 0
+	Max size 	: 18446744073709551615
+	Empty 		: 0
+[1;36m
+	******** map Default map - Size : 12 ******** 
+
+	[0;36m[
+		[0;34m1 : [0;35mun[0m,
+		[0;34m2 : [0;35mdeux[0m,
+		[0;34m3 : [0;35mtrois[0m,
+		[0;34m4 : [0;35mquatre[0m,
+		[0;34m5 : [0;35mcinq[0m,
+		[0;34m6 : [0;35msix[0m,
+		[0;34m7 : [0;35msept[0m,
+		[0;34m8 : [0;35mhuit[0m,
+		[0;34m9 : [0;35mneuf[0m,
+		[0;34m10 : [0;35mdix[0m,
+		[0;34m11 : [0;35monze[0m,
+		[0;34m12 : [0;35mdouze[0m
+[0;36m 	]
+
+[0m	Size 		: 12
+	Max size 	: 18446744073709551615
+	Empty 		: 0
+[1;33m
+ ------- String values ------- [0m
+[1;36m
+	******** map Empty map - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m	Size 		: 0
+	Max size 	: 18446744073709551615
+	Empty 		: 0
+[1;36m
+	******** map Default map - Size : 12 ******** 
+
+	[0;36m[
+		[0;34mcinq : [0;35m5[0m,
+		[0;34mdeux : [0;35m2[0m,
+		[0;34mdix : [0;35m10[0m,
+		[0;34mdouze : [0;35m12[0m,
+		[0;34mhuit : [0;35m8[0m,
+		[0;34mneuf : [0;35m9[0m,
+		[0;34monze : [0;35m11[0m,
+		[0;34mquatre : [0;35m4[0m,
+		[0;34msept : [0;35m7[0m,
+		[0;34msix : [0;35m6[0m,
+		[0;34mtrois : [0;35m3[0m,
+		[0;34mun : [0;35m1[0m
+[0;36m 	]
+
+[0m	Size 		: 12
+	Max size 	: 18446744073709551615
+	Empty 		: 0
+[1;35m
+ ====== ACCESS ====== [0m
+[1;33m
+ ------- Int values ------- [0m
+
+
+	Pair [0;32m0[0m		Access [ [0;32mun[0m ] 		 Original  [[0;32mun[0m ]
+	Pair [0;32m1[0;31m		 ******* Odd number *******
+[0m	Pair [0;32m2[0m		Access [ [0;32mtrois[0m ] 		 Original  [[0;32mtrois[0m ]
+	Pair [0;32m3[0;31m		 ******* Odd number *******
+[0m	Pair [0;32m4[0m		Access [ [0;32mcinq[0m ] 		 Original  [[0;32mcinq[0m ]
+	Pair [0;32m5[0;31m		 ******* Odd number *******
+[0m	Pair [0;32m6[0m		Access [ [0;32msept[0m ] 		 Original  [[0;32msept[0m ]
+	Pair [0;32m7[0;31m		 ******* Odd number *******
+[0m	Pair [0;32m8[0m		Access [ [0;32mneuf[0m ] 		 Original  [[0;32mneuf[0m ]
+	Pair [0;32m9[0;31m		 ******* Odd number *******
+[0m	Pair [0;32m10[0m		Access [ [0;32monze[0m ] 		 Original  [[0;32monze[0m ]
+	Pair [0;32m11[0;31m		 ******* Odd number *******
+[0m[1;33m
+ ------- String values ------- [0m
+
+
+	Pair [0;32m0[0m		Access [ [0;32m1[0m ] 		 Original  [[0;32m1[0m ]
+	Pair [0;32m1[0;31m		 ******* Odd number *******
+[0m	Pair [0;32m2[0m		Access [ [0;32m3[0m ] 		 Original  [[0;32m3[0m ]
+	Pair [0;32m3[0;31m		 ******* Odd number *******
+[0m	Pair [0;32m4[0m		Access [ [0;32m5[0m ] 		 Original  [[0;32m5[0m ]
+	Pair [0;32m5[0;31m		 ******* Odd number *******
+[0m	Pair [0;32m6[0m		Access [ [0;32m7[0m ] 		 Original  [[0;32m7[0m ]
+	Pair [0;32m7[0;31m		 ******* Odd number *******
+[0m	Pair [0;32m8[0m		Access [ [0;32m9[0m ] 		 Original  [[0;32m9[0m ]
+	Pair [0;32m9[0;31m		 ******* Odd number *******
+[0m	Pair [0;32m10[0m		Access [ [0;32m11[0m ] 		 Original  [[0;32m11[0m ]
+	Pair [0;32m11[0;31m		 ******* Odd number *******
+[0m[1;35m
+ ====== MODIFIERS ====== [0m
+[1;33m
+ ------- Int values ------- [0m
+[1;36m
+	******** map Starting map - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m[1;36m
+	******** map Empty map for Swap - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m	Size 		: 0
+	Max size 	: 18446744073709551615
+	Empty 		: 1
+
+
+[1;32m	Insert : 
+[1;36m
+	******** map Container 1 - Size : 1 ******** 
+
+	[0;36m[
+		[0;34m1 : [0;35mun[0m
+[0;36m 	]
+
+[0m[1;36m
+	******** map Container 1 - Size : 4 ******** 
+
+	[0;36m[
+		[0;34m1 : [0;35mun[0m,
+		[0;34m4 : [0;35mquatre[0m,
+		[0;34m6 : [0;35msix[0m,
+		[0;34m7 : [0;35msept[0m
+[0;36m 	]
+
+[0m[1;36m
+	******** map Container 1 - Size : 7 ******** 
+
+	[0;36m[
+		[0;34m1 : [0;35mun[0m,
+		[0;34m3 : [0;35mtrois[0m,
+		[0;34m4 : [0;35mquatre[0m,
+		[0;34m6 : [0;35msix[0m,
+		[0;34m7 : [0;35msept[0m,
+		[0;34m10 : [0;35mdix[0m,
+		[0;34m12 : [0;35mdouze[0m
+[0;36m 	]
+
+[0m[1;32m	Erase : 
+[1;36m
+	******** map Container 1 - Size : 4 ******** 
+
+	[0;36m[
+		[0;34m6 : [0;35msix[0m,
+		[0;34m7 : [0;35msept[0m,
+		[0;34m10 : [0;35mdix[0m,
+		[0;34m12 : [0;35mdouze[0m
+[0;36m 	]
+
+[0m[1;32m	Swap : 
+[1;36m
+	******** map New map - Size : 4 ******** 
+
+	[0;36m[
+		[0;34m6 : [0;35msix[0m,
+		[0;34m7 : [0;35msept[0m,
+		[0;34m10 : [0;35mdix[0m,
+		[0;34m12 : [0;35mdouze[0m
+[0;36m 	]
+
+[0m[1;36m
+	******** map Original map - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m[0;32m	------------------------------------------------
+[0m[1;36m
+	******** map Container 1 - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m[1;36m
+	******** map Container 2 - Size : 4 ******** 
+
+	[0;36m[
+		[0;34m6 : [0;35msix[0m,
+		[0;34m7 : [0;35msept[0m,
+		[0;34m10 : [0;35mdix[0m,
+		[0;34m12 : [0;35mdouze[0m
+[0;36m 	]
+
+[0m[1;32m	Clear : 
+[1;36m
+	******** map Container 1 - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m[1;36m
+	******** map Container 2 - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m[1;33m
+ ------- String values ------- [0m
+[1;36m
+	******** map Starting map - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m[1;36m
+	******** map Empty map for Swap - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m	Size 		: 0
+	Max size 	: 18446744073709551615
+	Empty 		: 1
+
+
+[1;32m	Insert : 
+[1;36m
+	******** map Container 1 - Size : 1 ******** 
+
+	[0;36m[
+		[0;34mun : [0;35m1[0m
+[0;36m 	]
+
+[0m[1;36m
+	******** map Container 1 - Size : 4 ******** 
+
+	[0;36m[
+		[0;34mquatre : [0;35m4[0m,
+		[0;34msept : [0;35m7[0m,
+		[0;34msix : [0;35m6[0m,
+		[0;34mun : [0;35m1[0m
+[0;36m 	]
+
+[0m[1;36m
+	******** map Container 1 - Size : 7 ******** 
+
+	[0;36m[
+		[0;34mdix : [0;35m10[0m,
+		[0;34mdouze : [0;35m12[0m,
+		[0;34mquatre : [0;35m4[0m,
+		[0;34msept : [0;35m7[0m,
+		[0;34msix : [0;35m6[0m,
+		[0;34mtrois : [0;35m3[0m,
+		[0;34mun : [0;35m1[0m
+[0;36m 	]
+
+[0m[1;32m	Erase : 
+[1;36m
+	******** map Container 1 - Size : 4 ******** 
+
+	[0;36m[
+		[0;34mdouze : [0;35m12[0m,
+		[0;34msept : [0;35m7[0m,
+		[0;34msix : [0;35m6[0m,
+		[0;34mun : [0;35m1[0m
+[0;36m 	]
+
+[0m[1;32m	Swap : 
+[1;36m
+	******** map New map - Size : 4 ******** 
+
+	[0;36m[
+		[0;34mdouze : [0;35m12[0m,
+		[0;34msept : [0;35m7[0m,
+		[0;34msix : [0;35m6[0m,
+		[0;34mun : [0;35m1[0m
+[0;36m 	]
+
+[0m[1;36m
+	******** map Original map - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m[0;32m	------------------------------------------------
+[0m[1;36m
+	******** map Container 1 - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m[1;36m
+	******** map Container 2 - Size : 4 ******** 
+
+	[0;36m[
+		[0;34mdouze : [0;35m12[0m,
+		[0;34msept : [0;35m7[0m,
+		[0;34msix : [0;35m6[0m,
+		[0;34mun : [0;35m1[0m
+[0;36m 	]
+
+[0m[1;32m	Clear : 
+[1;36m
+	******** map Container 1 - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m[1;36m
+	******** map Container 2 - Size : 0 ******** 
+
+	[0;36m[
+[0;36m 	]
+
+[0m[1;35m
+ ====== OBSERVERS ====== [0m
+[1;33m
+ ------- Key Compare ------- [0m
+[1;36m
+	******** map Container - Size : 12 ******** 
+
+	[0;36m[
+		[0;34m1 : [0;35mun[0m,
+		[0;34m2 : [0;35mdeux[0m,
+		[0;34m3 : [0;35mtrois[0m,
+		[0;34m4 : [0;35mquatre[0m,
+		[0;34m5 : [0;35mcinq[0m,
+		[0;34m6 : [0;35msix[0m,
+		[0;34m7 : [0;35msept[0m,
+		[0;34m8 : [0;35mhuit[0m,
+		[0;34m9 : [0;35mneuf[0m,
+		[0;34m10 : [0;35mdix[0m,
+		[0;34m11 : [0;35monze[0m,
+		[0;34m12 : [0;35mdouze[0m
+[0;36m 	]
+
+[0m[1;32m	Key Compare : 
+[0m	 - val 0 and 1 - 
+[0m	First key : 1	| Second key : 2
+	res = [0;32mtrue
+[0m	 - val 1 and 4 - 
+[0m	First key : 2	| Second key : 5
+	res = [0;32mtrue
+[0m[1;32m
+	Value Compare : 
+[0m	 - val 0 and 4 - 
+[0m	First value : 1	| Second value : un
+	First value : 5	| Second value : cinq
+	res = [0;32mtrue
+[0m	 - val 3 and 4 - 
+[0m	First value : 4	| Second value : quatre
+	First value : 5	| Second value : cinq
+	res = [0;32mtrue
+[0m	 - val 1 and 6 - 
+[0m	First value : 2	| Second value : deux
+	First value : 7	| Second value : sept
+	res = [0;32mtrue
+[0m[1;33m
+ ------- Value Compare ------- [0m
+[1;36m
+	******** map Container - Size : 12 ******** 
+
+	[0;36m[
+		[0;34mcinq : [0;35m5[0m,
+		[0;34mdeux : [0;35m2[0m,
+		[0;34mdix : [0;35m10[0m,
+		[0;34mdouze : [0;35m12[0m,
+		[0;34mhuit : [0;35m8[0m,
+		[0;34mneuf : [0;35m9[0m,
+		[0;34monze : [0;35m11[0m,
+		[0;34mquatre : [0;35m4[0m,
+		[0;34msept : [0;35m7[0m,
+		[0;34msix : [0;35m6[0m,
+		[0;34mtrois : [0;35m3[0m,
+		[0;34mun : [0;35m1[0m
+[0;36m 	]
+
+[0m[1;32m	Key Compare : 
+[0m	 - val 0 and 1 - 
+[0m	First key : un	| Second key : deux
+	res = [0;31mfalse
+[0m	 - val 1 and 4 - 
+[0m	First key : deux	| Second key : cinq
+	res = [0;31mfalse
+[0m[1;32m
+	Value Compare : 
+[0m	 - val 0 and 4 - 
+[0m	First value : un	| Second value : 1
+	First value : cinq	| Second value : 5
+	res = [0;31mfalse
+[0m	 - val 3 and 4 - 
+[0m	First value : quatre	| Second value : 4
+	First value : cinq	| Second value : 5
+	res = [0;31mfalse
+[0m	 - val 1 and 6 - 
+[0m	First value : deux	| Second value : 2
+	First value : sept	| Second value : 7
+	res = [0;32mtrue
+[0m[1;35m
+ ====== OPERATIONS ====== [0m
+[1;33m
+ ------- Int Values ------- [0m
+[1;36m
+	******** map Container - Size : 12 ******** 
+
+	[0;36m[
+		[0;34m1 : [0;35mun[0m,
+		[0;34m2 : [0;35mdeux[0m,
+		[0;34m3 : [0;35mtrois[0m,
+		[0;34m4 : [0;35mquatre[0m,
+		[0;34m5 : [0;35mcinq[0m,
+		[0;34m6 : [0;35msix[0m,
+		[0;34m7 : [0;35msept[0m,
+		[0;34m8 : [0;35mhuit[0m,
+		[0;34m9 : [0;35mneuf[0m,
+		[0;34m10 : [0;35mdix[0m,
+		[0;34m11 : [0;35monze[0m,
+		[0;34m12 : [0;35mdouze[0m
+[0;36m 	]
+
+[0m[0;33m	Finding : 1
+
+[0m		Result : 	[0;34m1 | un[0m
+
+[0;33m	Finding : 5
+
+[0m		Result : 	[0;34m5 | cinq[0m
+
+[0;33m	Finding : neuf
+
+[0m		Result : 	[0;34m9 | neuf[0m
+
+[0;33m	Counting : 1
+
+[0m		Result : 	[0;34m1
+
+[0;33m	Counting : 2
+
+[0m		Result : 	[0;34m1
+
+[0;33m	Counting : 3
+
+[0m		Result : 	[0;34m1
+
+[1;33m
+ ------- String Values ------- [0m
+[1;36m
+	******** map Container - Size : 12 ******** 
+
+	[0;36m[
+		[0;34mcinq : [0;35m5[0m,
+		[0;34mdeux : [0;35m2[0m,
+		[0;34mdix : [0;35m10[0m,
+		[0;34mdouze : [0;35m12[0m,
+		[0;34mhuit : [0;35m8[0m,
+		[0;34mneuf : [0;35m9[0m,
+		[0;34monze : [0;35m11[0m,
+		[0;34mquatre : [0;35m4[0m,
+		[0;34msept : [0;35m7[0m,
+		[0;34msix : [0;35m6[0m,
+		[0;34mtrois : [0;35m3[0m,
+		[0;34mun : [0;35m1[0m
+[0;36m 	]
+
+[0m[0;33m	Finding : un
+
+[0m		Result : 	[0;34mun | 1[0m
+
+[0;33m	Finding : cinq
+
+[0m		Result : 	[0;34mcinq | 5[0m
+
+[0;33m	Finding : 9
+
+[0m		Result : 	[0;34mneuf | 9[0m
+
+[0;33m	Counting : un
+
+[0m		Result : 	[0;34m1
+
+[0;33m	Counting : deux
+
+[0m		Result : 	[0;34m1
+
+[0;33m	Counting : trois
+
+[0m		Result : 	[0;34m1
+
+[1;33m
+ ------- Double Values ------- [0m
+[1;36m
+	******** map Container - Size : 11 ******** 
+
+	[0;36m[
+		[0;34m1 : [0;35mun[0m,
+		[0;34m2 : [0;35mdeux[0m,
+		[0;34m4 : [0;35mquatre[0m,
+		[0;34m5 : [0;35mcinq[0m,
+		[0;34m6 : [0;35msix[0m,
+		[0;34m7 : [0;35msept[0m,
+		[0;34m8 : [0;35mhuit[0m,
+		[0;34m9 : [0;35mneuf[0m,
+		[0;34m10 : [0;35mdix[0m,
+		[0;34m11 : [0;35monze[0m,
+		[0;34m12 : [0;35mdouze[0m
+[0;36m 	]
+
+[0m[0;33m	Finding : 1
+
+[0m		Result : 	[0;34m1 | un[0m
+
+[0;33m	Finding : 6
+
+[0m		Result : 	[0;34m6 | six[0m
+
+[0;33m	Finding : huit
+
+[0m		Result : 	[0;34m8 | huit[0m
+
+[0;33m	Counting : 1
+
+[0m		Result : 	[0;34m1
+
+[0;33m	Counting : 2
+
+[0m		Result : 	[0;34m1
+
+[0;33m	Counting : 4
+
+[0m		Result : 	[0;34m1
+
+

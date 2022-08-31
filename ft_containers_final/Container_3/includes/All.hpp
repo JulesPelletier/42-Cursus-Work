@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 16:55:43 by julpelle          #+#    #+#             */
-/*   Updated: 2022/07/12 18:57:27 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/08/31 12:07:53 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@
 # include "iterators/itervector.hpp"
 # include "iterators/iterMap.hpp"
 # include "iterators/types.hpp"
+# include "iterators/iterTraits.hpp"
 
 ///////////////////////
 //       Tests       //

@@ -33,6 +33,7 @@ objects/tests/map/mapTest.o: tests/map/mapTest.cpp tests/map/mapTest.hpp \
   tests/map/../../includes/iterators/itervector.hpp \
   tests/map/../../includes/iterators/iterMap.hpp \
   tests/map/../../includes/iterators/types.hpp \
+  tests/map/../../includes/iterators/iterTraits.hpp \
   tests/map/../../includes/../tests/basic/basicTest.hpp \
   tests/map/../../includes/../tests/basic/../../includes/All.hpp \
   tests/map/../../includes/../tests/basic/showContainer.hpp \

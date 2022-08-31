@@ -34,6 +34,7 @@ objects/tests/preliminary/preliminary.o: \
   tests/preliminary/../../includes/iterators/itervector.hpp \
   tests/preliminary/../../includes/iterators/iterMap.hpp \
   tests/preliminary/../../includes/iterators/types.hpp \
+  tests/preliminary/../../includes/iterators/iterTraits.hpp \
   tests/preliminary/../../includes/../tests/basic/basicTest.hpp \
   tests/preliminary/../../includes/../tests/basic/../../includes/All.hpp \
   tests/preliminary/../../includes/../tests/basic/showContainer.hpp \

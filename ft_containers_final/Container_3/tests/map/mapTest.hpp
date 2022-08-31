@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:13:53 by julpelle          #+#    #+#             */
-/*   Updated: 2022/07/12 18:34:15 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/08/31 13:13:00 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,11 +161,21 @@ namespace	test_m
 		std::cout << "\t - val 1 and 4 - \n" Reset;
 		std::cout << "\tFirst key : " << init[1].first << "\t| Second key : " << init[4].first << "\n\tres = " << 
 			(c1.key_comp()(init[1].first, init[4].first) ? Green "true\n" Reset : Red "false\n" Reset );
+		std::cout << "\t - val 2 and 1 - \n" Reset;
+		std::cout << "\tFirst key : " << init[2].first << "\t| Second key : " << init[1].first << "\n\tres = " << 
+			(c1.key_comp()(init[2].first, init[1].first) ? Green "true\n" Reset : Red "false\n" Reset );
+		std::cout << "\t - val 4 and 1 - \n" Reset;
+		std::cout << "\tFirst key : " << init[4].first << "\t| Second key : " << init[1].first << "\n\tres = " << 
+			(c1.key_comp()(init[4].first, init[1].first) ? Green "true\n" Reset : Red "false\n" Reset );
 		std::cout << BGreen"\n\tValue Compare : \n" Reset;
 		std::cout << "\t - val 0 and 4 - \n" Reset;
 		std::cout << "\tFirst value : " << init[0].first << "\t| Second value : " << init[0].second << "\n" <<
 			"\tFirst value : " << init[4].first << "\t| Second value : " << init[4].second << "\n\tres = " << 
 			(c1.value_comp()(init[0], init[4]) ? Green "true\n" Reset : Red "false\n" Reset);
+		std::cout << "\t - val 4 and 0 - \n" Reset;
+		std::cout << "\tFirst value : " << init[4].first << "\t| Second value : " << init[4].second << "\n" <<
+			"\tFirst value : " << init[0].first << "\t| Second value : " << init[0].second << "\n\tres = " << 
+			(c1.value_comp()(init[4], init[0]) ? Green "true\n" Reset : Red "false\n" Reset);
 		std::cout << "\t - val 3 and 4 - \n" Reset;
 		std::cout << "\tFirst value : " << init[3].first << "\t| Second value : " << init[3].second << "\n" <<
 			"\tFirst value : " << init[4].first << "\t| Second value : " << init[4].second << "\n\tres = " << 
@@ -174,6 +184,10 @@ namespace	test_m
 		std::cout << "\tFirst value : " << init[1].first << "\t| Second value : " << init[1].second << "\n" <<
 			"\tFirst value : " << init[6].first << "\t| Second value : " << init[6].second << "\n\tres = " << 
 			(c1.value_comp()(init[1], init[6]) ? Green "true\n" Reset : Red "false\n" Reset);
+		std::cout << "\t - val 2 and 1 - \n" Reset;
+		std::cout << "\tFirst value : " << init[1].first << "\t| Second value : " << init[1].second << "\n" <<
+			"\tFirst value : " << init[2].first << "\t| Second value : " << init[2].second << "\n\tres = " << 
+			(c1.value_comp()(init[2], init[1]) ? Green "true\n" Reset : Red "false\n" Reset);
 		
 	}
 

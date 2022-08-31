@@ -1,54 +1,45 @@
 #!/usr/bin/zsh
+rm diff.txt
 make -s fclean && make -s TESTER="1" NAMESPACE="ft"
 echo "Timing for Tester 1, NAMESPACE FT"
-time ./container 2> logft.txt
+time ./container stack 1> logft.txt
+cat  logft.txt
 make -s fclean && make -s TESTER="1" NAMESPACE="std"
 echo "Timing for Tester 1, NAMESPACE STD"
-time ./container 2> logstd.txt
+time ./container stack 1> logstd.txt
+cat  logstd.txt
 
-diff logft.txt logstd.txt
 
-make -s fclean && make -s TESTER="2" NAMESPACE="ft"
-echo "Timing for Tester 2, NAMESPACE FT"
-time ./container 2> logft.txt
-make -s fclean && make -s TESTER="2" NAMESPACE="std"
-echo "Timing for Tester 2, NAMESPACE STD"
-time ./container 2> logstd.txt
+echo "Printing diffs if any"
+diff logft.txt logstd.txt >> diff.txt
+cat diff.txt
 
-diff logft.txt logstd.txt
+rm diff.txt
+make -s fclean && make -s TESTER="1" NAMESPACE="ft"
+echo "Timing for Tester 1, NAMESPACE FT"
+time ./container vector 1> logft.txt
+cat  logft.txt
+make -s fclean && make -s TESTER="1" NAMESPACE="std"
+echo "Timing for Tester 1, NAMESPACE STD"
+time ./container vector 1> logstd.txt
+cat  logstd.txt
 
-make -s fclean && make -s TESTER="3" NAMESPACE="ft"
-echo "Timing for Tester 3, NAMESPACE FT"
-time ./container 2> logft.txt
-make -s fclean && make -s TESTER="3" NAMESPACE="std"
-echo "Timing for Tester 3, NAMESPACE STD"
-time ./container 2> logstd.txt
 
-diff logft.txt logstd.txt
+echo "Printing diffs if any"
+diff logft.txt logstd.txt >> diff.txt
+cat diff.txt
 
-make -s fclean && make -s TESTER="4" NAMESPACE="ft"
-echo "Timing for Tester 4, NAMESPACE FT"
-time ./container 2> logft.txt
-make -s fclean && make -s TESTER="4" NAMESPACE="std"
-echo "Timing for Tester 4, NAMESPACE STD"
-time ./container 2> logstd.txt
+rm diff.txt
+make -s fclean && make -s TESTER="1" NAMESPACE="ft"
+echo "Timing for Tester 1, NAMESPACE FT"
+time ./container map 1> logft.txt
+cat  logft.txt
+make -s fclean && make -s TESTER="1" NAMESPACE="std"
+echo "Timing for Tester 1, NAMESPACE STD"
+time ./container map 1> logstd.txt
+cat  logstd.txt
 
-diff logft.txt logstd.txt
 
-make -s fclean && make -s TESTER="5" NAMESPACE="ft"
-echo "Timing for Tester 5, NAMESPACE FT"
-time ./container 2> logft.txt
-make -s fclean && make -s TESTER="5" NAMESPACE="std"
-echo "Timing for Tester 5, NAMESPACE STD"
-time ./container 2> logstd.txt
-
-diff logft.txt logstd.txt
-
-make -s fclean && make -s TESTER="6" NAMESPACE="ft"
-echo "Timing for Tester 6, NAMESPACE FT"
-time ./container 2> logft.txt
-make -s fclean && make -s TESTER="6" NAMESPACE="std"
-echo "Timing for Tester 6, NAMESPACE STD"
-time ./container 2> logstd.txt
-
-diff logft.txt logstd.txt
+echo "Printing diffs if any"
+diff logft.txt logstd.txt >> diff.txt
+cat diff.txt

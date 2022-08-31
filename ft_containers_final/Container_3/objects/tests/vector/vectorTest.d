@@ -33,6 +33,7 @@ objects/tests/vector/vectorTest.o: tests/vector/vectorTest.cpp \
   tests/vector/../../includes/iterators/itervector.hpp \
   tests/vector/../../includes/iterators/iterMap.hpp \
   tests/vector/../../includes/iterators/types.hpp \
+  tests/vector/../../includes/iterators/iterTraits.hpp \
   tests/vector/../../includes/../tests/basic/basicTest.hpp \
   tests/vector/../../includes/../tests/basic/../../includes/All.hpp \
   tests/vector/../../includes/../tests/basic/showContainer.hpp \

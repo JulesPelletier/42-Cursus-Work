@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 19:27:33 by julpelle          #+#    #+#             */
-/*   Updated: 2022/07/12 18:57:27 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/08/31 11:44:48 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -266,7 +266,7 @@ namespace	ft
 	bool											
 	map<Key, T, Compare, Alloc>::empty(void) const
 	{
-		if (_size)
+		if (!_size)
 			return (true);
 		return (false);
 	}

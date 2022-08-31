@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 18:58:48 by julpelle          #+#    #+#             */
-/*   Updated: 2022/07/12 16:36:33 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/08/31 11:43:27 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,7 +228,7 @@ namespace ft {
 	typename vector<T, Alloc>::size_type
 	vector<T, Alloc>::max_size(void) const
 	{
-		return (std::numeric_limits<difference_type>::max() / 2);
+		return (_all.max_size());
 	}
 
 	template <class T, class Alloc>
@@ -257,7 +257,7 @@ namespace ft {
 	typename vector<T, Alloc>::size_type
 	vector<T, Alloc>::capacity(void) const
 	{
-		return (!_cap ? 0 : powl(2, _cap - 1));
+		return (_cap);
 	}
 
 	template<class T, class Alloc>

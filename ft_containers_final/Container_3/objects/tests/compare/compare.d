@@ -33,6 +33,7 @@ objects/tests/compare/compare.o: tests/compare/compare.cpp \
   tests/compare/../../includes/iterators/itervector.hpp \
   tests/compare/../../includes/iterators/iterMap.hpp \
   tests/compare/../../includes/iterators/types.hpp \
+  tests/compare/../../includes/iterators/iterTraits.hpp \
   tests/compare/../../includes/../tests/basic/basicTest.hpp \
   tests/compare/../../includes/../tests/basic/../../includes/All.hpp \
   tests/compare/../../includes/../tests/basic/showContainer.hpp \

@@ -33,6 +33,7 @@ objects/tests/stack/stackTest.o: tests/stack/stackTest.cpp \
   tests/stack/../../includes/iterators/itervector.hpp \
   tests/stack/../../includes/iterators/iterMap.hpp \
   tests/stack/../../includes/iterators/types.hpp \
+  tests/stack/../../includes/iterators/iterTraits.hpp \
   tests/stack/../../includes/../tests/basic/basicTest.hpp \
   tests/stack/../../includes/../tests/basic/../../includes/All.hpp \
   tests/stack/../../includes/../tests/basic/showContainer.hpp \

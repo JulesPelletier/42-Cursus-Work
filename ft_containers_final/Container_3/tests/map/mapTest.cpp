@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 16:14:13 by julpelle          #+#    #+#             */
-/*   Updated: 2022/07/12 17:09:57 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/08/31 11:48:07 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,49 +16,49 @@
 void	test_m::test_map(void)
 {
 	NAMESPACE::pair<std::string, int>		si_init[] = {
-		NAMESPACE::make_pair("Belier", 1),
-		NAMESPACE::make_pair("Taureau", 2),
-		NAMESPACE::make_pair("Gémeaux", 3),
-		NAMESPACE::make_pair("Cancer", 4),
-		NAMESPACE::make_pair("Lion", 5),
-		NAMESPACE::make_pair("Vierge", 6),
-		NAMESPACE::make_pair("Balance", 7),
-		NAMESPACE::make_pair("Scorpion", 8),
-		NAMESPACE::make_pair("Sagitaire", 9),
-		NAMESPACE::make_pair("Capricorne", 10),
-		NAMESPACE::make_pair("Verseau", 11),
-		NAMESPACE::make_pair("Poissons", 12),
+		NAMESPACE::make_pair("un", 1),
+		NAMESPACE::make_pair("deux", 2),
+		NAMESPACE::make_pair("trois", 3),
+		NAMESPACE::make_pair("quatre", 4),
+		NAMESPACE::make_pair("cinq", 5),
+		NAMESPACE::make_pair("six", 6),
+		NAMESPACE::make_pair("sept", 7),
+		NAMESPACE::make_pair("huit", 8),
+		NAMESPACE::make_pair("neuf", 9),
+		NAMESPACE::make_pair("dix", 10),
+		NAMESPACE::make_pair("onze", 11),
+		NAMESPACE::make_pair("douze", 12),
 	};
 	NAMESPACE::pair<int, std::string>		is_init[] = {
-		NAMESPACE::make_pair(1, "Belier"),
-		NAMESPACE::make_pair(2, "Taureau"),
-		NAMESPACE::make_pair(3, "Gémeaux"),
-		NAMESPACE::make_pair(4, "Cancer"),
-		NAMESPACE::make_pair(5, "Lion"),
-		NAMESPACE::make_pair(6, "Vierge"),
-		NAMESPACE::make_pair(7, "Balance"),
-		NAMESPACE::make_pair(8, "Scorpion"),
-		NAMESPACE::make_pair(9, "Sagitaire"),
-		NAMESPACE::make_pair(10, "Capricorne"),
-		NAMESPACE::make_pair(11, "Verseau"),
-		NAMESPACE::make_pair(12, "Poissons"),
+		NAMESPACE::make_pair(1, "un"),
+		NAMESPACE::make_pair(2, "deux"),
+		NAMESPACE::make_pair(3, "trois"),
+		NAMESPACE::make_pair(4, "quatre"),
+		NAMESPACE::make_pair(5, "cinq"),
+		NAMESPACE::make_pair(6, "six"),
+		NAMESPACE::make_pair(7, "sept"),
+		NAMESPACE::make_pair(8, "huit"),
+		NAMESPACE::make_pair(9, "neuf"),
+		NAMESPACE::make_pair(10, "dix"),
+		NAMESPACE::make_pair(11, "onze"),
+		NAMESPACE::make_pair(12, "douze"),
 	};
 
 	NAMESPACE::pair<int, std::string>		test_double[] = {
-		NAMESPACE::make_pair(1, "Belier"),
-		NAMESPACE::make_pair(2, "Taureau"),
-		NAMESPACE::make_pair(4, "Cancer"),
-		NAMESPACE::make_pair(5, "Lion"),
-		NAMESPACE::make_pair(6, "Vierge"),
-		NAMESPACE::make_pair(2, "Taureau"),
-		NAMESPACE::make_pair(2, "Taureau"),
-		NAMESPACE::make_pair(7, "Balance"),
-		NAMESPACE::make_pair(8, "Scorpion"),
-		NAMESPACE::make_pair(9, "Sagitaire"),
-		NAMESPACE::make_pair(10, "Capricorne"),
-		NAMESPACE::make_pair(1, "Belier"),
-		NAMESPACE::make_pair(11, "Verseau"),
-		NAMESPACE::make_pair(12, "Poissons"),
+		NAMESPACE::make_pair(1, "un"),
+		NAMESPACE::make_pair(2, "deux"),
+		NAMESPACE::make_pair(4, "quatre"),
+		NAMESPACE::make_pair(5, "cinq"),
+		NAMESPACE::make_pair(6, "six"),
+		NAMESPACE::make_pair(2, "deux"),
+		NAMESPACE::make_pair(2, "deux"),
+		NAMESPACE::make_pair(7, "sept"),
+		NAMESPACE::make_pair(8, "huit"),
+		NAMESPACE::make_pair(9, "neuf"),
+		NAMESPACE::make_pair(10, "dix"),
+		NAMESPACE::make_pair(1, "un"),
+		NAMESPACE::make_pair(11, "onze"),
+		NAMESPACE::make_pair(12, "douze"),
 	};
 
 

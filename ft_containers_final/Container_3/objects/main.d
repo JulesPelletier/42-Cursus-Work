@@ -19,7 +19,8 @@ objects/main.o: main.cpp includes/All.hpp includes/utils/colors.hpp \
   includes/map/../../includes/iterators/iterRev.hpp \
   includes/map/mapNode.hpp includes/iterators/iterRev.hpp \
   includes/iterators/itervector.hpp includes/iterators/iterMap.hpp \
-  includes/iterators/types.hpp includes/../tests/basic/basicTest.hpp \
+  includes/iterators/types.hpp includes/iterators/iterTraits.hpp \
+  includes/../tests/basic/basicTest.hpp \
   includes/../tests/basic/../../includes/All.hpp \
   includes/../tests/basic/showContainer.hpp \
   includes/../tests/preliminary/preliminary.hpp \
