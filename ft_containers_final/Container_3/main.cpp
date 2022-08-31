@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 16:50:54 by julpelle          #+#    #+#             */
-/*   Updated: 2022/07/12 18:06:55 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/08/31 14:22:55 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,6 @@ int 	error_msg(std::string msg, int color, int ret)
 
 void	test_all(void)
 {
-	test_pv::test_prelim_v();
-	test_ps::test_prelim_s();
-	test_pm::test_prelim_m();
 	test_v::test_vector();
 	test_s::test_stack();
 	test_extras::test_extra();
@@ -78,21 +75,12 @@ int 	main(int ac, char **av)
 	else
 	{
 		input = *(++av);
-		if (!input.compare("Prelim") || !input.compare("prelim"))
-		{
-			test_pv::test_prelim_v();
-			test_ps::test_prelim_s();
-			test_pm::test_prelim_m();
-			test_extras::test_extra();
-		}
-		else if (!input.compare("Vector") || !input.compare("vector"))
+		if (!input.compare("Vector") || !input.compare("vector"))
 			test_v::test_vector();
 		else if (!input.compare("Stack") || !input.compare("stack"))
 			test_s::test_stack();
 		else if (!input.compare("Map") || !input.compare("map"))
 			test_m::test_map();
-		else if (!input.compare("Comp") || !input.compare("comp"))
-			test_comp::test_compare();
 		else if (!input.compare("Extras") || !input.compare("extras"))
 			test_extras::test_extra();
 		else
