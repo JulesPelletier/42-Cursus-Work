@@ -1,8 +1,4 @@
-# setting the OS
 FROM	debian:buster
-
-# setting the author
-LABEL	julpelle <julpelle@student.42.fr>
 
 # update apt-get
 RUN apt-get -y update
