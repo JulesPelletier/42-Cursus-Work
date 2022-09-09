@@ -2,7 +2,7 @@
 
 TargetGenerator::TargetGenerator()
 {
-	
+
 }
 
 TargetGenerator::~TargetGenerator()
@@ -38,4 +38,3 @@ ATarget	*TargetGenerator::createTarget(std::string const &type)
 		return (targets[type]);
 	return (NULL);
 }
-

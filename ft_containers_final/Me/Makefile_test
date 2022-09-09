@@ -1,0 +1,44 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile_test                                      :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/03/24 16:49:20 by julpelle          #+#    #+#              #
+#    Updated: 2022/07/12 15:46:36 by julpelle         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+
+
+NAME	=	container
+
+SRCS	=	tests/Vector/VectorTest.cpp	\
+			tests/Stack/StackTest.cpp	\
+			tests/Map/MapTest.cpp	\
+			main.cpp					\
+			
+OBJS	=	$(SRCS:.cpp=.opp)
+
+CC		=	clang++
+
+CFLAGS	=	-Wall -Wextra -Werror
+
+RM		=	rm -rf
+
+all		:	$(NAME)
+
+$(NAME)	:	$(OBJS)
+			$(CC) $(CFLAGS) $^ -o $@
+
+%.opp	:	%.cpp
+			$(CC) $(CFLAGS) -c $< -o $@
+
+clean	:
+			$(RM) $(OBJS) .tmp
+
+fclean	:	clean
+			$(RM) $(NAME)
+
+re		:	fclean all

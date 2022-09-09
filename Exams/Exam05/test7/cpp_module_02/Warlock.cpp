@@ -1,11 +1,10 @@
 # include "Warlock.hpp"
-# include "ASpell.hpp"
 
 Warlock::Warlock(std::string const &name, std::string const &title)
 {
 	this->name = name;
 	this->title = title;
-	std::cout << this->name << ": This looks like another boring day.\n";
+	std::cout << this->name << ": This looks like another borind day.\n";
 }
 
 Warlock::~Warlock()
@@ -23,35 +22,32 @@ std::string const	&Warlock::getTitle() const
 	return (this->title);
 }
 
+void				Warlock::setTitle(std::string const &title) 
+{
+	this->title = title;
+}
+
 void				Warlock::introduce() const
 {
 	std::cout << this->name << ": I am " << this->name << ", " << this->title << "!\n";
 }
 
-void				Warlock::setTitle(std::string const &title)
-{
-	this->title = title;
-}
-
 void				Warlock::learnSpell(ASpell *s)
 {
-	if (s)
-		this->spellbook.learnSpell(s);
+	sbook.learnSpell(s);
 }
 
-void				Warlock::forgetSpell(std::string const &name) 
+void				Warlock::forgetSpell(std::string const &name)
 {
-	this->spellbook.forgetSpell(name);
+	sbook.forgetSpell(name);
 }
 
 void				Warlock::launchSpell(std::string const &name, ATarget const &t)
 {
-	ATarget	*test = 0;
+	ATarget const *test = 0;
 	if (test == &t)
 		return ;
-	ASpell *tmp = spellbook.createSpell(name);
+	ASpell *tmp = sbook.createSpell(name);
 	if (tmp)
 		tmp->launch(t);
 }
-
-
