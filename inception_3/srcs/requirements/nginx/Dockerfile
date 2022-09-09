@@ -2,7 +2,7 @@
 FROM	debian:buster
 
 # setting the author
-LABEL	elaachac <elaachac@student.42.fr>
+LABEL	julpelle <julpelle@student.42.fr>
 
 # update apt-get
 RUN	apt-get -y update
