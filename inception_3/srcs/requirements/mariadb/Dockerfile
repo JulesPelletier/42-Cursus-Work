@@ -8,12 +8,12 @@ LABEL	julpelle <julpelle@student.42.fr>
 RUN apt-get -y update
 
 # installing mariadb
-RUN apt-get -y install mariadb-server 
-RUN apt-get -y install mariadb-client
-RUN	mkdir -p /run/mysqld/
-RUN mkdir -p  /var/run/mysqld/
-RUN	chown -R mysql:root /run/mysqld 
-RUN	chown -R mysql:root /var/run/mysqld/
+RUN 	apt-get -y install mariadb-server 
+RUN		apt-get -y install mariadb-client
+RUN     mkdir -p /run/mysqld/; 
+RUN		mkdir -p  /var/run/mysqld/
+RUN		chown -R mysql:root /run/mysqld 
+RUN		chown -R mysql:root /var/run/mysqld/
 
 # set up mariadb
 COPY ./50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
