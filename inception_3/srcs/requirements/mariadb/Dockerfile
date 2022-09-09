@@ -5,13 +5,13 @@ FROM	debian:buster
 LABEL	julpelle <julpelle@student.42.fr>
 
 # update apt-get
-RUN apt-get -y update
+RUN 	apt-get -y update
 
 # installing mariadb
 RUN 	apt-get -y install mariadb-server 
 RUN		apt-get -y install mariadb-client
 RUN     mkdir -p /run/mysqld/; 
-RUN		mkdir -p  /var/run/mysqld/
+RUN		mkdir -p /var/run/mysqld/
 RUN		chown -R mysql:root /run/mysqld 
 RUN		chown -R mysql:root /var/run/mysqld/
 

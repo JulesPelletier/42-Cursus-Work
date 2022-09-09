@@ -11,6 +11,7 @@ if [ ! -d /var/lib/mysql/${DB_NAME} ]; then
     mysql -u root -e "CREATE USER '${DB_ROOT}'@'%' IDENTIFIED BY '${DB_ROOTPSWRD}';"
     mysql -u root -e "GRANT ALL ON *.* TO '${DB_ROOT}'@'%';"
     mysql -u root -e "CREATE USER '${DB_USER}'@'%' IDENTIFIED BY '${DB_USERPSWRD}';"
+    mysql -u root -e "ALTER USER '${DB_ROOT}'@'localhost' IDENTIFIED BY '${DB_ROOTPSWRD}';"
     mysql -u root -e "GRANT ALL ON db_wordpress.* TO '${DB_USER}'@'%';"
     mysql -u root -e "FLUSH PRIVILEGES;"
 	mysql -e "DELETE FROM mysql.user WHERE user=''"
