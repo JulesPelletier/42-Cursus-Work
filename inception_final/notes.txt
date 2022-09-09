@@ -1,0 +1,42 @@
+## Docker && Docker-compose
+
+docker prune -a -> erase all images
+docker container -a ->erase all containers
+docker-compose -> build all containers with their respective dockerfiles
+
+# MARIADB
+
+1: install mariadb and required packages
+2: copy configuration file to proper directory -> have proper set up when launching container
+3: copy launching script -> have existing database with root and user when launching container
+4: used for debugging
+5: ENTRYPOINT -> launch script when building dockerfile
+
+# NGINX
+
+1: install nginx and required packages
+2: copy configuration file to proper directory -> have proper set up when launching container
+3: running ssl certificate command for authentification
+4: used for debugging
+5: CMD -> running nginx turning off daemon
+
+<- daemon ->
+dameon off; command tells nginx to stay in the foreground (docker is only watching the PID of the original command)
+
+# WORDPRESS
+
+1: install wordpress, php-fpm and required packages
+2: copy configuration file to proper directory -> have proper set up when launching container
+3: copy launching script -> create website without seeing the config page when launching container
+4: download wordpress from internet and wordpress client
+5: used for debugging
+6: CMD -> running wordpress starting script and php
+
+<php-fpm -F -R> 
+forces php-fpm to stay in foreground 
+
+Other Notes : 
+
+ss -tlnup
+curl http://julpelle.42.fr:80
+curl https://julpelle.42.fr:443
