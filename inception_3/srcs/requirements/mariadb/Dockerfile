@@ -8,7 +8,8 @@ LABEL	julpelle <julpelle@student.42.fr>
 RUN apt-get -y update
 
 # installing mariadb
-RUN apt-get -y install mariadb-server mariadb-client
+RUN apt-get -y install mariadb-server 
+RUN apt-get -y install mariadb-client
 RUN	mkdir -p /run/mysqld/
 RUN mkdir -p  /var/run/mysqld/
 RUN	chown -R mysql:root /run/mysqld 
