@@ -9,7 +9,6 @@ if [ ! -d /var/lib/mysql/${DB_NAME} ]; then
     mysql -u root -e "CREATE DATABASE ${DB_NAME};"
     mysql -u root -e "SET GLOBAL general_log_file='mariadb.log';"
     mysql -u root -e "CREATE USER '${DB_ROOT}'@'%' IDENTIFIED BY '${DB_ROOT_PWD}';"
-    mysql -u root -e "ALTER USER '${DB_ROOT}'@'localhost' IDENTIFIED BY '${DB_ROOT_PWD}';"
     mysql -u root -e "GRANT ALL ON *.* TO '${DB_ROOT}'@'%';"
     mysql -u root -e "CREATE USER '${DB_USER}'@'%' IDENTIFIED BY '${DB_USER_PWD}';"
     mysql -u root -e "GRANT ALL ON db_wordpress.* TO '${DB_USER}'@'%';"
