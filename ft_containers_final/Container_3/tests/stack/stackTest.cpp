@@ -6,7 +6,7 @@
 /*   By: julpelle <julpelle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 15:43:03 by julpelle          #+#    #+#             */
-/*   Updated: 2022/07/12 17:06:56 by julpelle         ###   ########.fr       */
+/*   Updated: 2022/09/12 14:58:20 by julpelle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	test_s::test_stack(void)
 	print_header("CAPACITY", "title");
 	print_header("Int values", "subtitle");
 	testing_stack<NAMESPACE::stack<int>, int>(int_init, "");
+	print_header("String values", "subtitle");
+	testing_stack<NAMESPACE::stack<std::string>, std::string>(string_init, "");
 }
 
 /* ************************************************************************** */
